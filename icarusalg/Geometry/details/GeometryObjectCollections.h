@@ -1,12 +1,12 @@
 /**
- * @file   icaruscode/Geometry/details/GeometryObjectCollections.h
+ * @file   icarusalg/Geometry/details/GeometryObjectCollections.h
  * @brief  A few simple data type definitions.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   October 10, 2019
  */
 
-#ifndef ICARUSCODE_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
-#define ICARUSCODE_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
+#ifndef icarusalg_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
+#define icarusalg_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
 
 
 // LArSoft libraries
@@ -65,4 +65,4 @@ struct icarus::details::ChannelRange_t
 
 // ----------------------------------------------------------------------------
 
-#endif // ICARUSCODE_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
+#endif // icarusalg_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H

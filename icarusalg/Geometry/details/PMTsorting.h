@@ -1,13 +1,13 @@
 /**
- * @file   icaruscode/Geometry/details/PMTsorting.h
+ * @file   icarusalg/Geometry/details/PMTsorting.h
  * @brief  Geometry obect sorter with PMT following TPC wire order.
  * @date   April 26, 2020
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
- * @see    icaruscode/Geometry/details/PMTsorting.cxx
+ * @see    icarusalg/Geometry/details/PMTsorting.cxx
  */
 
-#ifndef ICARUSCODE_GEOMETRY_DETAILS_PMTSORTING_H
-#define ICARUSCODE_GEOMETRY_DETAILS_PMTSORTING_H
+#ifndef icarusalg_GEOMETRY_DETAILS_PMTSORTING_H
+#define icarusalg_GEOMETRY_DETAILS_PMTSORTING_H
 
 
 // LArSoft libraries
@@ -167,4 +167,4 @@ class icarus::PMTsorterStandard {
 // -----------------------------------------------------------------------------
 
 
-#endif // ICARUSCODE_GEOMETRY_DETAILS_PMTSORTING_H
+#endif // icarusalg_GEOMETRY_DETAILS_PMTSORTING_H

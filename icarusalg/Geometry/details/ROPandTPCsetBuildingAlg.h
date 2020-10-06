@@ -1,17 +1,17 @@
 /**
- * @file   icaruscode/Geometry/details/ROPandTPCsetBuildingAlg.h
+ * @file   icarusalg/Geometry/details/ROPandTPCsetBuildingAlg.h
  * @brief  Algorithm discovering TPC sets and readout planes for ICARUS.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   October 10, 2019
- * @see    `icaruscode/Geometry/details/ROPandTPCsetBuildingAlg.cxx`
+ * @see    `icarusalg/Geometry/details/ROPandTPCsetBuildingAlg.cxx`
  */
 
-#ifndef ICARUSCODE_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
-#define ICARUSCODE_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
+#ifndef icarusalg_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
+#define icarusalg_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
 
 
 // ICARUS libraries
-#include "icaruscode/Geometry/details/GeometryObjectCollections.h"
+#include "icarusalg/Geometry/details/GeometryObjectCollections.h"
 
 // LArSoft libraries
 #include "larcorealg/Geometry/GeometryData.h"
@@ -408,4 +408,4 @@ class icarus::details::ROPandTPCsetBuildingAlg {
 
 // ----------------------------------------------------------------------------
 
-#endif // ICARUSCODE_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
+#endif // icarusalg_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H

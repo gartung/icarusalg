@@ -1,14 +1,14 @@
 /**
- * @file   icaruscode/Geometry/details/PMTsorting.cxx
+ * @file   icarusalg/Geometry/details/PMTsorting.cxx
  * @brief  PMT sorting functions for ICARUS.
  * @date   April 26, 2020
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
- * @see    icaruscode/Geometry/details/PMTsorting.h
+ * @see    icarusalg/Geometry/details/PMTsorting.h
  */
 
 
 // library header
-#include "icaruscode/Geometry/details/PMTsorting.h"
+#include "icarusalg/Geometry/details/PMTsorting.h"
 
 // LArSoft libraries
 // #include "larcorealg/CoreUtils/span.h"

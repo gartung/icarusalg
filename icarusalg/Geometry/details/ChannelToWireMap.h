@@ -1,13 +1,13 @@
 /**
- * @file   icaruscode/Geometry/details/ChannelToWireMap.h
+ * @file   icarusalg/Geometry/details/ChannelToWireMap.h
  * @brief  Channel-to-wire mapping data structure.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   October 16, 2019
- * @see    `icaruscode/Geometry/details/ChannelToWireMap.cxx`
+ * @see    `icarusalg/Geometry/details/ChannelToWireMap.cxx`
  */
 
-#ifndef ICARUSCODE_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
-#define ICARUSCODE_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
+#ifndef icarusalg_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
+#define icarusalg_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
 
 // LArSoft libraries
 #include "larcoreobj/SimpleTypesAndConstants/readout_types.h"
@@ -122,4 +122,4 @@ class icarus::details::ChannelToWireMap {
 }; // class icarus::details::ChannelToWireMap
 
 
-#endif // ICARUSCODE_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
+#endif // icarusalg_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H

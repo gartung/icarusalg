@@ -1,13 +1,13 @@
 /**
- * @file   icaruscode/Geometry/details/AuxDetSorting.cxx
+ * @file   icarusalg/Geometry/details/AuxDetSorting.cxx
  * @brief  Functions for sorting ICARUS CRT modules (auxiliary detectors).
  * @author Chris Hilgenberg, Gianluca Petrillo (refactoring only)
  * @date   August 7, 2018
- * @see    icaruscode/Geometry/details/AuxDetSorting.h
+ * @see    icarusalg/Geometry/details/AuxDetSorting.h
  */
 
 // library header
-#include "icaruscode/Geometry/details/AuxDetSorting.h"
+#include "icarusalg/Geometry/details/AuxDetSorting.h"
 
 // LArSoft libraries
 #include "larcorealg/Geometry/AuxDetGeo.h"

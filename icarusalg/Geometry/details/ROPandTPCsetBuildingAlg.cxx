@@ -1,13 +1,13 @@
 /**
- * @file   icaruscode/Geometry/details/ROPandTPCsetBuildingAlg.cxx
+ * @file   icarusalg/Geometry/details/ROPandTPCsetBuildingAlg.cxx
  * @brief  Algorithm discovering TPC sets and readout planes for ICARUS.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   October 10, 2019
- * @see    `icaruscode/Geometry/details/ROPandTPCsetBuildingAlg.h`
+ * @see    `icarusalg/Geometry/details/ROPandTPCsetBuildingAlg.h`
  */
 
 // library header
-#include "icaruscode/Geometry/details/ROPandTPCsetBuildingAlg.h"
+#include "icarusalg/Geometry/details/ROPandTPCsetBuildingAlg.h"
 
 // LArSoft libraries
 #include "larcorealg/Geometry/details/extractMaxGeometryElements.h"

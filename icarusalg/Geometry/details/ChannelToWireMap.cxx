@@ -1,13 +1,13 @@
 /**
- * @file   icaruscode/Geometry/details/ChannelToWireMap.cxx
+ * @file   icarusalg/Geometry/details/ChannelToWireMap.cxx
  * @brief  Channel-to-wire mapping data structure (implementation file).
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   October 16, 2019
- * @see    `icaruscode/Geometry/details/ChannelToWireMap.h`
+ * @see    `icarusalg/Geometry/details/ChannelToWireMap.h`
  */
 
 // library header
-#include "icaruscode/Geometry/details/ChannelToWireMap.h"
+#include "icarusalg/Geometry/details/ChannelToWireMap.h"
 
 // C/C++ libraries
 #include <iterator> // std::prev()
