@@ -50,6 +50,8 @@ cet_report_compiler_flags()
 # these are minimum required versions, not the actual product versions
 find_ups_product( larcorealg )
 find_ups_product( lardataalg )
+find_ups_product( guideline_sl )
+find_ups_product( cetbuildtools )
 
 # macros for dictionary and simple_plugin
 include(ArtDictionary)
@@ -61,7 +63,7 @@ add_subdirectory(icarusalg)
 add_subdirectory(doc)
 
 # subdirectory for test code
-##add_subdirectory(test)
+add_subdirectory(test)
 
 # Top level fcl files.
 ##add_subdirectory(fcl)
