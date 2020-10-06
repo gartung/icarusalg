@@ -1,0 +1,21 @@
+cet_enable_asserts()
+cet_make(
+  LIBRARIES
+          lardataobj_RecoBase
+          larcorealg_Geometry
+          lardataalg_DetectorInfo
+          nusimdata_SimulationBase
+          canvas
+          ${MF_MESSAGELOGGER}
+          ${FHICLCPP}
+          cetlib
+          cetlib_except
+          ROOT::Core
+          ROOT::Physics
+          ROOT::Geom
+          ROOT::GenVector
+        )
+
+install_headers()
+install_source()
+install_fhicl()
