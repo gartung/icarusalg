@@ -1,0 +1,68 @@
+#
+# File:    services_basic_icarus.fcl
+# Purpose: presets for basic service configurations - geometry, detector properties, LAr properties
+#
+# The configuration presets can be used as a starting point, with more services added,
+# some removed, and some configuration amended or rewritten.
+# A complete example of these cases:
+#
+#     services: {
+#
+#         @table::icarus_basic_services  # include all ICARUS basic services
+#
+#         # rewrite the configuration of a service:
+#         messages: @local::icarus_message_services_prod
+#
+#         # rewrite the configuration of a service explicitly:
+#         TFileService: {
+#           fileName: "TreeFile.root"
+#         }
+#
+#         # add a set of services
+#         @table::icarus_backtracking_services
+#
+#         # remove a service
+#         TimeTracker: @erase
+#
+#     } # services
+#
+#     # amend a single configuration parameter of a service
+#     services.NuRandomService.policy: "random"
+#
+#
+# Available configurations:
+#
+# * `icarus_basic_services`: the very basic services
+#
+#
+
+#include "messages_icarus.fcl"
+#include "geometry_icarus.fcl"
+#include "larproperties_icarus.fcl"
+#include "detectorproperties_icarus.fcl"
+#include "detectorclocks_icarus.fcl"
+
+BEGIN_PROLOG
+
+
+################################################################################
+###  icarus_basic_services
+###
+#
+# Standard ICARUS configuration of basic services, including message service,
+# art services, geometry and properties, but not calibration services.
+#
+icarus_basic_services:
+{
+                                         @table::icarus_geometry_services
+
+    DetectorPropertiesService:           @local::icarus_detproperties  # from `detectorproperties_icarus.fcl`
+    LArPropertiesService:                @local::icarus_properties     # from `larproperties_icarus.fcl`
+    DetectorClocksService:               @local::icarus_detectorclocks # from `detectorclocks_icarus.fcl`
+
+} # icarus_basic_services
+
+
+END_PROLOG
+
+
