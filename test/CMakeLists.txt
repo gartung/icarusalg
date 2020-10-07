@@ -7,4 +7,5 @@ cet_enable_asserts()
 # test directories
 add_subdirectory(Geometry)
 add_subdirectory(Utilities)
+add_subdirectory(PMT)
 

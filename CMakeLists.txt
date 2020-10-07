@@ -16,7 +16,7 @@
 # use cmake 3.12-3.14
 cmake_minimum_required (VERSION 3.12...3.14 FATAL_ERROR)
 
-project(icaruscode LANGUAGES CXX)
+project(icarusalg LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
@@ -81,7 +81,7 @@ include(UseCPack)
 
 message(STATUS
   "\n-- ==="
-  "\n-- === *** End of configuration of icaruscode ***"
+  "\n-- === *** End of configuration of ${PROJECT_NAME} ***"
   "\n-- ============================================================================="
   "\n-- "
   )
