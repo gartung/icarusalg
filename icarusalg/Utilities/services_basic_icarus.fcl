@@ -54,6 +54,8 @@ BEGIN_PROLOG
 #
 icarus_basic_services:
 {
+    message:                             @local::icarus_message_services_interactive # from `messages_icarus.fcl`
+
                                          @table::icarus_geometry_services
 
     DetectorPropertiesService:           @local::icarus_detproperties  # from `detectorproperties_icarus.fcl`
