@@ -2,7 +2,7 @@
 
 # The *parent* line must the first non-commented line and defines this product and version
 # The version must be of the form vxx_yy_zz (e.g. v01_02_03)
-parent icarusalg v09_05_00
+parent icarusalg v09_06_00
 defaultqual e19
 
 # These optional lines define where headers, libraries, and executables go and should
@@ -33,8 +33,8 @@ table_fragment_end
 # Add the dependent product and version
 
 product             version
-larcorealg                v09_00_00
-lardataalg                v09_01_00
+larcorealg                v09_00_01
+lardataalg                v09_01_01
 guideline_sl              v2_0_0
 
 cetbuildtools	          v7_15_01	-	only_for_build
