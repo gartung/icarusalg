@@ -37,7 +37,7 @@ larcorealg                v09_00_01
 lardataalg                v09_01_01
 guideline_sl              v2_0_0
 
-cetbuildtools	          v7_15_01	-	only_for_build
+cetbuildtools	          v7_17_01	-	only_for_build
 end_product_list
 
 # Restore this temporarily...
