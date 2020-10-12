@@ -1,2 +1,2 @@
 # icarusalg
-ICARUS code which depends only on gallery 
+ICARUS code which depends only on canvas/larsoftobj 
