@@ -1,0 +1,44 @@
+#include "messages_icarus.fcl"
+#include "geometry_icarus.fcl"
+#include "larproperties_icarus.fcl"
+#include "detectorclocks_icarus.fcl"
+#include "detectorproperties_icarus.fcl"
+
+services: {
+  message:                        @local::icarus_message_services_interactive
+                                  @table::icarus_geometry_services
+  LArPropertiesService:           @local::icarus_properties
+  DetectorClocksService:          @local::icarus_detectorclocks
+  DetectorPropertiesService:      @local::icarus_detproperties
+}
+
+analysis: {
+  
+//   skipEvents: 2
+//   maxEvents: 250
+  
+  histogramFile: "DetectorActivityRate-20201013-prodcorsika_standard_icarus.root"
+//   histogramFile: "DetectorActivityRate-20201015-prodcorsika_standard_icarus_200-50.root"
+//   histogramFile: "DetectorActivityRate.root"
+  
+  plot: {
+    
+    SimulationBinning: {
+      Start: "-2 ms"
+      Stop:  "+3 ms"
+      Step:  "25 us"
+    }
+    TPCBinning: {
+      Start: " -1280 #"
+      Stop:  "+11200 #"
+      Step:      "64 #"
+    }
+    OpDetBinning: {
+      Start: "-2 ms"
+      Stop:  "+4 ms"
+      Step:  "50 us"
+    }
+    
+  } # plot
+  
+} # analysis
