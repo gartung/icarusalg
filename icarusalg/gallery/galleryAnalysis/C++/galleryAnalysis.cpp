@@ -22,7 +22,7 @@
 #include "MCAssociations.h"
 
 // ICARUS code
-#include "icaruscode/gallery/helpers/expandInputFiles.h"
+#include "icaruscode/gallery/helpers/C++/expandInputFiles.h"
 
 // LArSoft
 // - data products

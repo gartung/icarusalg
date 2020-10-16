@@ -1,8 +1,8 @@
+# official shared software
 add_subdirectory(helpers)
-add_subdirectory(python)
-add_subdirectory(MCTruthBase)
 
-foreach(ExampleDir IN ITEMS galleryAnalysis )
+# examples
+foreach(ExampleDir IN ITEMS galleryAnalysis DetectorActivityRatePlots )
   
   # take *all* the files from the listed directory
   file(GLOB_RECURSE GalleryExamples RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${ExampleDir}/* )
@@ -15,3 +15,7 @@ foreach(ExampleDir IN ITEMS galleryAnalysis )
     )
   
 endforeach()
+
+# other stuff
+add_subdirectory(MCTruthBase)
+

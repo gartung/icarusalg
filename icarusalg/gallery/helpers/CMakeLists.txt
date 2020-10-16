@@ -1,5 +1,5 @@
-install_headers()
-install_scripts(
-  EXTRAS
-    icarus_gallery_setup
-  )
+add_subdirectory("C++")
+add_subdirectory("python")
+
+install_scripts(LIST "icarus_gallery_setup")
+
