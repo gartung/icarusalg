@@ -1,32 +1,183 @@
 #
 # File:    icarus_gallery_setup
 # Purpose: setup for use of gallery macros with ICARUS
-# Author:  Gianluca Petrillo (petrillo@fnal.gov)
+# Author:  Gianluca Petrillo (petrillo@slac.stanford.edu)
 # Date:    October 19, 2017
-# Version: 1.0
+# Version: 1.1
 # 
 # Usage:
 # To set up the gallery/larsoftobj version compatible with a specific experiment
-# code version (e.g. v06_53_00 with qualifiers e14:prof):
+# code version (e.g. v09_06_00 with qualifiers e19:prof):
 #     
-#     setup icaruscode v06_53_00 -q e14:prof # or any suitable version
+#     setup icarusalg v09_06_00 -q e19:prof # or any suitable version
 #     source icarus_gallery_setup
 #     
-# or let icaruscode setup happen inside this setup script:
+# or let icarusalg setup happen inside this setup script:
 #     
-#     source icarus_gallery_setup v06_53_00 e14:prof
+#     source icarus_gallery_setup v09_06_00 e19:prof
 #     
-# Note that while the setup of experiment code is not in principle necessary,
-# currently the setup relying exclusively on larsoftobj lacks most LArSoft
-# service providers (one exception is geometry).
 #
+# Changes:
+# 20201016 [v1.1] (petrillo@slac.stanford.edu)
+#   version updates and using icarusalg instead of icaruscode;
+#   added UPS check
+# 20171019 [v1.0] (petrillo@fnal.gov)
+#   original version from SBND
+#
+
+#
+# The script is quite complicate because it needs to figure out which version
+# of larsoftobj is required, which is not trivial.
+# In addition, it needs some version of `cmake` from UPS.
+#
+
+function ICARUSgallerySetup_CheckUPS() {
+  which ups &> /dev/null
+} # ICARUSgallerySetup_CheckUPS()
+
+
+function ICARUSgallerySetup_setupUPS() {
+  # bootstrap setup for UPS (+ experiment environment)
+  local ExpName="$1"
+  
+  ICARUSgallerySetup_CheckUPS
+  local res=$?
+  
+  case "$res" in
+    ( 0 ) return 0 ;;
+    ( 1 )
+      # no UPS found; attempt to set it up, then try again
+      
+      # trying to guess which is the setup script...
+      local expname="${ExpName,,}"
+      local -a ExptSetupScriptCandidates=(
+        "/cvmfs/${expname}.opensciencegrid.org/products/setup_${expname}.sh"
+        "/cvmfs/${expname}.opensciencegrid.org/products/${expname}/setup_${expname}.sh"
+        "" # fallback for failure
+      )
+      local ExptSetupScriptCandidate
+      for ExptSetupScriptCandidate in "${ExptSetupScriptCandidates[@]}" ; do
+        [[ -r "$ExptSetupScriptCandidate" ]] && break
+      done
+      if [[ -z "$ExptSetupScriptCandidate" ]]; then
+        echo "ERROR: could not guess ${ExpName} setup script path: you need to source it!" >&2
+        return 1
+      fi
+      echo "Setting up ${ExpName} environment for you ('${ExptSetupScriptCandidate}')"
+      source "$ExptSetupScriptCandidate"
+      res=$?
+      if [[ $res != 0 ]]; then
+        echo "WARNING: ${ExpName} setup script '${ExptSetupScriptCandidate}' execution failed (code: ${res})." >&2
+      fi
+      # repeat the check
+      ICARUSgallerySetup_CheckUPS
+      res=$?
+      ;;
+  esac
+  
+  [[ "$res" != 0 ]] && echo "ERROR (${res}): UPS not set up (you may need to run the experiment setup script)." >&2
+  return $res
+  
+} # ICARUSgallerySetup_setupUPS()
+
+
+function ICARUSgallerySetup_upssetup() {
+  # rather than relying on `setup` from UPS, which might not be exported,
+  # we use our own
+  
+  local -a SetupArgs=( "$@" )
+  
+  echo "setup ${SetupArgs[@]}"
+  
+  # we might check if `setup()` is actually defined... we end up not bothering
+  local TempScript
+  TempScript="$(ups setup "${SetupArgs[@]}")"
+  local res=$?
+  if [[ $res == 0 ]]; then
+    source "$TempScript"
+    res=$?
+  fi
+  [[ -w "$TempScript" ]] && rm -f "$TempScript"
+  return $res
+} # ICARUSgallerySetup_upssetup()
+
+
+function ICARUSgallerySetup_MatchProductQualifiers() {
+  local ProdVersion="$1"
+  local -a ProdQualifierSpec="$2"
+  local -a ProdQualifiers=( $(tr ': ' '\n' <<< "$ProdQualifierSpec" | sort -u ) )
+  
+  local -i iSrcQual=0
+  local KeyQual
+  for KeyQual in "${RequiredQualifiers[@]}" ; do
+    while [[ $iSrcQual -lt ${#ProdQualifiers[@]} ]]; do
+      [[ "$KeyQual" == "${ProdQualifiers[iSrcQual++]}" ]] && continue 2 # match! go to next required qualifier
+    done
+    return 1 # no qualifier match, this product is not good
+  done
+#   echo "${Product} ${ProdVersion} ${ProdQualifierSpec}"
+  return 0
+} # ICARUSgallerySetup_MatchProductQualifiers()
+
+
+function ICARUSgallerySetup_setupLatest() {
+  # looks for what it seems to be the highest version
+  # (with required qualifiers if any) and sets it up
+
+  local -i NoMoreOptions=0
+  local -a RequiredQualifiers
+  local Product
+  local Param iParam
+  for (( iParam = 1 ; iParam <= $# ; ++iParam )); do
+    Param="${!iParam}"
+    if [[ -n "${NoMoreOptions//0}" ]] || [[ "${Param:0:1}" != '-' ]]; then
+      if [[ -z "$Product" ]]; then
+        Product="$Param"
+      else
+        RequiredQualifiers+=( ${Param//:/ } )
+      fi
+    else
+      case "$Param" in
+        ( '--qual' | '-q' ) let ++iParam ; RequiredQualifiers+=( ${!iParam//:/ } ) ;;
+        ( '-' | '--' )      NoMoreOptions=1 ;;
+        ( * )
+          echo "Internal error in ${FUNCNAME}: unsupported option '${Param}'."
+          return 1
+      esac
+    fi
+  done
+
+  RequiredQualifiers=( $(tr ': ' '\n' <<< "${RequiredQualifiers[*]}" | sort -u ) )
+  local -i nRequiredQualifiers="${#RequiredQualifiers[@]}"
+  
+  local ProdVersion='' ProdQualifiers=''
+  
+  local -a AvailableProducts=( $( ups list -a -K VERSION:QUALIFIERS "$Product" | tr -d '"' | sort -r -V -u ) )
+  local CandidateVerQual
+  for CandidateVerQual in "${AvailableProducts[@]}" ; do
+    local CandidateProdVersion CandidateProdQualifiers
+    read CandidateProdVersion CandidateProdQualifiers <<< "${CandidateVerQual/:/ }"
+    ICARUSgallerySetup_MatchProductQualifiers "$CandidateProdVersion" "$CandidateProdQualifiers" || continue
+    ProdVersion="$CandidateProdVersion"
+    ProdQualifiers="$CandidateProdQualifiers"
+    break
+  done
+  if [[ -z "$ProdVersion" ]]; then
+    echo "Error: no product '${Product}' found${RequiredQualifiers:+" compatible with all qualifiers '${RequiredQualifiers}'"}" >&2
+    return $res
+  fi
+  
+  ICARUSgallerySetup_upssetup "$Product" "$ProdVersion" ${ProdQualifiers:+ -q "$ProdQualifiers"}
+
+} # ICARUSgallerySetup_setupLatest()
+
 
 function DoICARUSgallerySetup() {
   
   ##############################################################################
   ### Experiment-specific setup
   local -r ExpName='ICARUS'
-  local -r ExpCode='icaruscode'
+  local -r ExpCode='icarusalg'
   
   ##############################################################################
   ### LArSoft-specific setup
@@ -41,6 +192,11 @@ function DoICARUSgallerySetup() {
   local Qualifiers="$2"
   
   ##############################################################################
+  ### Environment preliminary check
+  ### 
+  ICARUSgallerySetup_setupUPS "$ExpName" || return $?
+  
+  ##############################################################################
   ### Main setup script
   ### 
   # reference package names need to be lexicographically sorted
@@ -51,15 +207,15 @@ function DoICARUSgallerySetup() {
   local StrictQualifiers
   
   #
-  # 
+  # experiment code package setup
   #
-  local -r ExpSetupVarName="SETUP_$(tr [a-z] [A-Z] <<< "$ExpCode")"
+  local -r ExpSetupVarName="SETUP_${ExpCode^^}"
   if [[ -n "${!ExpSetupVarName}" ]]; then
     #
-    # if we have icaruscode set up, check that the version is not unexpected
+    # if we have experiment code set up, check that the version is not unexpected
     #
-    # expecting (UPS 5.2.0):
-    # icaruscode v06_54_00 -f Linux64bit+2.6-2.12 -q e14:prof -z /cvmfs/icarus.opensciencegrid.org/products/icarus
+    # expecting (UPS 6.0.8):
+    # icarusalg v09_06_00 -f Linux64bit+3.10-2.17 -q e19:prof -z /cvmfs/icarus.opensciencegrid.org/products/icarus
     read PkgName PkgVersion Dummy PkgFlavor Dummy PkgDatabase Dummy PkgQualifiers <<< "${!ExpSetupVarName}"
     echo "${ExpName} code version: ${PkgName} ${PkgVersion} -q ${PkgQualifiers}"
     
@@ -70,10 +226,10 @@ function DoICARUSgallerySetup() {
         return 1
       fi
       if [[ -n "$Qualifiers" ]]; then
-        StrictQualifiers="+${Qualifiers//:/+:}"
+        StrictQualifiers="+${Qualifiers//:/:+}"
         
         # doing this again will ensure that the qualifiers are the same
-        setup -B "$ExpCode" "$ExpCodeVersion" -q "$StrictQualifiers" || return $?
+        ICARUSgallerySetup_upssetup -B "$ExpCode" "$ExpCodeVersion" -q "$StrictQualifiers" || return $?
         
       else
         Qualifiers="$PkgQualifiers"
@@ -87,7 +243,7 @@ function DoICARUSgallerySetup() {
 To set up gallery environment, you either need:
 a) ${ExpCode} already set up (it's not), or
 b) to specify the ${ExpCode} version and qualifiers (you didn't);
-   for example: source ${BASH_SOURCE[0]} v06_53_00 e14:prof
+   for example: source ${BASH_SOURCE[0]} v09_06_00 e19:prof
 c) to have a MRB area set up (which you have) with ${ExpCode} checked out and with \`mrbsetenv\` run (which you don't)
 EOM
       return 1
@@ -115,8 +271,7 @@ EOM
     fi
     
     StrictQualifiers="+${Qualifiers//:/:+}"
-    echo "setup -B ${ExpCode} '${ExpCodeVersion}' -q '${StrictQualifiers}'"
-    setup -B "$ExpCode" "$ExpCodeVersion" -q "$StrictQualifiers" || return $?
+    ICARUSgallerySetup_upssetup -B "$ExpCode" "$ExpCodeVersion" -q "$StrictQualifiers" || return $?
     
   fi
   
@@ -199,15 +354,23 @@ EOM
   fi
   
   local StrictTargetPkgQualifiers="+${TargetPkgQualifiers//:/:+}"
-  echo "setup -B ${TargetPkg} '${TargetPkgVersion}' -q '${StrictTargetPkgQualifiers}'"
-  setup -B "$TargetPkg" "$TargetPkgVersion" -q "$StrictTargetPkgQualifiers" || return $?
+  ICARUSgallerySetup_upssetup -B "$TargetPkg" "$TargetPkgVersion" -q "$StrictTargetPkgQualifiers" || return $?
   
   # set up cmake only if not yet there
-  [[ -z "$SETUP_CMAKE" ]] && setup cmake
+  [[ -z "$SETUP_CMAKE" ]] && ICARUSgallerySetup_setupLatest cmake
   
   unset DoICARUSgallerySetup
 } # DoICARUSgallerySetup()
 
 
-DoICARUSgallerySetup "$@"
+function ICARUSgallerySetupWrapper() {
+  DoICARUSgallerySetup "$@"
+  local res=$?
+  unset ICARUSgallerySetup_CheckUPS ICARUSgallerySetup_setupUPS ICARUSgallerySetup_upssetup ICARUSgallerySetup_setupLatest ICARUSgallerySetup_MatchProductQualifiers
+  unset DoICARUSgallerySetup ICARUSgallerySetupWrapper
+  return $res
+} # ICARUSgallerySetupWrapper
+
+
+ICARUSgallerySetupWrapper "$@"
 
