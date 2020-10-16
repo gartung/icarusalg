@@ -2,8 +2,8 @@
 # File:    messages_icarus.fcl
 # Purpose: presets for art message logging
 # Author:  Gianluca Petrillo
-# Date:    May 21st, 2018
-# Version: 1.0
+# Date:    October 13, 2020
+# Version: 1.1
 # 
 # Provided presets:
 # - icarus_message_services: kind of "standard"
@@ -38,6 +38,7 @@
 # Changes:
 # 20180521 (petrillo@slac.stanford.edu) [v1.0]
 #   adapted from messages_sbnd.fcl (sbndcode v06_76_00)
+# 20201013 (petrillo@slac.stanford.edu) [v1.1]
 #
 
 
@@ -101,6 +102,22 @@ message_stdout_warning_icarus: {
 } # message_stdout_warning_icarus
 
 
+message_stdout_icarus: {
+  #
+  # message destination: all messages to standard output;
+  # special suppression for NuRandomService messages
+  # (recover them with `message_randomseeds_file_icarus`)
+  #
+  type:       "cout"
+  threshold:  "INFO"
+  categories:{
+    default:  {}
+    GeometryBadInputPoint: { limit: 5 timespan: 1000}
+    NuRandomService: { limit: 0 }
+  }
+} # message_stdout_icarus
+
+
 message_stderr_icarus: {
   #
   # message destination: all error messages to standard error
@@ -113,6 +130,19 @@ message_stderr_icarus: {
 } # message_stderr_icarus
 
 
+message_randomseeds_file_icarus: {
+  #
+  # message destination: all NuRandomService messages to "randomseeds.log" file
+  #
+  type:       "file"
+  filename:   "randomseeds.log"
+  append:     false
+  threshold:  "INFO"
+  categories: {
+    NuRandomService: { limit: -1 }
+    default:         { limit:  0 }
+  }
+} # message_randomseeds_file_icarus
 
 #
 # icarus_message_services
@@ -204,11 +234,11 @@ icarus_message_services_prod:
 icarus_message_services_interactive:
 {
   destinations: {
-    LogStandardOut:   @local::message_stdout_warning_icarus
+    LogStandardOut:   @local::message_stdout_icarus
+    LogSeeds:         @local::message_randomseeds_file_icarus
     LogErrorFile:     @local::message_errorfile_icarus
   }
 }
-icarus_message_services_interactive.destinations.LogStandardOut.threshold: "INFO"
 icarus_message_services_interactive.destinations.LogErrorFile.threshold: "WARNING"
 
 
