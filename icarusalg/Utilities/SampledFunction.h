@@ -7,8 +7,8 @@
  * This is a header-only library.
  */
 
-#ifndef icarusalg_UTILITIES_SAMPLEDFUNCTION_H
-#define icarusalg_UTILITIES_SAMPLEDFUNCTION_H
+#ifndef ICARUSALG_UTILITIES_SAMPLEDFUNCTION_H
+#define ICARUSALG_UTILITIES_SAMPLEDFUNCTION_H
 
 // LArSoft libraries
 #include "larcorealg/CoreUtils/enumerate.h"
@@ -536,4 +536,4 @@ T util::SampledFunction<XType, YType>::wrapUp(T value, T range) {
 // -----------------------------------------------------------------------------
 
 
-#endif // icarusalg_UTILITIES_SAMPLEDFUNCTION_H
+#endif // ICARUSALG_UTILITIES_SAMPLEDFUNCTION_H

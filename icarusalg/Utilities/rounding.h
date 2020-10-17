@@ -7,8 +7,8 @@
  * This is a header-only library.
  */
 
-#ifndef icarusalg_UTILITIES_ROUNDING_H
-#define icarusalg_UTILITIES_ROUNDING_H
+#ifndef ICARUSALG_UTILITIES_ROUNDING_H
+#define ICARUSALG_UTILITIES_ROUNDING_H
 
 
 // C/C++ standard libraries
@@ -119,5 +119,5 @@ constexpr T icarus::ns::util::roundup
 // ---------------------------------------------------------------------------
 
 
-#endif // icarusalg_UTILITIES_ROUNDING_H
+#endif // ICARUSALG_UTILITIES_ROUNDING_H
 

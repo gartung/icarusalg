@@ -7,8 +7,8 @@
  * This is a header-only library.
  */
 
-#ifndef icarusalg_UTILITIES_SIMPLECLUSTERING_H
-#define icarusalg_UTILITIES_SIMPLECLUSTERING_H
+#ifndef ICARUSALG_UTILITIES_SIMPLECLUSTERING_H
+#define ICARUSALG_UTILITIES_SIMPLECLUSTERING_H
 
 // C/C++ standard libraries
 #include <vector>
@@ -211,4 +211,4 @@ auto util::clusterBy
 
 // -----------------------------------------------------------------------------
 
-#endif // icarusalg_UTILITIES_SIMPLECLUSTERING_H
+#endif // ICARUSALG_UTILITIES_SIMPLECLUSTERING_H

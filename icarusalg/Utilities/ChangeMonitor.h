@@ -5,8 +5,8 @@
  * @date   September 16, 2020
  */
 
-#ifndef icarusalg_UTILITIES_CHANGEMONITOR_H
-#define icarusalg_UTILITIES_CHANGEMONITOR_H
+#ifndef ICARUSALG_UTILITIES_CHANGEMONITOR_H
+#define ICARUSALG_UTILITIES_CHANGEMONITOR_H
 
 
 // C/C++ standard libraries
@@ -209,4 +209,4 @@ namespace icarus::ns::util {
 } // namespace icarus::ns::util
 
 
-#endif // icarusalg_UTILITIES_CHANGEMONITOR_H
+#endif // ICARUSALG_UTILITIES_CHANGEMONITOR_H

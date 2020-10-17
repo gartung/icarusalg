@@ -6,8 +6,8 @@
  * @see    `icarusalg/Geometry/details/ChannelToWireMap.cxx`
  */
 
-#ifndef icarusalg_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
-#define icarusalg_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
+#ifndef ICARUSALG_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
+#define ICARUSALG_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
 
 // LArSoft libraries
 #include "larcoreobj/SimpleTypesAndConstants/readout_types.h"
@@ -122,4 +122,4 @@ class icarus::details::ChannelToWireMap {
 }; // class icarus::details::ChannelToWireMap
 
 
-#endif // icarusalg_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H
+#endif // ICARUSALG_GEOMETRY_DETAILS_CHANNELTOWIREMAP_H

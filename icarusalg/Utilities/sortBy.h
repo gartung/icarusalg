@@ -7,8 +7,8 @@
  * This is a header-only library.
  */
 
-#ifndef icarusalg_UTILITIES_SORTBY_H
-#define icarusalg_UTILITIES_SORTBY_H
+#ifndef ICARUSALG_UTILITIES_SORTBY_H
+#define ICARUSALG_UTILITIES_SORTBY_H
 
 
 // C/C++ standard libraries
@@ -175,4 +175,4 @@ auto util::sortCollBy(Coll& coll, Key key, Sorter sorter /* = {} */) {
 // -----------------------------------------------------------------------------
 
 
-#endif // icarusalg_UTILITIES_SORTBY_H
+#endif // ICARUSALG_UTILITIES_SORTBY_H

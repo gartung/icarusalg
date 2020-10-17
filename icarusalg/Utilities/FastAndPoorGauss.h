@@ -4,8 +4,8 @@
  * @date    February 15, 2020
  */
 
-#ifndef icarusalg_UTILITIES_FASTANDPOORGAUSS_H
-#define icarusalg_UTILITIES_FASTANDPOORGAUSS_H
+#ifndef ICARUSALG_UTILITIES_FASTANDPOORGAUSS_H
+#define ICARUSALG_UTILITIES_FASTANDPOORGAUSS_H
 
 // ROOT
 #include "TMath.h" // TMath::ErfInverse()
@@ -268,4 +268,4 @@ unsigned int util::UniformSequence<T>::next() {
 // -----------------------------------------------------------------------------
 
 
-#endif // icarusalg_UTILITIES_FASTANDPOORGAUSS_H
+#endif // ICARUSALG_UTILITIES_FASTANDPOORGAUSS_H

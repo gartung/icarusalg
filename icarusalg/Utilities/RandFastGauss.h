@@ -4,8 +4,8 @@
  * @date    February 15, 2020
  */
 
-#ifndef icarusalg_UTILITIES_RANDFASTGAUS_H
-#define icarusalg_UTILITIES_RANDFASTGAUS_H
+#ifndef ICARUSALG_UTILITIES_RANDFASTGAUS_H
+#define ICARUSALG_UTILITIES_RANDFASTGAUS_H
 
 
 // ICARUS libraries
@@ -169,4 +169,4 @@ util::RandFastGauss::RandFastGauss(
 // -----------------------------------------------------------------------------
 
 
-#endif // icarusalg_UTILITIES_RANDFASTGAUS_H
+#endif // ICARUSALG_UTILITIES_RANDFASTGAUS_H

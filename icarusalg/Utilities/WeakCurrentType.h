@@ -6,8 +6,8 @@
  * @see    `icarusalg/Utilities/WeakCurrentType.cxx`
  */
 
-#ifndef icarusalg_UTILITIES_WEAKCURRENTTYPE_H
-#define icarusalg_UTILITIES_WEAKCURRENTTYPE_H
+#ifndef ICARUSALG_UTILITIES_WEAKCURRENTTYPE_H
+#define ICARUSALG_UTILITIES_WEAKCURRENTTYPE_H
 
 
 // framework libraries
@@ -164,4 +164,4 @@ namespace icarus {
 //------------------------------------------------------------------------------
 
 
-#endif // icarusalg_UTILITIES_WEAKCURRENTTYPE_H
+#endif // ICARUSALG_UTILITIES_WEAKCURRENTTYPE_H

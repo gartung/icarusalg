@@ -5,8 +5,8 @@
  * @date   October 10, 2019
  */
 
-#ifndef icarusalg_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
-#define icarusalg_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
+#ifndef ICARUSALG_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
+#define ICARUSALG_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
 
 
 // LArSoft libraries
@@ -65,4 +65,4 @@ struct icarus::details::ChannelRange_t
 
 // ----------------------------------------------------------------------------
 
-#endif // icarusalg_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H
+#endif // ICARUSALG_GEOMETRY_DETAILS_GEOMETRYOBJECTCOLLECTIONS_H

@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef icarusalg_UTILITIES_NONRANDOMCOUNTER_H
-#define icarusalg_UTILITIES_NONRANDOMCOUNTER_H
+#ifndef ICARUSALG_UTILITIES_NONRANDOMCOUNTER_H
+#define ICARUSALG_UTILITIES_NONRANDOMCOUNTER_H
 
 // CLHEP
 #include "CLHEP/Random/defs.h"
@@ -85,4 +85,4 @@ class util::NonRandomCounter: public CLHEP::HepRandomEngine {
 // -----------------------------------------------------------------------------
 
 
-#endif // icarusalg_UTILITIES_NONRANDOMCOUNTER_H
+#endif // ICARUSALG_UTILITIES_NONRANDOMCOUNTER_H
