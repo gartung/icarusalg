@@ -5,8 +5,8 @@
  * @date   September 16, 2020
  */
 
-#ifndef icarusalg_UTILITIES_MFLOGGINGCLASS_H
-#define icarusalg_UTILITIES_MFLOGGINGCLASS_H
+#ifndef ICARUSALG_UTILITIES_MFLOGGINGCLASS_H
+#define ICARUSALG_UTILITIES_MFLOGGINGCLASS_H
 
 // framework libraries
 #include "messagefacility/MessageLogger/MessageLogger.h"
@@ -139,4 +139,4 @@ class icarus::ns::util::mfLoggingClass {
 }; // class icarus::ns::util::mfLoggingClass
 
 
-#endif // icarusalg_UTILITIES_MFLOGGINGCLASS_H
+#endif // ICARUSALG_UTILITIES_MFLOGGINGCLASS_H

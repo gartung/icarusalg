@@ -6,8 +6,8 @@
  * @see    icarusalg/Geometry/details/PMTsorting.cxx
  */
 
-#ifndef icarusalg_GEOMETRY_DETAILS_PMTSORTING_H
-#define icarusalg_GEOMETRY_DETAILS_PMTSORTING_H
+#ifndef ICARUSALG_GEOMETRY_DETAILS_PMTSORTING_H
+#define ICARUSALG_GEOMETRY_DETAILS_PMTSORTING_H
 
 
 // LArSoft libraries
@@ -167,4 +167,4 @@ class icarus::PMTsorterStandard {
 // -----------------------------------------------------------------------------
 
 
-#endif // icarusalg_GEOMETRY_DETAILS_PMTSORTING_H
+#endif // ICARUSALG_GEOMETRY_DETAILS_PMTSORTING_H

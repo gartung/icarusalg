@@ -6,8 +6,8 @@
  * @see    `icarusalg/Geometry/details/ROPandTPCsetBuildingAlg.cxx`
  */
 
-#ifndef icarusalg_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
-#define icarusalg_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
+#ifndef ICARUSALG_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
+#define ICARUSALG_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
 
 
 // ICARUS libraries
@@ -408,4 +408,4 @@ class icarus::details::ROPandTPCsetBuildingAlg {
 
 // ----------------------------------------------------------------------------
 
-#endif // icarusalg_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H
+#endif // ICARUSALG_GEOMETRY_DETAILS_ROPANDTPCSETBUILDINGALG_H

@@ -7,8 +7,8 @@
  * This is a header-only library.
  */
 
-#ifndef icarusalg_UTILITIES_WAVEFORMOPERATIONS_H
-#define icarusalg_UTILITIES_WAVEFORMOPERATIONS_H
+#ifndef ICARUSALG_UTILITIES_WAVEFORMOPERATIONS_H
+#define ICARUSALG_UTILITIES_WAVEFORMOPERATIONS_H
 
 /**
  * @brief Functions to manipulate waveform sample values.
@@ -179,4 +179,4 @@ namespace icarus::waveform_operations {
 } // namespace icarus::waveform_operations
 
 
-#endif // icarusalg_UTILITIES_WAVEFORMOPERATIONS_H
+#endif // ICARUSALG_UTILITIES_WAVEFORMOPERATIONS_H

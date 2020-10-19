@@ -7,8 +7,8 @@
  * This library is header only.
  */
 
-#ifndef icarusalg_UTILITIES_FHICLUTILS_H
-#define icarusalg_UTILITIES_FHICLUTILS_H
+#ifndef ICARUSALG_UTILITIES_FHICLUTILS_H
+#define ICARUSALG_UTILITIES_FHICLUTILS_H
 
 // C/C++ standard libraries
 #include <vector>
@@ -207,4 +207,4 @@ T util::fhicl::getOptionalValue(Optional const& parameter, T defValue)
 //--------------------------------------------------------------------------
 
 
-#endif // icarusalg_UTILITIES_FHICLUTILS_H
+#endif // ICARUSALG_UTILITIES_FHICLUTILS_H

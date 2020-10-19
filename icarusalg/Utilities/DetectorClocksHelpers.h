@@ -5,8 +5,8 @@
  * @date   September 16, 2020
  */
 
-#ifndef icarusalg_UTILITIES_DETECTORCLOCKSHELPERS_H
-#define icarusalg_UTILITIES_DETECTORCLOCKSHELPERS_H
+#ifndef ICARUSALG_UTILITIES_DETECTORCLOCKSHELPERS_H
+#define ICARUSALG_UTILITIES_DETECTORCLOCKSHELPERS_H
 
 // LArSoft libraries
 #include "lardata/DetectorInfoServices/DetectorClocksService.h"
@@ -104,4 +104,4 @@ namespace icarus::ns::util {
 } // namespace icarus::ns::util
 
 
-#endif // icarusalg_UTILITIES_DETECTORCLOCKSHELPERS_H
+#endif // ICARUSALG_UTILITIES_DETECTORCLOCKSHELPERS_H

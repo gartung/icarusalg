@@ -6,8 +6,8 @@
  * @see    icarusalg/Geometry/details/AuxDetSorting.cxx
  */
 
-#ifndef icarusalg_GEOMETRY_DETAILS_AUXDETSORTING_H
-#define icarusalg_GEOMETRY_DETAILS_AUXDETSORTING_H
+#ifndef ICARUSALG_GEOMETRY_DETAILS_AUXDETSORTING_H
+#define ICARUSALG_GEOMETRY_DETAILS_AUXDETSORTING_H
 
 
 // LArSoft libraries
@@ -36,4 +36,4 @@ namespace icarus {
 } // namespace icarus
 
 
-#endif // icarusalg_GEOMETRY_DETAILS_AUXDETSORTING_H
+#endif // ICARUSALG_GEOMETRY_DETAILS_AUXDETSORTING_H
