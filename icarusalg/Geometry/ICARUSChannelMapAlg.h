@@ -263,9 +263,16 @@ class icarus::ICARUSChannelMapAlg: public geo::ChannelMapAlg {
     
   }; // struct Config
   
+  /// Type of FHiCL configuration table for this object.
+  using Parameters = fhicl::Table<Config>;
 
-  /// Constructor.
+  /// Constructor: taked a configuration object.
   ICARUSChannelMapAlg(Config const& config);
+  
+  /// Constructor: takes a FHiCL table object.
+  ICARUSChannelMapAlg(Parameters const& config)
+    : ICARUSChannelMapAlg(config()) {}
+
   
   /// Prepares the algorithm extracting information from the geometry.
   virtual void Initialize(geo::GeometryData_t const& geodata) override;

@@ -17,6 +17,11 @@ invited, when in doubt, to refer to the code itself. Most of the utilities that
 are designed to be part of the interface to users have some terse documentation
 in the form of python documentation strings.
 
+> **Note** This document was written before the rearrangement of files with
+> splits in `sbnobj`, `sbncode` and `icarusalg`, and before the multithreading
+> support in LArSoft changed the initialization pattern of
+> `DetectorClocksStandard` and `DetectorPropertiesStandard`.
+> Some details of this text won't apply until an update.
 
 Format of this document
 ------------------------
@@ -60,13 +65,6 @@ ROOT needs information from two sources: the interface (e.g. the definition of
 from a compiled library. The fact that the building system of _art_/_gallery_
 (including `cet_build_tools`, UPS, MRB) follows some conventions helps to
 automate the discovery of all the needed components, but this is not fool-proof.
-
-
-> Currently this code is written in Python 2 (2.7.14 or newer expected).
-> An update to Python 3 will be attempted in due time, when LArSoft switch to
-> it. In the examples, it is assumed that the command `python` accesses the
-> correct version. If this is not the case on a certain platform, the use of
-> executables like `python2` or `python2.7` might be necessary.
 
 
 
