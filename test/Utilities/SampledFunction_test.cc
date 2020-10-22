@@ -41,7 +41,7 @@ void IdentityTest() {
     );
 
   // function with 10 samples, sampled 4 times
-  util::SampledFunction sampled { identity, min, max, nSamples, nSubsamples };
+  util::SampledFunction<> sampled { identity, min, max, nSamples, nSubsamples };
 
   //
   // Query
