@@ -33,24 +33,23 @@ table_fragment_end
 # Add the dependent product and version
 
 product             version
-larcorealg                v09_00_01
-lardataalg                v09_01_01
-guideline_sl              v2_0_0
+larsoftobj          v09_01_01
+guideline_sl        v2_0_0
 
-cetbuildtools	          v7_17_01	-	only_for_build
+cetbuildtools	    v7_17_01	-	only_for_build
 end_product_list
 
 # Restore this temporarily...
 # We now define allowed qualifiers and the corresponding qualifiers for the depdencies.
 # Make a table by adding columns before "notes".
 # e15  - with gcc 6.4.0 and -std=c++1y
-qualifier	larcorealg	 lardataalg   guideline_sl notes
-e19:debug	e19:debug    e19:debug      -nq-
-e19:opt		e19:opt	     e19:opt        -nq-
-e19:prof    e19:prof     e19:prof       -nq-
-c7:debug    c7:debug     c7:debug       -nq-
-c7:opt      c7:opt       c7:opt         -nq-
-c7:prof     c7:prof      c7:prof        -nq-
+qualifier	larsoftobj	 guideline_sl notes
+e19:debug	e19:debug    -nq-
+e19:opt		e19:opt	     -nq-
+e19:prof    e19:prof     -nq-
+c7:debug    c7:debug     -nq-
+c7:opt      c7:opt       -nq-
+c7:prof     c7:prof      -nq-
 end_qualifier_list
 
 # Preserve tabs and formatting in emacs and vi / vim:
