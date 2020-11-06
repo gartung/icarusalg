@@ -33,8 +33,7 @@ table_fragment_end
 # Add the dependent product and version
 
 product             version
-larcorealg                v09_00_01
-lardataalg                v09_01_01
+lardataalg                v09_03_00
 guideline_sl              v2_0_0
 
 cetbuildtools	          v7_17_01	-	only_for_build
