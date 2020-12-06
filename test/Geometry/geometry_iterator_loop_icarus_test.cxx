@@ -16,7 +16,7 @@
 
 
 // ICARUS libraries
-#include "icarusalg/Geometry/ChannelMapIcarusAlg.h"
+#include "icarusalg/Geometry/ICARUSChannelMapAlg.h"
 
 // LArSoft libraries
 #include "test/Geometry/geometry_unit_test_icarus.h"
@@ -36,7 +36,7 @@
 // environment allows us to tailor it at run time.
 using IcarusGeometryConfiguration
   = icarus::testing::IcarusGeometryEnvironmentConfiguration
-    <geo::ChannelMapIcarusAlg>;
+    <icarus::ICARUSChannelMapAlg>;
 
 /*
  * GeometryTesterFixture, configured with the object above, is used in a

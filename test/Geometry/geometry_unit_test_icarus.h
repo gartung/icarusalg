@@ -17,7 +17,7 @@
 
 // LArSoft libraries
 #include "test/Geometry/geometry_unit_test_base.h"
-#include "icarusalg/Geometry/ChannelMapIcarusAlg.h"
+#include "icarusalg/Geometry/ICARUSChannelMapAlg.h"
 
 // C/C++ standard libraries
 #include <string>
@@ -39,12 +39,12 @@ namespace icarus {
      * that can store an instance of it and extract configuration information
      * from it.
      * 
-     * This class should be used with ChannelMapIcarusAlg.
+     * This class should be used with `icarus::ICARUSChannelMapAlg`.
      * 
      * We reuse BasicGeometryEnvironmentConfiguration as base class and then we
      * fix its setup.
      */
-    template <typename CHANNELMAP = geo::ChannelMapIcarusAlg>
+    template <typename CHANNELMAP = icarus::ICARUSChannelMapAlg>
     struct IcarusGeometryEnvironmentConfiguration:
       public ::testing::BasicGeometryEnvironmentConfiguration<CHANNELMAP>
     {
