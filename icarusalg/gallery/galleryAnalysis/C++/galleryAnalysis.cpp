@@ -39,7 +39,7 @@
 // - Geometry
 #include "larcorealg/Geometry/StandaloneGeometrySetup.h"
 #include "larcorealg/Geometry/GeometryCore.h"
-#include "icaruscode/Geometry/ChannelMapIcarusAlg.h"
+#include "icaruscode/Geometry/ICARUSChannelMapAlg.h"
 // - configuration
 #include "larcorealg/Geometry/StandaloneBasicSetup.h"
 
@@ -95,7 +95,7 @@ int galleryAnalysis(std::string const& configFile, std::vector<std::string> cons
     //
   
     // geometry setup (it's special)
-    auto geom = lar::standalone::SetupGeometry<geo::ChannelMapIcarusAlg>(config.get<fhicl::ParameterSet>("services.Geometry"));
+    auto geom = lar::standalone::SetupGeometry<icarus::ICARUSChannelMapAlg>(config.get<fhicl::ParameterSet>("services.Geometry"));
   
     // LArProperties setup
     auto larp = testing::setupProvider<detinfo::LArPropertiesStandard>(config.get<fhicl::ParameterSet>("services.LArPropertiesService"));

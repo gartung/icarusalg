@@ -13,7 +13,7 @@
 #define BOOST_TEST_MODULE GeometryIteratorTestICARUS
 
 // ICARUS libraries
-#include "icarusalg/Geometry/ChannelMapIcarusAlg.h"
+#include "icarusalg/Geometry/ICARUSChannelMapAlg.h"
 
 // LArSoft libraries
 #include "test/Geometry/geometry_unit_test_icarus.h"
@@ -33,7 +33,7 @@
 struct IcarusGeometryConfiguration:
   public testing::BoostCommandLineConfiguration<
     icarus::testing::IcarusGeometryEnvironmentConfiguration
-      <geo::ChannelMapIcarusAlg>
+      <icarus::ICARUSChannelMapAlg>
     >
 {
   /// Constructor: overrides the application name; ignores command line
