@@ -6,6 +6,26 @@ __doc__ = """
 Collection of utilities to interface gallery with python.
 
 This module requires ROOT.
+
+An example of a interactive session counting the number of muons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import galleryUtils
+import ROOT
+sampleEvents = galleryUtils.makeEvent("data.root")
+LArG4tag = ROOT.art.InputTag("largeant")
+
+getParticleHandle \
+  = galleryUtils.make_getValidHandle("std::vector<simb::MCParticle>", sampleEvents)
+for event in galleryUtils.forEach(sampleEvents):
+  particles = getParticleHandle(LArG4tag).product()
+  
+  nMuons = sum(1 for part in particles if abs(part.PdgCode()) == 13)
+  print("%s: %d muons" % (event.eventAuxiliary().id(), nMuons))
+  
+# for all events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 """
 
 __all__ = [
@@ -24,7 +44,7 @@ __all__ = [
   ]
 
 import sys, os
-from ROOTutils import ROOT
+from ROOTutils import ROOT, expandFileList
 import cppUtils
 import warnings
 
@@ -40,42 +60,106 @@ readHeader = cppUtils.readHeader
 ###  gallery
 ################################################################################
 
+# override conversion of art::EventID into a string (used by `print()`)
+ROOT.art.EventID.__str__ \
+  = lambda self: "R:%d S:%d E:%d" % (self.run(), self.subRun(), self.event())
+
+
 class HandleMaker:
   """Make the ROOT C++ jit compiler instantiate the
   Event::getValidHandle member template for template parameter klass.
   
   Needs to keep track of what was done already, because Cling will protest if
   the same class is asked twice.
+  
+  See the documentation of `__call__` for examples of usage of instances of
+  this class.
+  
   """
   AlreadyMade = set()
   
-  def __call__(self, klass):
-    if klass in HandleMaker.AlreadyMade: return
-    res = HandleMaker.make(klass)
-    if res != ROOT.TInterpreter.kNoError:
-      raise RuntimeError(
-       "Could not create `ROOT.gallery.Event.getValidHandle` for '%s' (code: %d)"
-       % (klass, res)
-       )
-    # if
-    HandleMaker.AlreadyMade.add(klass)
+  def __call__(self,
+    klass: "data product class to prepare for (as a C++ class name string)",
+    event: "(optional) the event object to retrieve the data products from " = None,
+    ) -> "if `event` is specified, bound `getValidHandle<klass>`, unbound otherwise":
+    """Prepares for reading data products of the specified class.
+    
+    This function causes the instantiation of the `gallery::Event::getValidHandle()`
+    method specialized to read the specified `klass`.
+    It also returns a bound or unbound function to actually retrieve data products.
+    
+    If an `event` instance is specified, the returned value is a bound function
+    that can be used directly.
+        
+        from galleryUtils import makeEvent, make_getValidHandle
+        import ROOT
+        
+        event = makeEvent("test.root")
+        inputTag = ROOT.art.InputTag("largeant")
+        
+        getParticlesFrom = make_getValidHandle("std::vector<simb::MCParticle>")
+        # note: the following is curretly mostly broken (see below)
+        particles1 = getParticlesFrom(event, inputTag).product()
+        
+        getParticles = make_getValidHandle("std::vector<simb::MCParticle>", event)
+        particles2 = getParticles(inputTag).product()
+        
+    Both `particles1` and `particles2` point to the same data product.
+    
+    Exception (`RuntimeError`) is raised on error.
+    
+    Note: for unknown reasons, the unbound version fails unless something else
+    (which I could not determine) has happened already. A previous call for the
+    same klass in bound mode seems to make the unbound mode work.
+    Not that useful...
+    """
+    if klass not in HandleMaker.AlreadyMade:
+      res = HandleMaker.make(klass)
+      if res != ROOT.TInterpreter.kNoError:
+        raise RuntimeError(
+        "Could not create `ROOT.gallery.Event.getValidHandle` for '%s' (code: %d)"
+        % (klass, res)
+        )
+      # if
+      HandleMaker.AlreadyMade.add(klass)
+    # if already there
+    return event.getValidHandle(klass) if event \
+      else ROOT.gallery.Event.getValidHandle(klass)
   # __call__()
   
   @staticmethod
   def make(klass):
-    ROOT.gROOT.ProcessLine('template gallery::ValidHandle<%(name)s> gallery::Event::getValidHandle<%(name)s>(art::InputTag const&) const;' % {'name' : klass})
+    return ROOT.gROOT.ProcessLine('template gallery::ValidHandle<%(name)s> gallery::Event::getValidHandle<%(name)s>(art::InputTag const&) const;' % {'name' : klass})
   
 # class HandleMaker
 make_getValidHandle = HandleMaker()
 
 
-
-def makeFileList(*filePaths):
-  """Creates a file list suitable for `gallery::Event`."""
+def makeFileList(
+ *filePaths: "a list of input files"
+ ) -> "a list of files suitable to construct a `gallery.Event object":
+  """Creates a file list suitable for `gallery::Event`.
+  
+  If a file ends with `.root`, it is added directly to the list.
+  Otherwise, it is interpreted as a file list and treated as such
+  (see `ROOTutils.expandFileList()`).
+  File list recursion is disabled.
+  """
   files = ROOT.vector(ROOT.string)()
-  for path in filePaths: files.push_back(path)
+  for path in filePaths:
+    entries = [ path ] if path.endswith('.root') else expandFileList(path)
+    for entry in entries: files.push_back(entry)
+  # for
   return files
 # makeFileList()
+
+
+def makeEvent(
+ files: "files or file lists, as supported by `ROOTutils.makeFileList()`",
+ **kwargs: "additional arguments to `gallery::Event` constructor"
+ ) -> "a gallery.Event object reading the specified input files":
+  return ROOT.gallery.Event(makeFileList(files), **kwargs)
+# makeEvent()
 
 
 def forEach(event):
