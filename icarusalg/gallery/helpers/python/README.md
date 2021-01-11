@@ -5,7 +5,7 @@
 | Type:           | Python general documentation                   |
 | Author:         | Gianluca Petrillo (petrillo@slac.stanford.edu) |
 | Created on:     | June 23, 2019                                  |
-| Version:        | 1.0                                            |
+| Version:        | 1.1                                            |
 
 
 This document describes the utilities provided in `icaruscode` to facilitate the
@@ -93,7 +93,10 @@ interact with:
 In the following sections, details are provided on the utilities from these
 libraries that are expected to be most commonly used, starting from the highest
 level ones.
-
+Some of the newest facilities are documented inline in Python. In that case,
+help can be obtained interactively (for example, the command to access the
+documentation of the function `makeFileList` is
+`help(galleryUtils.makeFileList)`).
 
 
 `ICARUSservices.py`: service providers (and more) in ICARUS context
@@ -253,8 +256,23 @@ utilities for source code management:
   
   :   `gallery.Event` constructor requires a file list as argument, in the form
       of `std::vector<std::string>`; this function creates such an object
-      starting from a sequence of Python strings.
-    
+      starting from a sequence of Python strings;
+      if the string ends with `.root` it is considered a simple entry, otherwise
+      it is considered a file list, and therefore expanded
+  
+  `makeEvent`
+  
+  :   constructs a gallery `Event` with the specified files; it basically
+      shorts `gallery.Event()` constructor and `makeFileList` above; example:
+      
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+      events = galleryUtils.makeEvent("data1.root", "data2.root")
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      
+      Remember that although `gallery.Event` (like the `events` above) exposes
+      the interface to access one event at a time, it still represents all the
+      events in the loaded sample. These examples choose to stress that aspect
+      by calling the `gallery.Event` instance as plural.
   
   `forEach`
   
@@ -262,7 +280,7 @@ utilities for source code management:
       in a `for` loop. The loop may look like:
       
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
-      for iEvent, event in enumerate(galleryUtils.forEach(event)):
+      for iEvent, event in enumerate(galleryUtils.forEach(events)):
         ...
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
@@ -400,7 +418,10 @@ utilities for source code management:
   :   configures the `messages` service, typically used by LArSoft algorithms
       and service providers, as well as by _gallery_, to emit messages on
       screen
-
+  
+* pretty printing: this module redefines the conversion to string of
+  `art::EventID` objects, which are printed now as `R:# S:# E:#` (with the
+  proper run, subrun and event numbers)
 
 > Note: for `galleryUtils.py` to be fully functional, `gallery` UPS product must
 > be set up. That is not part of the usual MRB set up.
@@ -575,6 +596,79 @@ get there is to set up `larsoftobj`:
 * check which `larsoftobj` version is matching the LArSoft version in MRB
   working area in the [LArSoft release web page][LArRel]
 * after the setup procedure described above, set up `larsoftobj` as well
+
+
+Examples
+=========
+
+Reading data products
+----------------------
+
+An example session to read and print the energy of all muons simulated by
+GEANT4:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.python}
+import galleryUtils
+import ROOT
+
+sampleEvents = galleryUtils.makeEvent("data.root")
+LArG4tag = ROOT.art.InputTag("largeant")
+
+getParticleHandle \
+  = galleryUtils.make_getValidHandle("std::vector<simb::MCParticle>", sampleEvents)
+for event in galleryUtils.forEach(sampleEvents):
+  particles = getParticleHandle(LArG4tag).product()
+  for particle in particles:
+    if abs(particle.PdgCode()) != 13: continue
+    print("%s at %s with energy %f GeV" % (
+      ("mu-" if particle.PdgCode() == 13 else "mu+"),
+      particle.Position(),
+      particle.E(),
+      ))
+  # for particles in event
+# for all events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Many utilities here are just shortcuts, and intended to be convenient ones:
+
+* `makeEvent()` creates `gallery.Event` object (bypassing the creation of a
+  `std::vector` object for the file list)
+* `make_getValidHandle()` takes care of the template craziness of Python/C++
+  interface, and returns a function that can read a certain type of data
+  product from a certain event object (it returns a handle)
+* `forEach()` makes the syntax of the event loop more Pythonesque
+* `particle.Position()` is a ROOT `TLorentzVector`, which is pretty-printed
+  (`(x, y, z; t)`) thanks to the functions overridden in `ROOTutils`
+
+For comparison, this is the same setup in a ROOT (C++) interactive session:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
+#include "gallery/Event.h"
+#include "nusimdata/SimulationBase/MCParticle.h"
+
+gallery::Event sampleEvents({ "data.root" });
+art::InputTag const LArG4tag { "largeant" };
+for(; !sampleEvents.atEnd(); sampleEvents.next()) {
+  auto const& particles =
+    *(sampleEvents.getValidHandle<std::vector<simb::MCParticle>>(LArG4tag));
+  for (simb::MCParticle const& particle: particles) {
+    if (std::abs(particle.PdgCode()) != 13) continue;
+    TLorentzVector const& pos = particle.Position();
+    std::cout << ((particle.PdgCode() == 13)? "mu-": "mu+")
+      << " at (" << pos.X() << ", " << pos.Y() << ", " << pos.Z() << "; "
+      << pos.T() << ") with energy " << particle.E() << " GeV"
+      << std::endl;
+  } // for particles
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Notes:
+* `TLorentzVector` can't directly be sent to `std::cout` (both C++ LArSoft and
+  Python module `ROOTutils` have specific provisions for make that happen)
+* missing to explicitly include the header of the data product has been seen to
+  cause issues (e.g. some methods of `std::vector` are not available)
+
+
 
 
 [Markdown]: https://daringfireball.net/projects/markdown
