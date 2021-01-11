@@ -1,11 +1,11 @@
-#include "services_icarus.fcl"
+#include "services_basic_icarus.fcl"
 #include "geometry_icarus.fcl"
 #include "larproperties.fcl"
 #include "detectorproperties_icarus.fcl"
 
 services: {
   message:                        @local::icarus_message_services_interactive
-  Geometry:                       @local::icarus_geo
+                                  @table::icarus_geometry_services
   LArPropertiesService:           @local::standard_properties
   DetectorClocksService:          @local::icarus_basic_services.DetectorClocksService
   DetectorPropertiesService:      @local::icarus_detproperties
