@@ -51,6 +51,9 @@ SIDECRTPOSTSPACING = 4.13 #set by Unistruit bracket shelf
 SIDECRTSTACKDEPTH = 3*SIDECRTPOSTWIDTH + 2*SIDECRTPOSTSPACING
 SIDECRTSHELFTHICK = 0.56 #to be verified, could also be 0.64 depending on steel type
 
+overlap = 0.0065 # in order remove the overlap between two cut module
+gap = 0.005 # added gap between two horizontal south wal cut modules
+
 #dimensions of top CRT support beams, wide flange W10 x 49
 #true area is larger than that calculated assuming perfect I shape
 #91.55 cm^2 vs 92.90 cm^2, adjust web and flange thickness to match true mass 
@@ -103,6 +106,7 @@ dModH = YD*2+2*PADD+3*PADStrip
 #MINOS mounting
 LAYERSPACE = 8.27 #MINOS edge-to-edge distance between adjacent layers (cm), prevously 10cm
 NMODSTACK = 9 #number of lateral MINOS modules in a single layer, single stack
+NMODSTACKSOUTHY = 10 #number of MINOS modules in a single layer of south vertical side crt, 
 SLIDERSPACE = 18.5+mModH #MINOS center-to-center distance between fixed and sliding stacks' nearest modules (cm), previously 25.0cm
 STACKOVERLAP = 50.0 #MINOS stack horizontal overlap (cm)
 SIDECRTROLLOFFSET = 44.29 #offset from outmost extend of WV to center fo rolling stack (E/W sides)
@@ -126,7 +130,7 @@ CERNROOFL = NTOPZ*cModW+(NTOPZ-1)*CERNMODSPACE
 #CRT shell
 SHELLY = 1.1*cModH+TOPCRTBEAMTOFLOOR-BOTTOMCRTROLLERHEIGHT*0.9
 #MINOS sections positions
-MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+5
+MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACKSOUTHY*mModW+(NMODSTACKSOUTHY-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION
 MINOSLATFIXY = MINOSSOUTHY
 MINOSLATROLLY = MINOSLATFIXY-0.5*mModW+10
 MINOSLATSOUTHACTIVEOVERHANG = 2*MINOSSNOUTLENGTH
@@ -156,10 +160,12 @@ if CERNRIMSZ+0.5*cModH < MINOSLATSOUTHZ-(mModL+MINOSLATSOUTHACTIVEOVERHANG+SIDEC
     SHELLWVOFFSET-= CERNRIMSWVOFFSET
 else :
     SHELLWVOFFSET-= MINOSLATSOUTHACTIVEOVERHANG
-print('SHELL-WV OFFSET: '+str(SHELLWVOFFSET))
+#print('SHELL-WV OFFSET: '+str(SHELLWVOFFSET))
 
 #cut MINOS module lengths including snout, index is row number starting from the bottom
 minosCutModLengthNorth = (256.54, 309.9, 309.9, 508.19, 508.19, 508.19) #6 rows
+minosCutModLengthSoutheast = (497.84, 497.84, 497.84, 497.84, 497.84, 497.84, 497.84, 497.84, 497.84) #9 rows, 196 inch
+minosCutModLengthSouthwest = (497.84, 497.84, 497.84, 497.84, 497.84, 497.84, 325.12, 325.12, 325.12) # 6 rows, 196 inch, 3 row 128 inch
 MINOSNORTHY = -0.5*SHELLY+0.5*(len(minosCutModLengthNorth)*mModW+(len(minosCutModLengthNorth)-1)*SIDECRTSHELFTHICK+2*PADTagger)-PADTagger+SIDECRTNORTHWALLTOFLOOR-BOTTOMCRTROLLERHEIGHT*0.9
 
 ########################################################
@@ -666,6 +672,7 @@ def minosNorthTagger():
     yy = str(y)
     zz = str(SIDECRTSTACKDEPTH)
 
+
     global feb_id
     global printModIds
     if printModIds: print('MINOS tagger North, first module: '+str(mod_id+1)+', FEB: '+str(feb_id+1))
@@ -677,13 +684,21 @@ def minosNorthTagger():
         zin   = 0.5*LAYERSPACE
         xleft = 0.5*x - PADTagger - 0.5*(mModL-ZM+minosCutModLengthNorth[row])
         yrow  = -0.5*y + PADTagger + (row+0.5)*mModW + row*SIDECRTSHELFTHICK
+
+        # (row+0.5)*mModW --> center of each module
+        # the row coordinates are the module center coordinates 
+        # four each of the four modules in a given row (two columns of cut modules x 2 layers)
+        # switching layers in north wall: zin -> -zin
+        # switching columns in north wall: xleft -> - xleft
         rowcoords = ( (xleft,yrow,zin),(-xleft,yrow,zin),(xleft,yrow,-zin),(-xleft,yrow,-zin) )
         coords.append(rowcoords)
         rowmodules = []
         fmod+=4
+
         for i in range(4):
             rowmodules.append(module('m','nn',minosCutModLengthNorth[row]))
             modToFeb[mod_id] = (feb_id-3+i,fmod/4)
+
         modules.append(rowmodules)
         if fmod==12:
             fmod=0
@@ -698,6 +713,8 @@ def minosNorthTagger():
     vtagger = ET.SubElement(structure, 'volume', name=vname)
     ET.SubElement(vtagger, 'materialref', ref='Air')
     ET.SubElement(vtagger, 'solidref', ref=sname)
+
+    #print('no. of modules in the north side CRT:', len(coords))
 
     #place left side module phy. vol.s
     for row in range(len(coords)):
@@ -722,12 +739,13 @@ def minosNorthTagger():
 def minosSouthTagger(): 
     ''' Build front MINOS tagger (2 layers in X-Y) on upstream face
     '''
-    nmody = 9
+    nmody = 10
     coords = []
     modules = []
 
-    x = mModL+SIDECRTSOUTHWALLLATOFFSET+2*PADTagger
-    y = 9*mModW+8*SIDECRTSHELFTHICK+2*PADTagger
+   
+    x = 2*(mModL-ZM+max(minosCutModLengthSoutheast))+overlap+2*PADTagger #0.0065 added to remove overlap problem
+    y = mModL + 2*PADTagger
     z = SIDECRTSTACKDEPTH+mModH+PADTagger
 
     xx = str(x)
@@ -737,11 +755,13 @@ def minosSouthTagger():
     for i in range(2*nmody):
 
         if i < nmody: #bottom row
-            dx = 0.5*x-PADTagger-SIDECRTSOUTHWALLLATOFFSET-(i+0.5)*mModW-i*PADModule
+
+            dx = -0.5*x+  PADTagger + (i+0.5)*mModW + i*PADModule
             dy = -0.5*y + PADTagger + 0.5*(mModL-0.5*ZM)
             dz = -0.5*z + PADTagger + 0.5*mModH
         else: #top row
-            dx = 0.5*x-PADTagger-SIDECRTSOUTHWALLLATOFFSET-(i+0.5-nmody)*mModW-(i-nmody)*PADModule
+
+            dx = -0.5*x + PADTagger + (i+0.5-nmody)*mModW + (i-nmody)*PADModule # -ve sign of x means opposite side, switch from west to east side.
             dy = 0.5*y - PADTagger - 0.5*(mModL - 0.5*ZM)
             dz = -0.5*z +PADTagger + mModH + 1.5*SIDECRTPOSTWIDTH
 
@@ -750,13 +770,18 @@ def minosSouthTagger():
 
     for i in range(NMODSTACK):
 
-        dx = 0.5*x-PADTagger-0.5*mModL
+        dxeast =  0.5*(mModL-ZM+minosCutModLengthSoutheast[i]) + gap # 0.005 added for space between two module neck to neck
         dy = -0.5*y+PADTagger+(i+0.5)*mModW + i*SIDECRTSHELFTHICK
-        if i > NMODSTACK-3:
-            dx -= SIDECRTSOUTHWALLLATOFFSET 
         dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH
 
-        coords.append((dx,dy,dz,0)) #x,y,z,vert=false
+        coords.append((-dxeast,dy,dz,0)) #x,y,z,vert=false, east side
+    
+    for i in range(NMODSTACK):
+
+        dxwest =  0.5*(mModL-ZM+minosCutModLengthSouthwest[i]) + gap
+        dy = -0.5*y+PADTagger+(i+0.5)*mModW + i*SIDECRTSHELFTHICK
+        dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH
+        coords.append((dxwest,dy,dz,0)) #x,y,z,vert=false, west side
 
     global feb_id
     global printModIds
@@ -764,22 +789,36 @@ def minosSouthTagger():
     fmod = 0
     feb_id+=1
 
+#    print('no. of modules in the south side CRT:', len(coords))
+
     for i in range(len(coords)):
         if i<2*nmody:
             modules.append(module('m','ss',0.5*ZM))
             fmod+=1
             modToFeb[mod_id] = (feb_id,fmod)
+
             if fmod==3:
                 fmod=0
                 if i!=2*nmody-1: feb_id+=1
                 else: feb_id+=2
-        else:
-            modules.append(module('m','ss',0))
+
+        if i >= 2*nmody and i < 2*nmody+9 :
+            modules.append(module('m','ss',minosCutModLengthSoutheast[i-2*nmody]))
             fmod+=1
             modToFeb[mod_id] = ((feb_id-1,fmod),(feb_id,fmod))
             if fmod==3:
                 fmod=0
-                if i!= len(coords)-1: feb_id+=2
+                if i!= (2*nmody+9)-1: feb_id+=1
+                else: feb_id+=2
+
+        if i >= 2*nmody+9 : 
+            modules.append(module('m','ss',minosCutModLengthSouthwest[i-(2*nmody+9)]))
+            fmod+=1
+            modToFeb[mod_id] = ((feb_id-1,fmod),(feb_id,fmod))
+            if fmod==3:
+                fmod=0
+                if i!= (2*nmody+18)-1: feb_id+=1
+                else: feb_id+=2
 
     if printModIds: print('   last module: '+str(mod_id)+', FEB: '+str(feb_id))
 
@@ -803,10 +842,17 @@ def minosSouthTagger():
 
         posname = 'rot' + v.attrib['name']
         if r==1 : ET.SubElement(pv, 'rotation', name=posname, unit="deg", x='90', y='0', z='90')
-        if r==0 : ET.SubElement(pv, 'rotation', name=posname, unit="deg", x='0', y='90', z='0')
+        if r==0 : 
+            if xc>0: 
+                posname = 'rotplus' + v.attrib['name']
+                ET.SubElement(pv, 'rotation', name=posname, unit="deg", x='0', y='90', z='0')
+            else:
+                posname = 'rotneg' + v.attrib['name'] 
+                ET.SubElement(pv, 'rotation', name=posname, unit="deg", x='0', y='-90', z='0') 
+
+                #ET.SubElement(pv, 'rotation', name=posname, unit="deg", x='0', y='90', z='0')
 
     return stagger, vtagger
-
 
 def DCTagger():
     ''' Build bottom tagger
