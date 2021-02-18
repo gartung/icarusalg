@@ -231,7 +231,7 @@ class util::SampledFunction {
   // @{
   /// Returns the data of the subsample with the specified index `n`.
   SubsampleData_t subsample(gsl::index const n) const
-    { return { subsampleData(n), static_cast<gsl::index>(fNSamples) }; }
+    { return { subsampleData(n), static_cast<std::size_t>(fNSamples) }; }
   // @}
 
   // @{
