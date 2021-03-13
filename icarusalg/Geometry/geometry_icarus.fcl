@@ -289,8 +289,8 @@ icarus_split_induction_overburden_geometry: {
   @table::icarus_geometry_template
 
   Name: "icarus_splitwires"
-  GDML: "icarus_complete_20201107.gdml"
-  ROOT: "icarus_complete_20201107.gdml"
+  GDML: "icarus_complete_20201107_rotUV.gdml"
+  ROOT: "icarus_complete_20201107_rotUV.gdml"
 
   ChannelMapping: @local::icarus_split_induction_geometry_helper.Mapper
 
@@ -330,8 +330,8 @@ icarus_split_induction_nooverburden_geometry: {
   @table::icarus_geometry_template
 
   Name: "icarus_splitwires"
-  GDML: "icarus_complete_20201107_no_overburden.gdml"
-  ROOT: "icarus_complete_20201107_no_overburden.gdml"
+  GDML: "icarus_complete_20201107_no_overburden_rotUV.gdml"
+  ROOT: "icarus_complete_20201107_no_overburden_rotUV.gdml"
 
   ChannelMapping: @local::icarus_split_induction_geometry_helper.Mapper
 
