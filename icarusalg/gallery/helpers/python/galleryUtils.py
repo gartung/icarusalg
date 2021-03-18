@@ -14,7 +14,7 @@ import ROOT
 sampleEvents = galleryUtils.makeEvent("data.root")
 LArG4tag = ROOT.art.InputTag("largeant")
 
-getParticleHandle \
+getParticleHandle \\
   = galleryUtils.make_getValidHandle("std::vector<simb::MCParticle>", sampleEvents)
 for event in galleryUtils.forEach(sampleEvents):
   particles = getParticleHandle(LArG4tag).product()
@@ -123,8 +123,8 @@ class HandleMaker:
       # if
       HandleMaker.AlreadyMade.add(klass)
     # if already there
-    return event.getValidHandle(klass) if event \
-      else ROOT.gallery.Event.getValidHandle(klass)
+    return event.getValidHandle[klass] if event \
+      else ROOT.gallery.Event.getValidHandle[klass]
   # __call__()
   
   @staticmethod
