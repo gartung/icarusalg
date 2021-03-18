@@ -10,6 +10,11 @@
 #ifndef ICARUSALG_UTILITIES_WAVEFORMOPERATIONS_H
 #define ICARUSALG_UTILITIES_WAVEFORMOPERATIONS_H
 
+
+// C/C++ standard library
+#include <type_traits> // std::enable_if_t
+
+
 /**
  * @brief Functions to manipulate waveform sample values.
  *
