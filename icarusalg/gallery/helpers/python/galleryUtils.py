@@ -372,7 +372,7 @@ class ConfigurationHelper:
       assert default is not None
       klass = default.__class__
     # first try to directly return the key
-    try: return self.config.get(klass)(key)
+    try: return self.config.get[klass](key)
     except Exception: pass
     # if that failed, act depending on the default value
     if default is None: raise KeyError(key)
@@ -434,7 +434,7 @@ class ConfigurationClass:
   def __init__(self, configPath):
     self.config = loadConfiguration(configPath)
   def paramsFor(self, FHiCLpath):
-    return self.config.get(ROOT.fhicl.ParameterSet)(FHiCLpath)
+    return self.config.get[ROOT.fhicl.ParameterSet](FHiCLpath)
   def service(self, serviceName):
     return self.paramsFor("services." + serviceName)
   def producer(self, moduleName):

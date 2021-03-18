@@ -124,28 +124,6 @@ def loadICARUSchannelMappingClass(
      )
   # try ... except
 
-  #
-  # load the library which defines ROOT.lar.standalone.SetupGeometry as template;
-  # otherwise, specializations will actually be interpreted as methods
-  # (which blows up everything); on top of that, ROOT must be forced to
-  # instantiate ROOT.lar.standalone.SetupGeometry, because once the
-  # specialization is seen in a header before its template, it's over
-  # (that's the difference with C++).
-  #
-  LArSoftUtils.SourceCode.loadHeaderFromUPS('larcorealg/Geometry/StandaloneGeometrySetup.h')
-  # remember: the side effects of asking for ROOT.lar.standalone.SetupGeometry are essential
-  if not isinstance(ROOT.lar.standalone.SetupGeometry, ROOT.TemplateProxy):
-    try:
-      raise RuntimeError(
-        "Internal error: ROOT.lar.standalone.SetupGeometry should have been a template, it's a '{}'"
-        .format(ROOT.lar.standalone.SetupGeometry.__class__)
-        )
-    except AttributeError:
-      raise RuntimeError(
-        "Internal error: ROOT.lar.standalone.SetupGeometry should have been a template, it's nothing."
-        )
-  # if
-
   # load the libraries
   for codeObj in mappingInfo.get('load', []):
     LArSoftUtils.SourceCode.load(codeObj)
