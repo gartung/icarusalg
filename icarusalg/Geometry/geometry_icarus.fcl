@@ -80,7 +80,7 @@ BEGIN_PROLOG
 
 icarus_geometry_template: {
   SurfaceY:        6.9e2    # in cm, vertical distance to the surface
-  Name:            "icarus"
+  Name:            "icarus_v2" # see ICARUS wiki for a list
   DisableWiresInG4: true
 } # icarus_geometry_template
 
@@ -288,7 +288,7 @@ icarus_split_induction_geometry_helper: {
 icarus_split_induction_overburden_geometry: {
   @table::icarus_geometry_template
 
-  Name: "icarus_splitwires"
+  Name: "icarus_v2"
   GDML: "icarus_complete_20210311_rotUV.gdml"
   ROOT: "icarus_complete_20210311_rotUV.gdml"
 
@@ -329,7 +329,7 @@ icarus_split_induction_overburden_geometry_services: {
 icarus_split_induction_nooverburden_geometry: {
   @table::icarus_geometry_template
 
-  Name: "icarus_splitwires"
+  Name: "icarus_v2"
   GDML: "icarus_complete_20210311_no_overburden_rotUV.gdml"
   ROOT: "icarus_complete_20210311_no_overburden_rotUV.gdml"
 
