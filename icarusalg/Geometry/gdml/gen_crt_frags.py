@@ -54,6 +54,13 @@ SIDECRTSHELFTHICK = 0.56 #to be verified, could also be 0.64 depending on steel 
 overlap = 0.0065 # in order remove the overlap between two cut module
 gap = 0.005 # added gap between two horizontal south wal cut modules
 
+# south wall
+crosstwomodule = 10.7 # set an offset on each horizontal cut module to allow overlap of 10.7 cm
+separatetwomodule = 0.6 # as two modules are present in one self, we need need to add a gap between two 
+                        # horizontal module to avoid the overlaps.
+offsetontopmodule = 48.26 # 19 inches offset (as there are aluminium pipe on the way we can not avoid).
+verticalmodule = 485.14 # 191 inches, as this module was added later it is not same as other vertical module of 400 cm.  
+
 #dimensions of top CRT support beams, wide flange W10 x 49
 #true area is larger than that calculated assuming perfect I shape
 #91.55 cm^2 vs 92.90 cm^2, adjust web and flange thickness to match true mass 
@@ -743,44 +750,59 @@ def minosSouthTagger():
     coords = []
     modules = []
 
-   
-    x = 2*(mModL-ZM+max(minosCutModLengthSoutheast))+overlap+2*PADTagger #0.0065 added to remove overlap problem
+    # x = 2*(mModL-ZM+max(minosCutModLengthSoutheast))+overlap+2*PADTagger #0.0065 added to remove overlap problem
+    x = 2*(mModL-ZM+max(minosCutModLengthSoutheast)-crosstwomodule)+overlap+2*PADTagger #0.0065 added to remove overlap problem
     y = mModL + 2*PADTagger
     z = SIDECRTSTACKDEPTH+mModH+PADTagger
 
     xx = str(x)
     yy = str(y)
     zz = str(z)
-
-    for i in range(2*nmody):
+    offset = 30.48 # vertical modules are shifted from east side comparing to horizontal module (12 inch)
+                   #18 inch (45.72 cm) from west side
+    for i in range(2*nmody+1):
 
         if i < nmody: #bottom row
 
-            dx = -0.5*x+  PADTagger + (i+0.5)*mModW + i*PADModule
+            dx = -0.5*x + offset + PADTagger + (i+0.5)*mModW + i*PADModule
             dy = -0.5*y + PADTagger + 0.5*(mModL-0.5*ZM)
             dz = -0.5*z + PADTagger + 0.5*mModH
-        else: #top row
+     
+            #print('MINOS tagger South, first module: ', i, ', dx: ', dx,', dy: ',dy,', dz: ', dz)
 
-            dx = -0.5*x + PADTagger + (i+0.5-nmody)*mModW + (i-nmody)*PADModule # -ve sign of x means opposite side, switch from west to east side.
+        if i == nmody:
+            dx = -0.5*x + offset + PADTagger + (i+0.5)*mModW + i*PADModule
+            dy = -0.5*y + PADTagger + 0.5*(mModL-ZM+verticalmodule)
+            #dy = - 0.5*(mModL-ZM+verticalmodule)
+            dz = -0.5*z + PADTagger + 0.5*mModH 
+            #dy = -0.5*y + PADTagger + 0.5*verticalmodule
+            #print('MINOS tagger South, first module: ', i, ', dx: ', dx,', dy: ',dy,', dz: ', dz)
+        #else: #top row
+        if i > nmody:
+            dx = -0.5*x+offset + PADTagger + (i+0.5-nmody-1)*mModW + (i-nmody-1)*PADModule # -ve sign of x means opposite side, switch from west to east side.
             dy = 0.5*y - PADTagger - 0.5*(mModL - 0.5*ZM)
             dz = -0.5*z +PADTagger + mModH + 1.5*SIDECRTPOSTWIDTH
-
+            #print('MINOS tagger South, first module: ', i, ', dx: ', dx,', dy: ',dy,', dz: ', dz)
         coords.append((dx,dy,dz,1)) #x,y,z,vert=true
 
 
     for i in range(NMODSTACK):
 
-        dxeast =  0.5*(mModL-ZM+minosCutModLengthSoutheast[i]) + gap # 0.005 added for space between two module neck to neck
+        dxeast =  0.5*(mModL-ZM+minosCutModLengthSoutheast[i]) + gap - crosstwomodule # 0.005 added for space between two module neck to neck
         dy = -0.5*y+PADTagger+(i+0.5)*mModW + i*SIDECRTSHELFTHICK
-        dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH
+        dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH - separatetwomodule
 
+        if i == (NMODSTACK -1): 
+            dxeast =  0.5*(mModL-ZM+minosCutModLengthSoutheast[i]) + gap - crosstwomodule - offsetontopmodule - separatetwomodule
+            dy = -0.5*y+PADTagger+(i+0.5)*mModW + i*SIDECRTSHELFTHICK
+            dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH - separatetwomodule
         coords.append((-dxeast,dy,dz,0)) #x,y,z,vert=false, east side
     
     for i in range(NMODSTACK):
 
-        dxwest =  0.5*(mModL-ZM+minosCutModLengthSouthwest[i]) + gap
+        dxwest =  0.5*(mModL-ZM+minosCutModLengthSouthwest[i]) + gap - crosstwomodule
         dy = -0.5*y+PADTagger+(i+0.5)*mModW + i*SIDECRTSHELFTHICK
-        dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH
+        dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH - separatetwomodule
         coords.append((dxwest,dy,dz,0)) #x,y,z,vert=false, west side
 
     global feb_id
@@ -792,34 +814,39 @@ def minosSouthTagger():
 #    print('no. of modules in the south side CRT:', len(coords))
 
     for i in range(len(coords)):
-        if i<2*nmody:
-            modules.append(module('m','ss',0.5*ZM))
+        if i<2*nmody+1:
+            #modules.append(module('m','ss',0.5*ZM))
+            if (i == nmody):
+                modules.append(module('m','ss',verticalmodule))
+            else: 
+                modules.append(module('m','ss',0.5*ZM))
             fmod+=1
             modToFeb[mod_id] = (feb_id,fmod)
-
+            #print(i, ' mod no: '+str(fmod), 'moduleid: '+str(mod_id)+', FEB: '+str(feb_id))
             if fmod==3:
                 fmod=0
-                if i!=2*nmody-1: feb_id+=1
-                else: feb_id+=2
-
-        if i >= 2*nmody and i < 2*nmody+9 :
-            modules.append(module('m','ss',minosCutModLengthSoutheast[i-2*nmody]))
+                #feb_id+=1
+                if i!=2*nmody: feb_id+=1
+                else: feb_id+=1
+            #print(i,'   vertical module: '+str(mod_id)+', FEB: '+str(feb_id))
+        if i >= 2*nmody+1 and i < 2*nmody+1+9 :
+            modules.append(module('m','ss',minosCutModLengthSoutheast[i-(2*nmody+1)]))
             fmod+=1
             modToFeb[mod_id] = ((feb_id-1,fmod),(feb_id,fmod))
             if fmod==3:
                 fmod=0
-                if i!= (2*nmody+9)-1: feb_id+=1
-                else: feb_id+=2
-
-        if i >= 2*nmody+9 : 
-            modules.append(module('m','ss',minosCutModLengthSouthwest[i-(2*nmody+9)]))
+                if i!= (2*nmody+9): feb_id+=1
+                else: feb_id+=1
+            #print('   horizontal module: '+str(mod_id)+', FEB: '+str(feb_id))
+        if i >= 2*nmody+1+9 : 
+            modules.append(module('m','ss',minosCutModLengthSouthwest[i-(2*nmody+1+9)]))
             fmod+=1
             modToFeb[mod_id] = ((feb_id-1,fmod),(feb_id,fmod))
             if fmod==3:
                 fmod=0
-                if i!= (2*nmody+18)-1: feb_id+=1
-                else: feb_id+=2
-
+                if i!= (2*nmody+18): feb_id+=1
+                #else: feb_id+=1
+            #print('   horizontal module: '+str(mod_id)+', FEB: '+str(feb_id))
     if printModIds: print('   last module: '+str(mod_id)+', FEB: '+str(feb_id))
 
     sname = 'tagger_SideSouth'
