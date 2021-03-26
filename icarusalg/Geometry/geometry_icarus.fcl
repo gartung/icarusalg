@@ -47,7 +47,15 @@
 #         detector without concrete overburden
 #     * `icarus_split_induction_geometry_services`: the default geometry in
 #         this category
-#
+# * `icarus_geometry_services_legacy_icarus_splitwires`: legacy geometry
+#   configuration for samples simulated with icaruscode earlier than v09_18_00,
+#   with no overburden; also related:
+#     * `icarus_geometry_services_overburden_legacy_icarus_splitwires`
+#       (added 3-m concrete overburden)
+#     * `icarus_geometry_services_no_overburden_legacy_icarus_splitwires`
+#       (with no 3-m concrete overburden: as the default)
+#   
+# 
 # Since the documentation is often not updated, check the definitions below
 # to see which are the current defaults.
 #
@@ -357,7 +365,7 @@ icarus_split_induction_nooverburden_geometry_services: {
 ###
 ### Override a geometry configuration by:
 ###
-###     services: {icarus_legacy_services_v08_05_00
+###     services: {
 ###       @table::services
 ###       @table::icarus_split_induction_geometry_services
 ###     }
@@ -462,6 +470,32 @@ icarus_geometry: @local::icarus_geometry_services.Geometry
 icarus_geo:      @local::icarus_geometry # backward compatibility
 
 icarus_geometry_helper:  @local::icarus_geometry_services.ExptGeoHelperInterface
+
+
+################################################################################
+###  Legacy configurations
+################################################################################
+###
+### icarus_geometry_services_legacy_icarus_splitwires:
+###   geometry tagged as `icarus_splitwires` for samples produced with v09_17_02
+###   and earlier
+### 
+### Also versions with explicit overburden specification.
+###
+icarus_geometry_services_no_overburden_legacy_icarus_splitwires: 
+  @local::icarus_split_induction_nooverburden_geometry_services
+icarus_geometry_services_no_overburden_legacy_icarus_splitwires.Geometry.Name: icarus_splitwires
+icarus_geometry_services_no_overburden_legacy_icarus_splitwires.Geometry.GDML: "icarus_complete_20201107_no_overburden.gdml"
+icarus_geometry_services_no_overburden_legacy_icarus_splitwires.Geometry.ROOT: "icarus_complete_20201107_no_overburden.gdml"
+
+icarus_geometry_services_overburden_legacy_icarus_splitwires: 
+  @local::icarus_split_induction_nooverburden_geometry_services
+icarus_geometry_services_overburden_legacy_icarus_splitwires.Geometry.Name: icarus_splitwires
+icarus_geometry_services_overburden_legacy_icarus_splitwires.Geometry.GDML: "icarus_complete_20201107.gdml"
+icarus_geometry_services_overburden_legacy_icarus_splitwires.Geometry.ROOT: "icarus_complete_20201107.gdml"
+
+icarus_geometry_services_legacy_icarus_splitwires:
+  @local::icarus_geometry_services_no_overburden_legacy_icarus_splitwires
 
 
 ################################################################################
