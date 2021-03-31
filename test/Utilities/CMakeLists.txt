@@ -12,6 +12,8 @@ cet_test(FastAndPoorGauss_test
 
 cet_test(SampledFunction_test USE_BOOST_UNIT)
 
+cet_test(FixedBins_test USE_BOOST_UNIT)
+
 cet_test(NonRandomCounter_test
   LIBRARIES
     icarusalg_Utilities
