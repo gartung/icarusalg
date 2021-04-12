@@ -832,7 +832,8 @@ def minosSouthTagger():
         if i >= 2*nmody+1 and i < 2*nmody+1+9 :
             modules.append(module('m','ss',minosCutModLengthSoutheast[i-(2*nmody+1)]))
             fmod+=1
-            modToFeb[mod_id] = ((feb_id-1,fmod),(feb_id,fmod))
+            #modToFeb[mod_id] = ((feb_id-1,fmod),(feb_id,fmod))
+            modToFeb[mod_id] = (feb_id,fmod)
             if fmod==3:
                 fmod=0
                 if i!= (2*nmody+9): feb_id+=1
@@ -841,7 +842,8 @@ def minosSouthTagger():
         if i >= 2*nmody+1+9 : 
             modules.append(module('m','ss',minosCutModLengthSouthwest[i-(2*nmody+1+9)]))
             fmod+=1
-            modToFeb[mod_id] = ((feb_id-1,fmod),(feb_id,fmod))
+            #modToFeb[mod_id] = ((feb_id-1,fmod),(feb_id,fmod))
+            modToFeb[mod_id] = (feb_id,fmod)
             if fmod==3:
                 fmod=0
                 if i!= (2*nmody+18): feb_id+=1
