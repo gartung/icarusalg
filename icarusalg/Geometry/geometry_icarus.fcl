@@ -476,6 +476,29 @@ icarus_geometry_helper:  @local::icarus_geometry_services.ExptGeoHelperInterface
 ###  Legacy configurations
 ################################################################################
 ###
+### icarus_geometry_services_legacy_icarus_v2:
+###   geometry tagged as `icarus_v2` for samples produced with v09_24_02_02
+###   and earlier
+### 
+### Also versions with explicit overburden specification.
+###
+icarus_geometry_services_no_overburden_legacy_icarus_v2: 
+  @local::icarus_split_induction_nooverburden_geometry_services
+icarus_geometry_services_no_overburden_legacy_icarus_v2.Geometry.Name: icarus_v2
+icarus_geometry_services_no_overburden_legacy_icarus_v2.Geometry.GDML: "icarus_complete_20210311_no_overburden_rotUV.gdml"
+icarus_geometry_services_no_overburden_legacy_icarus_v2.Geometry.ROOT: "icarus_complete_20210311_no_overburden_rotUV.gdml"
+
+icarus_geometry_services_overburden_legacy_icarus_v2: 
+  @local::icarus_split_induction_nooverburden_geometry_services
+icarus_geometry_services_overburden_legacy_icarus_v2.Geometry.Name: icarus_v2
+icarus_geometry_services_overburden_legacy_icarus_v2.Geometry.GDML: "icarus_complete_20210311_rotUV.gdml.gdml"
+icarus_geometry_services_overburden_legacy_icarus_v2.Geometry.ROOT: "icarus_complete_20210311_rotUV.gdml.gdml"
+
+icarus_geometry_services_legacy_icarus_v2:
+  @local::icarus_geometry_services_no_overburden_legacy_icarus_v2
+
+
+###
 ### icarus_geometry_services_legacy_icarus_splitwires:
 ###   geometry tagged as `icarus_splitwires` for samples produced with v09_17_02
 ###   and earlier
