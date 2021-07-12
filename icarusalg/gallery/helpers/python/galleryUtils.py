@@ -76,7 +76,35 @@ class HandleMaker:
   this class.
   
   """
-  AlreadyMade = set()
+  class ManyByTypeProc:
+    def __init__(self, klass):
+      self.handleVectorClass = ROOT.std.vector[f'gallery::Handle<{klass}>']
+      self.getHandles = ROOT.gallery.Event.getManyByType[klass]
+    def __call__(self, event):
+      handles = self.handleVectorClass()
+      self.getHandles(event, handles)
+      return handles
+  # ManyByTypeProc
+  
+  
+  def validHandle(self,
+    klass: "data product class to prepare for (as a C++ class name string)",
+    event: "(optional) the event object to retrieve the data products from " = None,
+    ) -> "if `event` is specified, bound `getValidHandle<klass>`, unbound otherwise":
+    # this has been tested with ROOT 6.22;
+    # big improvements in cppyy make this **way** simpler than it used to be
+    getHandle = ROOT.gallery.Event.getValidHandle[klass]
+    return (lambda tag: getHandle(event, tag)) if event else getHandle
+  # validHandle()
+  
+  def manyByType(self,
+    klass: "data product class to prepare for (as a C++ class name string)",
+    event: "(optional) the event object to retrieve the data products from " = None,
+    ) -> """if `event` is specified, a list (std::vector) of handles,
+            otherwise a callable that when called on an event returns such list""":
+    getManyByType = HandleMaker.ManyByTypeProc(klass)
+    return getManyByType(event) if event else (lambda event: getManyByType(event))
+  # manyByType()
   
   def __call__(self,
     klass: "data product class to prepare for (as a C++ class name string)",
@@ -107,29 +135,9 @@ class HandleMaker:
     Both `particles1` and `particles2` point to the same data product.
     
     Exception (`RuntimeError`) is raised on error.
-    
-    Note: for unknown reasons, the unbound version fails unless something else
-    (which I could not determine) has happened already. A previous call for the
-    same klass in bound mode seems to make the unbound mode work.
-    Not that useful...
     """
-    if klass not in HandleMaker.AlreadyMade:
-      res = HandleMaker.make(klass)
-      if res != ROOT.TInterpreter.kNoError:
-        raise RuntimeError(
-        "Could not create `ROOT.gallery.Event.getValidHandle` for '%s' (code: %d)"
-        % (klass, res)
-        )
-      # if
-      HandleMaker.AlreadyMade.add(klass)
-    # if already there
-    return event.getValidHandle[klass] if event \
-      else ROOT.gallery.Event.getValidHandle[klass]
+    return self.validHandle(klass, event)
   # __call__()
-  
-  @staticmethod
-  def make(klass):
-    return ROOT.gROOT.ProcessLine('template gallery::ValidHandle<%(name)s> gallery::Event::getValidHandle<%(name)s>(art::InputTag const&) const;' % {'name' : klass})
   
 # class HandleMaker
 make_getValidHandle = HandleMaker()
