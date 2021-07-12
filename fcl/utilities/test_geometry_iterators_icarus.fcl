@@ -23,24 +23,14 @@ services: {
         filename:   "debug.log"
         append:     false
         threshold:  "DEBUG"
-        categories: {
-          default:  { limit: -1 }
-        }
       }
       LogStandardOut: {
         type:       "cout"
         threshold:  "INFO"
-        categories: {
-          default:               { limit: -1 }
-          GeometryBadInputPoint: { limit: 5 timespan: 1000}
-        }
       }
       LogStandardError: {
         type:       "cerr"
         threshold:  "ERROR"
-        categories:{
-          default:{ }
-        }
       }
     }
   }
@@ -63,7 +53,5 @@ physics: {
 
   ana:           [ geoitertest ]
 
-  trigger_paths: [ ]
-  end_paths:     [ ana ]
 }
 

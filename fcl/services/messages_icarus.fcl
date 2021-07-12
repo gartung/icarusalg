@@ -97,7 +97,6 @@ message_stdout_warning_icarus: {
   threshold:  "WARNING"
   categories:{
     default:  {}
-    GeometryBadInputPoint: { limit: 5 timespan: 1000}
   }
 } # message_stdout_warning_icarus
 
@@ -112,7 +111,6 @@ message_stdout_icarus: {
   threshold:  "INFO"
   categories:{
     default:  {}
-    GeometryBadInputPoint: { limit: 5 timespan: 1000}
     NuRandomService: { limit: 0 }
   }
 } # message_stdout_icarus
@@ -185,8 +183,6 @@ icarus_message_services:
 #
 icarus_message_services_prod_debug:
 {
-  debugModules: ["*"]
-
   destinations: {
     LogDebugFile:     @local::message_debugfile_icarus
     LogStandardOut:   @local::message_stdout_warning_icarus
@@ -197,7 +193,6 @@ icarus_message_services_prod_debug:
 
 icarus_message_services_prod_debug.destinations.LogDebugFile.categories:{
   default: { }
-  GeometryBadInputPoint: { limit: 5 timespan: 1000}
 }
 
 
@@ -259,7 +254,6 @@ icarus_message_services_interactive.destinations.LogErrorFile.threshold: "WARNIN
 #
 #
 icarus_message_services_interactive_debug: {
-  debugModules: ["*"]
   @table::icarus_message_services_interactive
 }
 icarus_message_services_interactive_debug.destinations.LogDebugFile: @local::message_debugfile_icarus

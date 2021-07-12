@@ -9,7 +9,7 @@
  * using Boost unit test, the configuration file location must be hard coded too
  * (or you can use the provided configuration).
  * 
- * For an example of usage, see icaruscode/test/Geometry/geometry_test_icarus.cxx
+ * For an example of usage, see icarusalg/test/Geometry/geometry_test_icarus.cxx
  */
 
 #ifndef TEST_GEOMETRY_UNIT_TEST_ICARUS_H

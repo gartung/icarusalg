@@ -62,7 +62,7 @@ add_subdirectory(doc)
 add_subdirectory(test)
 
 # Top level fcl files.
-##add_subdirectory(fcl)
+add_subdirectory(fcl)
 
 # ups - table and config files
 add_subdirectory(ups)
