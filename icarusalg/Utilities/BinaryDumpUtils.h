@@ -193,6 +193,7 @@ namespace icarus::ns::util::details {
   template <typename Atom>
   std::ostream& operator<< (std::ostream& out, HexDumper<Atom> const& data);
 
+  /// Dumps a value padding with `0` via `ZeroPadder` wrapper.
   template <typename T>
   std::ostream& operator<< (std::ostream& out, ZeroPadder<T> const& data);
 } // namespace icarus::ns::util::details
