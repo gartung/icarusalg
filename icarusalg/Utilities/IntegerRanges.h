@@ -40,7 +40,7 @@ namespace icarus {
   
   template <typename T = int, bool CheckGrowing = false> class IntegerRanges;
   
-  template <bool CheckGrowing = true, typename Coll>
+  template <bool CheckGrowing = true , typename Coll>
   IntegerRanges<typename Coll::value_type, CheckGrowing> makeIntegerRanges
     (Coll const& coll);
 
@@ -49,6 +49,9 @@ namespace icarus {
   std::ostream& operator<<
     (std::ostream& out, IntegerRanges<T, CheckGrowing> const& ranges);
   
+  template <typename T, bool CheckGrowing>
+  std::ostream& operator<<
+    (std::ostream& out, typename IntegerRanges<T, CheckGrowing>::Range_t const& r);
 } // namespace icarus
 
 
@@ -211,7 +214,7 @@ class icarus::IntegerRanges: public icarus::details::IntegerRangesBase<T> {
 
 // -----------------------------------------------------------------------------
 /// Returns a `IntegerRanges` object from the elements in `coll`.
-template <bool CheckGrowing = true, typename Coll>
+template <bool CheckGrowing, typename Coll>
 auto icarus::makeIntegerRanges(Coll const& coll)
   -> IntegerRanges<typename Coll::value_type, CheckGrowing>
 {

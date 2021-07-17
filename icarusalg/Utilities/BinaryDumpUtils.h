@@ -193,7 +193,9 @@ namespace icarus::ns::util::details {
   template <typename Atom>
   std::ostream& operator<< (std::ostream& out, HexDumper<Atom> const& data);
 
-
+  /// Dumps a value padding with `0` via `ZeroPadder` wrapper.
+  template <typename T>
+  std::ostream& operator<< (std::ostream& out, ZeroPadder<T> const& data);
 } // namespace icarus::ns::util::details
 
 
@@ -383,7 +385,7 @@ void icarus::ns::util::details::printHex(std::ostream& out, T value) {
 
 
 // -----------------------------------------------------------------------------
-template <unsigned int N, char C = ' '>
+template <unsigned int N, char C >
 std::ostream& icarus::ns::util::details::operator<<
   (std::ostream& out, Blanks<N, C>)
 {
