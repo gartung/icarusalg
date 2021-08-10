@@ -8,8 +8,7 @@
 
 // Boost libraries
 #define BOOST_TEST_MODULE SampledFunction
-#include <cetlib/quiet_unit_test.hpp> // BOOST_AUTO_TEST_CASE()
-#include <boost/test/test_tools.hpp> // BOOST_CHECK(), BOOST_CHECK_EQUAL()
+#include <boost/test/unit_test.hpp>
 #include <boost/test/tools/floating_point_comparison.hpp> // BOOST_CHECK_CLOSE()
 
 // ICARUS libraries
@@ -76,10 +75,10 @@ void IdentityTest() {
   //
   // Query
   //
-  BOOST_CHECK_EQUAL(sampled.size(), nSamples);
-  BOOST_CHECK_EQUAL(sampled.nSubsamples(), nSubsamples);
-  BOOST_CHECK_EQUAL(sampled.lower(), min);
-  BOOST_CHECK_EQUAL(sampled.upper(), max);
+  BOOST_TEST((sampled.size() == nSamples));
+  BOOST_TEST((sampled.nSubsamples() ==  nSubsamples));
+  BOOST_TEST((sampled.lower() ==  min));
+  BOOST_TEST((sampled.upper() ==  max));
   BOOST_CHECK_CLOSE(sampled.rangeSize(), max - min, 1e-6);
   BOOST_CHECK_CLOSE(sampled.stepSize(), step, 1e-6);
   BOOST_CHECK_CLOSE(sampled.substepSize(), substep, 1e-6);
@@ -103,8 +102,8 @@ void IdentityTest() {
       double const expected_value = identity(expected_x); // I wonder how much
 
       if (bInRange) {
-        BOOST_CHECK_EQUAL(sampled.value(iSample, iSub), expected_value);
-        BOOST_CHECK_EQUAL(*itSample, expected_value);
+        BOOST_TEST((sampled.value(iSample, iSub) == expected_value));
+        BOOST_TEST((*itSample ==  expected_value));
         BOOST_TEST_MESSAGE("[" << iSample << "] " << *itSample);
         ++itSample;
       }
@@ -116,21 +115,21 @@ void IdentityTest() {
         gsl::index const stepIndex
           = sampled.stepIndex(expected_x_in_the_middle, iSub);
 
-        BOOST_CHECK_EQUAL(sampled.isValidStepIndex(stepIndex), bInRange);
-        BOOST_CHECK_EQUAL(stepIndex, iSample);
+        BOOST_TEST((sampled.isValidStepIndex(stepIndex) ==  bInRange));
+        BOOST_TEST((stepIndex ==  iSample));
 
-        BOOST_CHECK_EQUAL
-          (sampled.closestSubsampleIndex(expected_x_in_the_middle), iSub);
+        BOOST_TEST
+          ((sampled.closestSubsampleIndex(expected_x_in_the_middle) ==  iSub));
 
       } // for shift
 
     } // for all samples in the subsample
 
-    BOOST_CHECK(itSample == subSample.end());
+    BOOST_TEST((itSample == subSample.end()));
 
-    BOOST_CHECK(!sampled.isValidStepIndex
+    BOOST_CHECK((!sampled.isValidStepIndex
       (sampled.stepIndex(subsampleStart + max - min, iSub))
-      );
+      ));
 
   } // for all subsamples
 
@@ -171,8 +170,8 @@ void ExtendedRangeTest() {
   //
   // Query
   //
-  BOOST_CHECK_EQUAL(sampled.nSubsamples(), nSubsamples);
-  BOOST_CHECK_EQUAL(sampled.lower(), min);
+  BOOST_TEST((sampled.nSubsamples() ==  nSubsamples));
+  BOOST_TEST((sampled.lower() ==  min));
   BOOST_CHECK_CLOSE(sampled.stepSize(), step, 1e-6);
   BOOST_CHECK_CLOSE(sampled.substepSize(), substep, 1e-6);
 
@@ -202,19 +201,19 @@ void ExtendedRangeTest() {
       double const expected_value = identity(expected_x); // I wonder how much
 
       if (bInRange) {
-        BOOST_CHECK_EQUAL(sampled.value(iSample, iSub), expected_value);
-        BOOST_CHECK_EQUAL(*itSample, expected_value);
+        BOOST_TEST((sampled.value(iSample ==  iSub), expected_value));
+        BOOST_TEST((*itSample ==  expected_value));
         BOOST_TEST_MESSAGE("[" << iSample << "] " << *itSample);
         ++itSample;
       }
 
     } // for all samples in the subsample
 
-    BOOST_CHECK(itSample == subSample.end());
+    BOOST_CHECK((itSample == subSample.end()));
 
-    BOOST_CHECK(!sampled.isValidStepIndex
+    BOOST_CHECK((!sampled.isValidStepIndex
       (sampled.stepIndex(subsampleStart + expected_max - min, iSub))
-      );
+      ));
 
   } // for all subsamples
 
