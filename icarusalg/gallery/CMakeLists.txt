@@ -9,6 +9,7 @@ foreach(ExampleDir IN ITEMS galleryAnalysis DetectorActivityRatePlots )
   
   # cet_install_files() will reproduce the intermediate subdirectories from the
   # source list into the destination directory
+## FIXME:  replace with install() as cet_install_files is no longer available
 ##  cet_install_files(
 ##    LIST ${GalleryExamples}
 ##    DIRNAME examples/gallery/${ExampleDir}
