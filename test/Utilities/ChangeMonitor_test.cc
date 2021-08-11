@@ -56,7 +56,7 @@ void documentationTest() {
   
   // reference is 0, new value is 1: a change is detected
   auto&& res2 = monitor(1);
-  BOOST_CHECK((res2));
+  BOOST_CHECK((!!res2));
   BOOST_TEST((res2.value() ==  0));
   BOOST_CHECK((monitor.hasReference()));
   BOOST_TEST((monitor.reference() ==  1));
@@ -71,7 +71,7 @@ void documentationTest() {
   bool detected = false;
   if (auto prevVal = monitor(2); prevVal) {
     detected = true;
-    BOOST_CHECK((prevVal));
+    BOOST_CHECK((!!prevVal));
     BOOST_TEST((prevVal.value() ==  1));
     BOOST_CHECK((monitor.hasReference()));
     BOOST_TEST((monitor.reference() ==  2));
@@ -98,7 +98,7 @@ void ThreadSafeChangeMonitor_documentationTest() {
   
   // reference is 0, new value is 1: a change is detected
   auto&& res2 = monitor(1);
-  BOOST_CHECK((res2));
+  BOOST_CHECK((!!res2));
   BOOST_TEST((res2.value() ==  0));
   BOOST_CHECK((monitor.hasReference()));
   BOOST_TEST((monitor.reference() ==  1));
@@ -113,7 +113,7 @@ void ThreadSafeChangeMonitor_documentationTest() {
   bool detected = false;
   if (auto prevVal = monitor(2); prevVal) {
     detected = true;
-    BOOST_CHECK((prevVal));
+    BOOST_CHECK((!!prevVal));
     BOOST_TEST((prevVal.value() ==  1));
     BOOST_CHECK((monitor.hasReference()));
     BOOST_TEST((monitor.reference() ==  2));
