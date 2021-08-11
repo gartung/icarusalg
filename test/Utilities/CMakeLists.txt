@@ -10,8 +10,7 @@ cet_test(FastAndPoorGauss_test
   USE_BOOST_UNIT
   )
 
-## FIXME: temporarily disabled
-##cet_test(SampledFunction_test USE_BOOST_UNIT)
+cet_test(SampledFunction_test USE_BOOST_UNIT)
 
 cet_test(FixedBins_test USE_BOOST_UNIT)
 cet_test(IntegerRanges_test USE_BOOST_UNIT)

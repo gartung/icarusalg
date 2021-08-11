@@ -9,7 +9,7 @@
 // Boost libraries
 #define BOOST_TEST_MODULE SampledFunction
 #include <boost/test/unit_test.hpp>
-#include <boost/test/tools/floating_point_comparison.hpp> // BOOST_CHECK_CLOSE()
+namespace tt = boost::test_tools;
 
 // ICARUS libraries
 #include "icarusalg/Utilities/SampledFunction.h"
@@ -75,13 +75,14 @@ void IdentityTest() {
   //
   // Query
   //
-  BOOST_TEST((sampled.size() == nSamples));
-  BOOST_TEST((sampled.nSubsamples() ==  nSubsamples));
-  BOOST_TEST((sampled.lower() ==  min));
-  BOOST_TEST((sampled.upper() ==  max));
-  BOOST_CHECK_CLOSE(sampled.rangeSize(), max - min, 1e-6);
-  BOOST_CHECK_CLOSE(sampled.stepSize(), step, 1e-6);
-  BOOST_CHECK_CLOSE(sampled.substepSize(), substep, 1e-6);
+  auto const close = tt::tolerance(1.e-6);
+  BOOST_TEST(sampled.size() == nSamples);
+  BOOST_TEST(sampled.nSubsamples() == nSubsamples);
+  BOOST_TEST(sampled.lower() == min);
+  BOOST_TEST(sampled.upper() == max);
+  BOOST_TEST(sampled.rangeSize() == max - min, close);
+  BOOST_TEST(sampled.stepSize() == step, close);
+  BOOST_TEST(sampled.substepSize() == substep, close);
 
   for (auto const iSub: util::counter(nSubsamples)) BOOST_TEST_CONTEXT("Subsample: " << iSub)
   {
@@ -102,8 +103,8 @@ void IdentityTest() {
       double const expected_value = identity(expected_x); // I wonder how much
 
       if (bInRange) {
-        BOOST_TEST((sampled.value(iSample, iSub) == expected_value));
-        BOOST_TEST((*itSample ==  expected_value));
+        BOOST_TEST(sampled.value(iSample, iSub) == expected_value);
+        BOOST_TEST(*itSample == expected_value);
         BOOST_TEST_MESSAGE("[" << iSample << "] " << *itSample);
         ++itSample;
       }
@@ -115,21 +116,21 @@ void IdentityTest() {
         gsl::index const stepIndex
           = sampled.stepIndex(expected_x_in_the_middle, iSub);
 
-        BOOST_TEST((sampled.isValidStepIndex(stepIndex) ==  bInRange));
-        BOOST_TEST((stepIndex ==  iSample));
+        BOOST_TEST(sampled.isValidStepIndex(stepIndex) == bInRange);
+        BOOST_TEST(stepIndex == iSample);
 
         BOOST_TEST
-          ((sampled.closestSubsampleIndex(expected_x_in_the_middle) ==  iSub));
+          (sampled.closestSubsampleIndex(expected_x_in_the_middle) == iSub);
 
       } // for shift
 
     } // for all samples in the subsample
 
-    BOOST_TEST((itSample == subSample.end()));
+    BOOST_TEST((itSample == subSample.end()), "itSample != subSample.end()");
 
-    BOOST_CHECK((!sampled.isValidStepIndex
+    BOOST_TEST(!sampled.isValidStepIndex
       (sampled.stepIndex(subsampleStart + max - min, iSub))
-      ));
+      );
 
   } // for all subsamples
 
@@ -170,14 +171,14 @@ void ExtendedRangeTest() {
   //
   // Query
   //
-  BOOST_TEST((sampled.nSubsamples() ==  nSubsamples));
-  BOOST_TEST((sampled.lower() ==  min));
-  BOOST_CHECK_CLOSE(sampled.stepSize(), step, 1e-6);
-  BOOST_CHECK_CLOSE(sampled.substepSize(), substep, 1e-6);
+  BOOST_TEST(sampled.nSubsamples() == nSubsamples);
+  BOOST_TEST(sampled.lower() == min);
+  BOOST_TEST(sampled.stepSize() == step, close);
+  BOOST_TEST(sampled.substepSize() == substep, close);
 
-  BOOST_CHECK_CLOSE(sampled.upper(), expected_max, 1e-6);
-  BOOST_REQUIRE_EQUAL(sampled.size(), expected_nSamples);
-  BOOST_CHECK_CLOSE(sampled.rangeSize(), expected_range, 1e-6);
+  BOOST_TEST(sampled.upper() == expected_max, close);
+  BOOST_TEST_REQUIRE(sampled.size() == expected_nSamples);
+  BOOST_TEST(sampled.rangeSize() == expected_range, close);
 
 
   auto const nSamples = sampled.size();
@@ -201,19 +202,19 @@ void ExtendedRangeTest() {
       double const expected_value = identity(expected_x); // I wonder how much
 
       if (bInRange) {
-        BOOST_TEST((sampled.value(iSample ==  iSub), expected_value));
-        BOOST_TEST((*itSample ==  expected_value));
+        BOOST_TEST(sampled.value(iSample, iSub) == expected_value);
+        BOOST_TEST(*itSample == expected_value);
         BOOST_TEST_MESSAGE("[" << iSample << "] " << *itSample);
         ++itSample;
       }
 
     } // for all samples in the subsample
 
-    BOOST_CHECK((itSample == subSample.end()));
+    BOOST_TEST((itSample == subSample.end()), "itSample != subSample.end()");
 
-    BOOST_CHECK((!sampled.isValidStepIndex
+    BOOST_TEST(!sampled.isValidStepIndex
       (sampled.stepIndex(subsampleStart + expected_max - min, iSub))
-      ));
+      );
 
   } // for all subsamples
 
