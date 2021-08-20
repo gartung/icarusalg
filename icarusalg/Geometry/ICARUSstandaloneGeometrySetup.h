@@ -1,5 +1,5 @@
 /**
- * @file icaruscode/Geometry/ICARUSstandaloneGeometrySetup.h
+ * @file icarusalg/Geometry/ICARUSstandaloneGeometrySetup.h
  * @brief  Functions to facilitate ICARUS geometry initialization outside _art_.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 16, 2020

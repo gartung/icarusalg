@@ -1,9 +1,9 @@
 /**
- * @file   icaruscode/Geometry/ICARUSChannelMapAlg.h
+ * @file   icarusalg/Geometry/ICARUSChannelMapAlg.h
  * @brief  Channel mapping algorithms for ICARUS detector.
  * @date   October 19, 2019
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
- * @see    `icaruscode/Geometry/ICARUSChannelMapAlg.cxx`
+ * @see    `icarusalg/Geometry/ICARUSChannelMapAlg.cxx`
  */
 
 #ifndef ICARUSCODE_GEOMETRY_ICARUSCHANNELMAPALG_H
