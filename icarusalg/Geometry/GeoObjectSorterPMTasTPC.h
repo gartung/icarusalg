@@ -1,9 +1,9 @@
 /**
- * @file icaruscode/Geometry/GeoObjectSorterPMTasTPC.h
+ * @file icarusalg/Geometry/GeoObjectSorterPMTasTPC.h
  * @brief  Geometry object sorter with PMT following TPC wire order.
  * @date   April 26, 2020
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
- * @see    icaruscode/Geometry/GeoObjectSorterPMTasTPC.cxx
+ * @see    icarusalg/Geometry/GeoObjectSorterPMTasTPC.cxx
  */
 
 #ifndef ICARUSCODE_GEOMETRY_GEOOBJECTSORTERPMTASTPC_H

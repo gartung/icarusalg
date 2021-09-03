@@ -1,9 +1,9 @@
 /**
- * @file   icaruscode/PMT/Trigger/Utilities/ROOTutils.tcc
+ * @file   icarusalg/Utilities/ROOTutils.tcc
  * @brief  A bunch of diverse utilities and futilities related to ROOT.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 1, 2019
- * @see    `icaruscode/PMT/Trigger/Utilities/ROOTutils.h`
+ * @see    `icarusalg/Utilities/ROOTutils.h`
  */
 
 #ifndef ICARUSCODE_PMT_TRIGGER_UTILITIES_ROOTUTILS_TCC
@@ -12,7 +12,7 @@
 
 #ifndef ICARUSCODE_PMT_TRIGGER_UTILITIES_ROOTUTILS_H
 # error("'ROOTutils.tcc' is not meant to be included directly." \
-  "Please #include \"icaruscode/PMT/Trigger/Utilities/ROOTutils.h\" instead.")
+  "Please #include \"icarusalg/Utilities/ROOTutils.h\" instead.")
 #endif // ICARUSCODE_PMT_TRIGGER_UTILITIES_ROOTUTILS_H
 
 
