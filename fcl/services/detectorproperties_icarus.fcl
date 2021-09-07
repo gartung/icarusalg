@@ -8,6 +8,7 @@ icarus_detproperties: {
   ElectronsToADC:            1.208041e-3     # in ADC/e; 6241.5 electrons = 1fC
   Temperature:               87.5
   Electronlifetime:          10000
+  # Active volume E-field calculated based on SBN-doc-23259 (H. Carranza and Z. Williams) using Vp = 75150 (from M. Mooney)
   Efield:                    [0.4938,0.733,0.933 ] #kV/cm to first,second,third wire planes
   
   SternheimerA:              0.1956           # Ar Sternheimer parameter a.
