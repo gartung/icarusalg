@@ -1,9 +1,9 @@
 /**
- * @file   icaruscode/PMT/Trigger/Utilities/ROOTutils.h
+ * @file   icarusalg/Utilities/ROOTutils.h
  * @brief  A bunch of diverse utilities and futilities related to ROOT.
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
  * @date   April 1, 2019
- * @see    `icaruscode/PMT/Trigger/Utilities/ROOTutils.tcc`
+ * @see    `icarusalg/Utilities/ROOTutils.tcc`
  */
 
 #ifndef ICARUSCODE_PMT_TRIGGER_UTILITIES_ROOTUTILS_H
