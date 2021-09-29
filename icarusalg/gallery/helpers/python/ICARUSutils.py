@@ -30,16 +30,6 @@ ICARUSchannelMappings = {
                        'icarusalg_Geometry',
                      ],
   }, # 'ICARUSsplitInductionChannelMapSetupTool'
-  'ICARUSsingleInductionChannelMapSetupTool': {
-    'tool_type':       'ICARUSsingleInductionChannelMapSetupTool',
-    'mapperClassName': 'geo::ChannelMapIcarusAlg',
-    'load':          [
-                       'larcorealg_Geometry',
-                       'icarusalg/Geometry/ChannelMapIcarusAlg.h',
-                       'icarusalg/Geometry/ICARUSstandaloneGeometrySetup.h',
-                       'icarusalg_Geometry',
-                     ],
-  }, # 'ICARUSsingleInductionChannelMapSetupTool'
 }
 DefaultChannelMapping = 'ICARUSsplitInductionChannelMapSetupTool'
 

@@ -18,7 +18,6 @@
 
 
 // ICARUS libraries
-#include "icarusalg/Geometry/ChannelMapIcarusAlg.h"
 #include "icarusalg/Geometry/ICARUSChannelMapAlg.h"
 
 // LArSoft libraries
@@ -112,15 +111,6 @@ namespace icarus::geo::details {
 
 
 namespace lar::standalone {
-  
-  // ---------------------------------------------------------------------------
-  /// Specialization of `lar::standalone::SetupGeometry()`
-  /// for ICARUS channel mapping `geo::ChannelMapIcarusAlg`.
-  template <>
-  inline std::unique_ptr<geo::GeometryCore>
-  SetupGeometry<geo::ChannelMapIcarusAlg>(fhicl::ParameterSet const& pset)
-    { return icarus::geo::SetupICARUSGeometry<geo::ChannelMapIcarusAlg>(pset); }
-  
   
   // ---------------------------------------------------------------------------
   /// Specialization of `lar::standalone::SetupGeometry()`

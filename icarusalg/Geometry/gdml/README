@@ -41,9 +41,3 @@ or
 # ./make-gdml.pl -i argoneut-gdml-fragments.xml -o argoneut.gdml
 
 
-
-For more information, see the LArSoft wiki page:
-<http://www.nevis.columbia.edu/twiki/bin/view/LArSoft/CreatingGDML>
-
-Account: LArSoft    (case-sensitive)
-Password: argon!
