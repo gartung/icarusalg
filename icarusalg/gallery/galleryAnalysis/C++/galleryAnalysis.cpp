@@ -22,7 +22,7 @@
 #include "MCAssociations.h"
 
 // ICARUS code
-#include "icaruscode/gallery/helpers/C++/expandInputFiles.h"
+#include "icarusalg/gallery/helpers/C++/expandInputFiles.h"
 
 // LArSoft
 // - data products
@@ -39,7 +39,7 @@
 // - Geometry
 #include "larcorealg/Geometry/StandaloneGeometrySetup.h"
 #include "larcorealg/Geometry/GeometryCore.h"
-#include "icaruscode/Geometry/ICARUSChannelMapAlg.h"
+#include "icarusalg/Geometry/ICARUSChannelMapAlg.h"
 // - configuration
 #include "larcorealg/Geometry/StandaloneBasicSetup.h"
 

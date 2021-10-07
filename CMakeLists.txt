@@ -58,7 +58,6 @@ include(BasicPlugin)
 
 # ADD SOURCE CODE SUBDIRECTORIES HERE
 add_subdirectory(icarusalg)
-add_subdirectory(doc)
 
 # subdirectory for test code
 add_subdirectory(test)

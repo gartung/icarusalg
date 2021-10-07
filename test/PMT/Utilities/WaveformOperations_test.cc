@@ -3,7 +3,7 @@
  * @brief  Unit test for waveform operations.
  * @date   June 27, 2019
  * @author Gianluca Petrillo (petrillo@slac.stanford.edu)
- * @see    `icaruscode/Utilities/WaveformOperations.h`
+ * @see    `icarusalg/Utilities/WaveformOperations.h`
  */
 
 // Boost libraries
