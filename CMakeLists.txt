@@ -13,10 +13,9 @@
 # ======================================================================
 
 
-# use cmake 3.12-3.14
-cmake_minimum_required (VERSION 3.12...3.14 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
-project(icarusalg LANGUAGES CXX)
+project(icarusalg VERSION 09.32.01 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
@@ -46,8 +45,11 @@ find_ups_product( lardataalg )
 find_ups_product( lardataobj )
 find_ups_product( nusimdata  )
 find_ups_product( canvas     )
+find_ups_product( cetlib     )
+find_ups_product( clhep      )
 find_ups_product( guideline_sl )
 find_ups_root()
+find_ups_boost()
 
 # macros for dictionary and simple_plugin
 include(ArtDictionary)
