@@ -36,7 +36,7 @@ product             version
 larsoftobj          v09_10_02
 guideline_sl        v3_1_0
 
-cetbuildtools	    v8_17_03	-	only_for_build
+cetbuildtools	    v8_18_04	-	only_for_build
 end_product_list
 
 # Restore this temporarily...
