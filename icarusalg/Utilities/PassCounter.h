@@ -83,6 +83,14 @@ class icarus::ns::util::PassCounter {
   /// @}
   // --- END ---- Registration and reset ---------------------------------------
   
+    protected:
+  
+  /// Direct read-only access to data members for derived classes.
+  Count_t const& totalRef() const { return fTotal; }
+  
+  /// Direct read-only access to data members for derived classes.
+  Count_t const& passedRef() const { return fPassed; }
+  
     private:
   
   // --- BEGIN -- Data members -------------------------------------------------
