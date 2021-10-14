@@ -276,7 +276,7 @@ class icarus::ns::util::FixedBins {
   Data_t fOffset; ///< Bin offset from `0`.
   
   Storage_t fCounters; ///< Bin counters.
-  BinIndex_t fMin; ///< The lower edge of the bin with storage index 0.
+  Data_t fMin; ///< The lower edge of the bin with storage index 0.
   BinIndex_t fMinBin; ///< The index of bin `fCounters[0]`.
   
   
@@ -305,9 +305,25 @@ namespace icarus::ns::util {
 }
 
 
-// -----------------------------------------------------------------------------
-// --- template implementation
-// -----------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------
+ * --- template implementation
+ * -----------------------------------------------------------------------------
+ * 
+ * Implementation details
+ * -----------------------
+ * 
+ * The value of `fMin` is always from the lowest non-empty bin ([20210925] there
+ * is no way to make a bin empty after it has been filled; but future changes
+ * may make this become the lowest bin which has been non-empty).
+ * Data is stored in a STL vector, so the storage index always starts with `0`.
+ * The "bin index" is defined relative to a reference bin, which is the first
+ * bin being added. The purpose of this index is to give the user something that
+ * does not move when values are added (storage indices are shifted whenever a
+ * bin is added before the current minimum).
+ * To track these indices, `fMinBin` is the bin index of the first bin in the
+ * storage.
+ * 
+ */
 template <typename T, typename C /* = unsigned int */>
 icarus::ns::util::FixedBins<T, C>::FixedBins
   (Interval_t width, Data_t offset /* = Data_t{} */) noexcept
