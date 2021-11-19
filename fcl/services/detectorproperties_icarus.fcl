@@ -10,6 +10,9 @@ icarus_detproperties: {
   Electronlifetime:          3500
   # Active volume E-field calculated based on SBN-doc-23259 (H. Carranza and Z. Williams) using Vp = 75150 (from M. Mooney)
   Efield:                    [0.4938,0.733,0.933 ] #kV/cm to first,second,third wire planes
+
+  # Set this true to use the non-default "ICARUS+MicroBooNE" calcultaion for drift velocity
+  UseIcarusMicrobooneDriftModel: true
   
   SternheimerA:              0.1956           # Ar Sternheimer parameter a.
   SternheimerK:              3.0000           # Ar Sternheimer parameter k.
