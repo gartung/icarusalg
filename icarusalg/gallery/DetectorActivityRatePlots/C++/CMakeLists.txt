@@ -51,21 +51,21 @@ project(DetectorActivityRatePlots CXX)
 
 
 # install in the same directory as the source
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR})
+set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}) 
 
 #
 # include directories
 #
-include_directories($ENV{BOOST_INC})
-include_directories($ENV{ROOT_INC} $ENV{CLHEP_INC})
-include_directories($ENV{CETLIB_INC} $ENV{CETLIB_EXCEPT_INC} $ENV{CANVAS_INC} $ENV{CANVAS_ROOT_IO_INC})
-include_directories($ENV{FHICLCPP_INC} $ENV{MESSAGEFACILITY_INC})
-include_directories($ENV{HEP_CONCURRENCY_INC})
-include_directories($ENV{GALLERY_INC})
-include_directories($ENV{NUSIMDATA_INC} $ENV{LARCOREOBJ_INC} $ENV{LARDATAOBJ_INC})
-include_directories($ENV{LARCOREALG_INC} $ENV{LARDATAALG_INC})
+include_directories($ENV{BOOST_INC}) 
+include_directories($ENV{ROOT_INC} $ENV{CLHEP_INC}) 
+include_directories($ENV{CETLIB_INC} $ENV{CETLIB_EXCEPT_INC} $ENV{CANVAS_INC} $ENV{CANVAS_ROOT_IO_INC}) 
+include_directories($ENV{FHICLCPP_INC} $ENV{MESSAGEFACILITY_INC}) 
+include_directories($ENV{HEP_CONCURRENCY_INC}) 
+include_directories($ENV{GALLERY_INC}) 
+include_directories($ENV{NUSIMDATA_INC} $ENV{LARCOREOBJ_INC} $ENV{LARDATAOBJ_INC}) 
+include_directories($ENV{LARCOREALG_INC} $ENV{LARDATAALG_INC}) 
 
-include_directories($ENV{ICARUSALG_INC} $ENV{ICARUSCODE_INC})
+include_directories($ENV{ICARUSALG_INC} $ENV{ICARUSCODE_INC}) 
 
 #
 # link directories and libraries
@@ -77,8 +77,8 @@ set(LARSOFT_LIBDIRS $ENV{CLHEP_LIB_DIR} $ENV{LARCOREALG_LIB} $ENV{LARDATAALG_LIB
 set(SBNDCODE_LIBDIRS $ENV{SBNDCODE_LIB})
 set(ICARUS_LIBDIRS $ENV{ICARUSALG_LIB})
 
-link_directories(${GALLERY_LIBDIRS} ${LARSOFTOBJ_LIBDIRS} ${LARSOFT_LIBDIRS})
-link_directories(${ICARUS_LIBDIRS})
+link_directories(${GALLERY_LIBDIRS} ${LARSOFTOBJ_LIBDIRS} ${LARSOFT_LIBDIRS}) 
+link_directories(${ICARUS_LIBDIRS}) 
 
 set(GALLERY_LIBS MF_MessageLogger fhiclcpp canvas cetlib_except cetlib gallery)
 set(ROOT_CORELIBS Core RIO Net Hist Graf Graf3d Gpad Tree Rint Postscript Matrix Physics MathCore Thread MultiProc pthread)

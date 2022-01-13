@@ -11,10 +11,13 @@
 #  make install
 #  make package (builds distribution tarfile)
 # ======================================================================
-
-
+# use cmake 3.12-3.14
 cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
+cmake_policy(VERSION 3.14)
 
+
+
+find_package(cetmodules 2.25.05 REQUIRED)
 project(icarusalg VERSION 09.34.00 LANGUAGES CXX)
 
 message(STATUS
@@ -22,10 +25,6 @@ message(STATUS
   "\n-- === *** Start of configuration of ${PROJECT_NAME} ***"
   "\n-- ===")
 
-# cetbuildtools contains our cmake modules
-find_package(cetbuildtools REQUIRED)
-
-list(APPEND CMAKE_MODULE_PATH $ENV{CANVAS_ROOT_IO_DIR}/Modules)
 
 include(CetCMakeEnv)
 cet_cmake_env()
@@ -36,22 +35,24 @@ cet_set_compiler_flags(DIAGS CAUTIOUS
   EXTRA_FLAGS -pedantic -I $ENV{CLANG_FQ_DIR}/include/c++/v1
 )
 
-cet_report_compiler_flags()
+cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
 
 # these are minimum required versions, not the actual product versions
-find_ups_product( larcorealg )
-find_ups_product( larcoreobj )
-find_ups_product( lardataalg )
-find_ups_product( lardataobj )
-find_ups_product( nusimdata  )
-find_ups_product( canvas     )
-find_ups_product( cetlib     )
-find_ups_product( clhep      )
-find_ups_product( guideline_sl )
-find_ups_root()
-find_ups_boost()
+find_package( larcorealg )
+find_package( larcoreobj )
+find_package( lardataalg )
+find_package( lardataobj )
+find_package( nusimdata  )
+find_package( celib )
+find_package( cetlib_except )
+find_package( canvas     )
+find_package( canvas_root_io )
+find_package( messagefacility )
+find_package( guideline_sl )
+find_package( ROOT )
+find_package( Boost COMPONENTS unit_test_framework)
+find_package( CLHEP )
 
-# macros for dictionary and simple_plugin
 include(ArtDictionary)
 include(CetMake)
 include(BasicPlugin)
@@ -66,10 +67,8 @@ add_subdirectory(test)
 add_subdirectory(fcl)
 
 # ups - table and config files
-add_subdirectory(ups)
 
 # packaging utility
-include(UseCPack)
 
 message(STATUS
   "\n-- ==="
@@ -78,3 +77,4 @@ message(STATUS
   "\n-- "
   )
 
+cet_cmake_config()

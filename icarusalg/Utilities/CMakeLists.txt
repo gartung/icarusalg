@@ -1,8 +1,9 @@
-
-cet_make(
+include_directories(${CPPGSL_INC})
+cet_make( ### MIGRATE-ACTION-RECOMMENDED: use cet_make_library(), build_dictionary(), basic_plugin() with explicit source lists
   LIBRARIES
-    ${CETLIB_EXCEPT}
-    ${CLHEP}
+    cetlib_except::cetlib_except
+    CLHEP::CLHEP
+    larcorealg::CoreUtils
   )
 
 install_headers()
