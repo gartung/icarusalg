@@ -24,7 +24,7 @@ BEGIN_PROLOG
 icarus_detectorclocks: {
     service_provider: "DetectorClocksServiceStandard"
 
-    TrigModuleName:    ""
+    TrigModuleName:    "daqTrigger"
     InheritClockConfig: true
     G4RefTime:        -1.5e3  # G4 time [us] where electronics clock counting start
     TriggerOffsetTPC: -0.340e3 # Time offset for TPC readout start time w.r.t. trigger [us]
