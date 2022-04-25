@@ -18,7 +18,7 @@ cmake_policy(VERSION 3.14)
 
 
 find_package(cetmodules 2.25.05 REQUIRED)
-project(icarusalg VERSION 09.34.00 LANGUAGES CXX)
+project(icarusalg VERSION 09.37.01 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
