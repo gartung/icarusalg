@@ -20,7 +20,7 @@
 
 // LArSoft libraries
 #include "test/Geometry/geometry_unit_test_icarus.h"
-#include "test/Geometry/GeometryIteratorLoopTestAlg.h"
+#include "larcorealg/test/Geometry/GeometryIteratorLoopTestAlg.h"
 #include "larcorealg/Geometry/GeometryCore.h"
 
 // utility libraries
