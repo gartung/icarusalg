@@ -188,7 +188,7 @@ icarus_standard_geometry_services: {
 ### Default ICARUS geometry configuration
 ### (`icarus_geometry_services`)
 ###
-### This configuration includes no overburden and long first induction wires
+### This configuration includes 3-m overburden and long first induction wires
 ### (18 m) as of now.
 ###
 ### Override a geometry configuration by:
