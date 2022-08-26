@@ -11,7 +11,8 @@
 #define ICARUSALG_UTILITIES_PASSCOUNTER_H
 
 // -----------------------------------------------------------------------------
-namespace icarus::ns::util { template <typename Count> class PassCounter; }
+namespace icarus::ns::util
+  { template <typename Count = unsigned int> class PassCounter; }
 /**
  * @brief Class counting pass/fail events.
  * @tparam Count (default: `unsigned int`) type of counter
@@ -37,7 +38,7 @@ namespace icarus::ns::util { template <typename Count> class PassCounter; }
  *  * difference `operator-(Count)`
  * 
  */
-template <typename Count = unsigned int>
+template <typename Count /* = unsigned int */>
 class icarus::ns::util::PassCounter {
   
     public:
