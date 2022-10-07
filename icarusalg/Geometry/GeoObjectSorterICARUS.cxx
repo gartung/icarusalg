@@ -71,10 +71,7 @@ namespace geo{
 
   //----------------------------------------------------------------------------
   static bool sortWireStandard(WireGeo const& w1, WireGeo const& w2){
-    double xyz1[3] = {0.};
-    double xyz2[3] = {0.};
-
-    w1.GetCenter(xyz1); w2.GetCenter(xyz2);
+    auto const [xyz1, xyz2] = std::pair{w1.GetCenter(), w2.GetCenter()};
 
     //we have horizontal wires...
     if( std::abs(xyz1[2]-xyz2[2]) < EPSILON)
