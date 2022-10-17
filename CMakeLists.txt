@@ -18,7 +18,7 @@ cmake_policy(VERSION 3.14)
 
 
 find_package(cetmodules 2.25.05 REQUIRED)
-project(icarusalg VERSION 09.37.02.01 LANGUAGES CXX)
+project(icarusalg VERSION 09.60.00 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
@@ -43,7 +43,7 @@ find_package( larcoreobj )
 find_package( lardataalg )
 find_package( lardataobj )
 find_package( nusimdata  )
-find_package( celib )
+find_package( cetlib )
 find_package( cetlib_except )
 find_package( canvas     )
 find_package( canvas_root_io )

@@ -16,7 +16,7 @@
 #define TEST_GEOMETRY_UNIT_TEST_ICARUS_H
 
 // LArSoft libraries
-#include "test/Geometry/geometry_unit_test_base.h"
+#include "larcorealg/TestUtils/geometry_unit_test_base.h"
 #include "icarusalg/Geometry/ICARUSChannelMapAlg.h"
 
 // C/C++ standard libraries
