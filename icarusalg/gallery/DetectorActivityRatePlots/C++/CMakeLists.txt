@@ -10,12 +10,12 @@
 ###  3) the minimal setup for this example must include `larsoftobj` and
 ###     `icaruscode` (the latter may become optional depending on your code)
 ###  4) create a build directory and run `cmake` from there:
-###      
+###
 ###      mkdir -p build
 ###      cd build
 ###      cmake ..
 ###      make
-###      
+###
 ###
 ################################################################################
 cmake_minimum_required(VERSION 3.14)
@@ -24,7 +24,7 @@ cmake_minimum_required(VERSION 3.14)
 # making `cmake` aware of Clang may require some care;
 # we pick `gallery` qualifiers and if they contain `cN` then it's Clang;
 # TODO check if this is still necessary with CMake 3.14
-# 
+#
 if ( $ENV{SETUP_GALLERY} MATCHES "-q +([^ ]+)( |$)" )
   set ( GalleryQualifiers ${CMAKE_MATCH_1} )
   if( ${GalleryQualifiers} MATCHES "(^|:)c[0-9]+(:|$)" )
