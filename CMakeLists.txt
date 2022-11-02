@@ -16,8 +16,8 @@
 cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
 # cmake_policy(VERSION 3.19)
 
-find_package(cetmodules 3.19.02 REQUIRED)
-project(icarusalg VERSION 09.60.00 LANGUAGES CXX)
+find_package(cetmodules 3.20.00 REQUIRED)
+project(icarusalg VERSION 09.61.00 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
