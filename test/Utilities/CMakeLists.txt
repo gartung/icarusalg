@@ -1,28 +1,34 @@
-cet_test(rounding_test USE_BOOST_UNIT)
-cet_test(ChangeMonitor_test USE_BOOST_UNIT)
+add_compile_options(-Wno-narrowing)
+cet_test(rounding_test LIBRARIES cetlib::cetlib USE_BOOST_UNIT)
+cet_test(ChangeMonitor_test LIBRARIES cetlib::cetlib USE_BOOST_UNIT)
 
 cet_test(FastAndPoorGauss_test
   LIBRARIES
-    ${ROOT_MATHCORE}
-    ${ROOT_HIST}
-    ${ROOT_RIO}
-    ${ROOT_CORE}
+    larcorealg::CoreUtils
+    ROOT::Core
+    ROOT::Hist
+    ROOT::RIO
+    ROOT::MathCore
+    cetlib::cetlib
   USE_BOOST_UNIT
   )
 
-cet_test(SampledFunction_test USE_BOOST_UNIT)
+cet_test(SampledFunction_test LIBRARIES cetlib::cetlib larcorealg::CoreUtils icarusalg_Utilities  USE_BOOST_UNIT)
 
-cet_test(FixedBins_test USE_BOOST_UNIT)
-cet_test(IntegerRanges_test USE_BOOST_UNIT)
+cet_test(FixedBins_test LIBRARIES cetlib::cetlib USE_BOOST_UNIT)
+cet_test(IntegerRanges_test LIBRARIES cetlib::cetlib larcorealg::CoreUtils USE_BOOST_UNIT)
 
 cet_test(BinningSpecs_test
   LIBRARIES
     icarusalg_Utilities
+    cetlib::cetlib
   USE_BOOST_UNIT
   )
 cet_test(NonRandomCounter_test
   LIBRARIES
-    icarusalg_Utilities
-    ${CLHEP}
+    icarusalg::Utilities
+    CLHEP::CLHEP
+    canvas::canvas
+    cetlib::cetlib
   USE_BOOST_UNIT
   )

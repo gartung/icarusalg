@@ -1,8 +1,12 @@
 
-cet_make(
+file(GLOB src_files *.cxx)
+cet_make_library(
+  SOURCE ${src_files}
   LIBRARIES
-    ${CETLIB_EXCEPT}
-    ${CLHEP}
+    cetlib_except::cetlib_except
+    CLHEP::CLHEP
+    larcorealg::CoreUtils
+    Microsoft.GSL::GSL
   )
 
 install_headers()

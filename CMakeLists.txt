@@ -13,19 +13,17 @@
 # ======================================================================
 
 
-cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
+# cmake_policy(VERSION 3.19)
 
-project(icarusalg VERSION 09.62.00 LANGUAGES CXX)
+find_package(cetmodules 3.20.00 REQUIRED)
+project(icarusalg VERSION 09.62.00.02 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
   "\n-- === *** Start of configuration of ${PROJECT_NAME} ***"
   "\n-- ===")
 
-# cetbuildtools contains our cmake modules
-find_package(cetbuildtools REQUIRED)
-
-list(APPEND CMAKE_MODULE_PATH $ENV{CANVAS_ROOT_IO_DIR}/Modules)
 
 include(CetCMakeEnv)
 cet_cmake_env()
@@ -36,22 +34,26 @@ cet_set_compiler_flags(DIAGS CAUTIOUS
   EXTRA_FLAGS -pedantic -I $ENV{CLANG_FQ_DIR}/include/c++/v1
 )
 
-cet_report_compiler_flags()
+cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
 
 # these are minimum required versions, not the actual product versions
-find_ups_product( larcoreobj )
-find_ups_product( larcorealg )
-find_ups_product( lardataobj )
-find_ups_product( lardataalg )
-find_ups_product( nusimdata  )
-find_ups_product( canvas     )
-find_ups_product( cetlib     )
-find_ups_product( clhep      )
-find_ups_product( guideline_sl )
-find_ups_root()
-find_ups_boost()
+find_package( icarusalg )
+find_package( larcorealg )
+find_package( larcoreobj )
+find_package( lardataalg )
+find_package( lardataobj )
+find_package( nusimdata  )
+find_package( dk2nudata )
+find_package( cetlib )
+find_package( cetlib_except )
+find_package( canvas     )
+find_package( canvas_root_io )
+find_package( messagefacility )
+find_package( ROOT )
+find_package( Boost COMPONENTS unit_test_framework)
+find_package( CLHEP )
+find_package( Microsoft.GSL HINTS $ENV{GUIDELINE_SL_DIR} )
 
-# macros for dictionary and simple_plugin
 include(ArtDictionary)
 include(CetMake)
 include(BasicPlugin)
@@ -66,10 +68,8 @@ add_subdirectory(test)
 add_subdirectory(fcl)
 
 # ups - table and config files
-add_subdirectory(ups)
 
 # packaging utility
-include(UseCPack)
 
 message(STATUS
   "\n-- ==="
@@ -78,3 +78,4 @@ message(STATUS
   "\n-- "
   )
 
+cet_cmake_config()
