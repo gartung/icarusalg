@@ -309,11 +309,6 @@ class icarus::ICARUSChannelMapAlg: public geo::ChannelMapAlg {
   //@{
   virtual raw::ChannelID_t PlaneWireToChannel
     (geo::WireID const& wireID) const override;
-  virtual raw::ChannelID_t PlaneWireToChannel(unsigned int plane,
-                                              unsigned int wire,
-                                              unsigned int tpc,
-                                              unsigned int cstat) const override
-    { return PlaneWireToChannel(geo::WireID(cstat, tpc, plane, wire)); }
   //@}
 
   /// @}
@@ -330,21 +325,11 @@ class icarus::ICARUSChannelMapAlg: public geo::ChannelMapAlg {
   //@{
   virtual double WireCoordinate
     (double YPos, double ZPos, geo::PlaneID const& planeID) const override;
-  virtual double WireCoordinate(double YPos, double ZPos,
-                               unsigned int PlaneNo,
-                               unsigned int TPCNo,
-                               unsigned int cstat) const override
-    { return WireCoordinate(YPos, ZPos, geo::PlaneID(cstat, TPCNo, PlaneNo)); }
   //@}
   
   //@{
   virtual geo::WireID NearestWireID
     (const TVector3& worldPos, geo::PlaneID const& planeID) const override;
-  virtual geo::WireID NearestWireID(const TVector3& worldPos,
-                               unsigned int    PlaneNo,
-                               unsigned int    TPCNo,
-                               unsigned int    cstat) const override
-    { return NearestWireID(worldPos, geo::PlaneID(cstat, TPCNo, PlaneNo)); }
   //@}
   
   virtual std::set<geo::PlaneID> const& PlaneIDs() const override;
@@ -796,4 +781,3 @@ class icarus::ICARUSChannelMapAlg: public geo::ChannelMapAlg {
 
 
 #endif // ICARUSCODE_GEOMETRY_ICARUSCHANNELMAPALG_H
-
