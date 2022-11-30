@@ -203,7 +203,7 @@ double icarus::ICARUSChannelMapAlg::WireCoordinate
 
 //------------------------------------------------------------------------------
 geo::WireID icarus::ICARUSChannelMapAlg::NearestWireID
-  (const TVector3& worldPos, geo::PlaneID const& planeID) const
+  (const geo::Point_t& worldPos, geo::PlaneID const& planeID) const
 {
   /*
    * this should NOT be called... it shouldn't be here at all!
@@ -510,7 +510,7 @@ void icarus::ICARUSChannelMapAlg::fillChannelToWireMap
           << fPlaneInfo[(*iPlane)->ID()].firstChannel()
           << " -- " << fPlaneInfo[(*iPlane)->ID()].lastChannel() << ";";
         
-        geo::Point_t lastWirePos = (*iPlane)->LastWire().GetCenter<geo::Point_t>();
+        geo::Point_t lastWirePos = (*iPlane)->LastWire().GetCenter();
         
         while (++iPlane != pend) {
           
@@ -525,9 +525,9 @@ void icarus::ICARUSChannelMapAlg::fillChannelToWireMap
           /*
           mf::LogTrace("ICARUSChannelMapAlg")
             << (*std::prev(iPlane))->ID() << " W:" << ((*std::prev(iPlane))->Nwires() - 1)
-            << " ending at " << (*std::prev(iPlane))->LastWire().GetEnd<geo::Point_t>()
+            << " ending at " << (*std::prev(iPlane))->LastWire().GetEnd()
             << " matched " << lastMatchedWireID
-            << " which starts at " << plane.Wire(lastMatchedWireID).GetStart<geo::Point_t>()
+            << " which starts at " << plane.Wire(lastMatchedWireID).GetStart()
             ;
           */
           
@@ -549,7 +549,7 @@ void icarus::ICARUSChannelMapAlg::fillChannelToWireMap
             << fPlaneInfo[plane.ID()].lastChannel() << ";";
           
           // update for the next iteration
-          lastWirePos = plane.LastWire().GetCenter<geo::Point_t>();
+          lastWirePos = plane.LastWire().GetCenter();
           
         } // while
         
@@ -699,4 +699,3 @@ std::string icarus::ICARUSChannelMapAlg::PlaneTypeName(PlaneType_t planeType) {
 
 
 // ----------------------------------------------------------------------------
-

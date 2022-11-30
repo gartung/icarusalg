@@ -965,8 +965,8 @@ auto icarus::details::ROPandTPCsetBuildingAlg::sortByNormalCoordinate
     [pRefPlane](PlaneColl_t const& A, PlaneColl_t const& B) -> bool
     {
       return
-        pRefPlane->DistanceFromPlane(A.front()->GetCenter<geo::Point_t>())
-        > pRefPlane->DistanceFromPlane(B.front()->GetCenter<geo::Point_t>());
+        pRefPlane->DistanceFromPlane(A.front()->GetCenter())
+        > pRefPlane->DistanceFromPlane(B.front()->GetCenter());
     }
     );
   
@@ -990,7 +990,7 @@ void icarus::details::ROPandTPCsetBuildingAlg::checkNormalDirection
   auto const& comp = lar::util::makeVector3DComparison(1.0e-4);
   
   geo::PlaneGeo const* const pFirstPlane = iROP->front();
-  auto const normDir = pFirstPlane->GetNormalDirection<geo::Vector_t>();
+  auto const normDir = pFirstPlane->GetNormalDirection();
   
   for (PlaneColl_t const& ROP: ROPs) {
     if (ROP.empty()) { // we do not accept this!
@@ -1000,13 +1000,13 @@ void icarus::details::ROPandTPCsetBuildingAlg::checkNormalDirection
         ;
     }
     for (geo::PlaneGeo const* plane: ROP) {
-      if (comp.equal(normDir, plane->GetNormalDirection<geo::Vector_t>()))
+      if (comp.equal(normDir, plane->GetNormalDirection()))
         continue;
       
       throw cet::exception(fLogCategory)
         << "icarus::details::ROPandTPCsetBuildingAlg::checkNormalDirection(): "
         " plane " << plane->ID()
-        << " has normal " << plane->GetNormalDirection<geo::Vector_t>()
+        << " has normal " << plane->GetNormalDirection()
         << ", " << normDir << " (as for " << pFirstPlane->ID()
         << ") expected.\n"
         ;
@@ -1036,7 +1036,7 @@ auto icarus::details::ROPandTPCsetBuildingAlg::groupPlanesByDriftCoord
    */
   for (geo::PlaneGeo const* plane: planes) {
     
-    double const planeD = plane->GetCenter<geo::Point_t>().Dot(driftDir);
+    double const planeD = plane->GetCenter().Dot(driftDir);
     // find the group before the plane
     
     auto iGroup = groupedByDrift.lower_bound(planeD);
