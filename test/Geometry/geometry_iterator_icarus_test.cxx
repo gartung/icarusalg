@@ -54,8 +54,8 @@ class IcarusGeometryIteratorTestFixture:
   geo::GeometryIteratorTestAlg Tester;
   
   /// Constructor: initialize the tester with the Geometry from base class
-  IcarusGeometryIteratorTestFixture(): Tester(TesterParameters())
-    { Tester.Setup(*Geometry()); }
+  IcarusGeometryIteratorTestFixture(): Tester(Geometry())
+    {}
 
 }; // class IcarusGeometryIteratorTestFixture
 
@@ -104,4 +104,3 @@ BOOST_AUTO_TEST_CASE( WireIteratorsTest )
 */
 
 BOOST_AUTO_TEST_SUITE_END()
-

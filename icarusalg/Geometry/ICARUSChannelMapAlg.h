@@ -329,7 +329,7 @@ class icarus::ICARUSChannelMapAlg: public geo::ChannelMapAlg {
   
   //@{
   virtual geo::WireID NearestWireID
-    (const TVector3& worldPos, geo::PlaneID const& planeID) const override;
+    (const geo::Point_t& worldPos, geo::PlaneID const& planeID) const override;
   //@}
   
   virtual std::set<geo::PlaneID> const& PlaneIDs() const override;
