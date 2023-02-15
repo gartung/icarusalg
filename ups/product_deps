@@ -251,7 +251,7 @@ gdmldir	product_dir	gdml
 product		version		qual	flags		<table_format=2>
 guideline_sl	v3_1_0		-
 larsoftobj	v09_27_00	-
-sbnobj	v09_15_04	-
+sbnobj  	v09_15_05	-
 cetmodules	v3_20_00	-	only_for_build
 end_product_list
 ####################################
