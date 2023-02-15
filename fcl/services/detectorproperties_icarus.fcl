@@ -29,6 +29,8 @@ icarus_detproperties: {
   InheritNumberTimeSamples:  true
 
   SimpleBoundaryProcess:     false # relevant only when using full Optical simulation
+
+  IncludeInterPlanePitchInXTickOffsets: false # removed by deconvolution
   
 } // icarus_detproperties
 
