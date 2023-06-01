@@ -23,6 +23,14 @@
 #include <string>
 #include <cassert>
 
+namespace util::detail {
+  // 'gDirectory' is defined as a ROOT macro that, when preprocessed, expands to
+  // 'ROOT::Internal...'.  Because ROOT does not include the global namespace (::) as a
+  // prefix to the ROOT namespace, there is an ambiguity to the compiler if gDirectory is
+  // used within a namespace like util::ROOT.  We therefore use 'gDirectory' outside of
+  // the util::ROOT namespace until ROOT updates the definition of the 'gDirectory' macro.
+  TDirectory* current_root_directory() { return gDirectory; }
+}
 
 namespace util::ROOT {
   
@@ -96,7 +104,7 @@ namespace util::ROOT {
     /// Returns whether there is a directory to be restored on destruction.
     bool hasSaved() const     { return saved() != nullptr; }
     
-    static TDirectory* currentDir() { return gDirectory; }
+    static TDirectory* currentDir() { return util::detail::current_root_directory(); }
     
   }; // class TDirectoryChanger
   
