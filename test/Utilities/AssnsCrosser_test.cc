@@ -41,6 +41,7 @@ struct DataType {
   
   std::size_t ID = NoID;
   
+  DataType(std::size_t ID = NoID): ID(ID) {}
   
   operator std::string() const
     {
@@ -51,13 +52,13 @@ struct DataType {
 }; // DataType<>
 
 
-struct DataTypeA: DataType<1> {};
-struct DataTypeB: DataType<2> {};
-struct DataTypeC: DataType<3> {};
-struct DataTypeD: DataType<4> {};
-struct DataTypeE: DataType<5> {};
-struct DataTypeF: DataType<6> {};
-struct DataTypeG: DataType<7> {};
+struct DataTypeA: DataType<1> { using DataType<1>::DataType; };
+struct DataTypeB: DataType<2> { using DataType<2>::DataType; };
+struct DataTypeC: DataType<3> { using DataType<3>::DataType; };
+struct DataTypeD: DataType<4> { using DataType<4>::DataType; };
+struct DataTypeE: DataType<5> { using DataType<5>::DataType; };
+struct DataTypeF: DataType<6> { using DataType<6>::DataType; };
+struct DataTypeG: DataType<7> { using DataType<7>::DataType; };
 
 
 //------------------------------------------------------------------------------

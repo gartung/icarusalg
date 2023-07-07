@@ -1500,7 +1500,7 @@ struct icarus::ns::util::details::MapJoiner {
       for (InputSpec& spec: inputSpecs) {
         append(tags,
           visit(
-            TagListExtractor{ &event },
+            TagListExtractor<Event>{ &event },
             static_cast<SupportedInputSpecs&&>(spec)
           ));
       } // for
