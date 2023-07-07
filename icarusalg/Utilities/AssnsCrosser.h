@@ -54,6 +54,12 @@ namespace icarus::ns::util {
   AssnsCrosser<KeyType, OtherTypes...> makeAssnsCrosser
     (Event const& event, InputSpecs<OtherTypes>... inputSpecs);
   
+  template <typename KeyType, typename... OtherTypes, typename Event>
+  AssnsCrosser<KeyType, OtherTypes...> makeAssnsCrosser(
+    Event const& event,
+    StartSpecs<KeyType>, InputSpecs<OtherTypes>... inputSpecs
+    );
+  
   std::ostream& operator<< (std::ostream& out, InputSpec const& spec);
   template <typename T>
   std::ostream& operator<< (std::ostream& out, StartSpec<T> const& spec);
