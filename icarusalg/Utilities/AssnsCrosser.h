@@ -15,7 +15,9 @@
 // framework libraries
 #include "canvas/Persistency/Common/Assns.h"
 #include "canvas/Persistency/Common/Ptr.h"
-#include "canvas/Persistency/Common/ProductPtr.h"
+#if defined CANVAS_DEC_VERSION && (CANVAS_DEC_VERSION >= 31100)
+# include "canvas/Persistency/Common/ProductPtr.h"
+#endif
 #include "canvas/Persistency/Provenance/BranchDescription.h"
 #include "canvas/Persistency/Provenance/ProductID.h"
 #include "canvas/Utilities/InputTag.h"
@@ -85,7 +87,9 @@ namespace icarus::ns::util {
       , art::InputTag
       , art::ProductID
       , art::Ptr<T>
+#if defined CANVAS_DEC_VERSION && (CANVAS_DEC_VERSION >= 531100)
       , art::ProductPtr<T>
+#endif
       , std::vector<art::Ptr<T>>
       >;
     
@@ -1033,8 +1037,10 @@ bool icarus::ns::util::StartSpec<T>::hasSpec() const noexcept {
     using Base_t::HasSpecTest::operator();
     bool operator() (art::Ptr<Key_t> const& ptr) const
       { return ptr.isNonnull(); }
+#if defined CANVAS_DEC_VERSION && (CANVAS_DEC_VERSION >= 531100)
     bool operator() (art::ProductPtr<Key_t> const& ptr) const
       { return (*this)(ptr.id()); }
+#endif
     bool operator() (std::vector<art::Ptr<Key_t>> const& ptrs) const
       {
         return std::any_of
@@ -1697,9 +1703,11 @@ auto icarus::ns::util::AssnsCrosser<KeyType, OtherTypes...>::keysFromSpecs
     else if (std::holds_alternative<art::ProductID>(spec)) {
       IDs.push_back(std::get<art::ProductID>(spec));
     }
+#if defined CANVAS_DEC_VERSION && (CANVAS_DEC_VERSION >= 531100)
     else if (std::holds_alternative<art::ProductPtr<T>>(spec)) {
       IDs.push_back(std::get<art::ProductPtr<T>>(spec).id());
     }
+#endif
     else if (std::holds_alternative<std::monostate>(spec)) {
       // ignored, since there are other specs (or `hasSpecs()` would be `false`)
     }
