@@ -209,13 +209,14 @@ namespace icarus::ns::util {
  *    `gallery::Event`.
  * 
  * Differences include:
+ *  * `AssnsCrosser` interface only covers the functionality of `art::FindManyP`
+ *    and `art::FindOneP`, not `art::FindMany`.
  *  * of course, `AssnsCrosser` supports _indirectly_ associated data products.
- *  * `AssnsCrosser` interface only covers `art::FindManyP`: not `art::FindMany`
- *    nor `art::FindOneP`.
- *  * `art::FindManyP` allows to specify a subset of key pointers to discover
- *    the associations of; `AssnsCrosser` options are a bit more limited,
- *    in that the interface does not allow to specify a `std::vector` of
- *    pointers to include (yet).
+ *  * the assumption on whether an association is one-to-one or one-to-many
+ *    is reflected in which `art::FindXxx` class is chosen (respectively
+ *    `art::FindOneP` and `art::FindManyP`), while here the same class
+ *    `AssnsCrosser` is used, and the assumption is reflected on whether
+ *    `assPtr()` or `assPtrs()` method is used for the query.
  *  * `AssnsCrosser` indexes by _art_ pointer of the key, while `art::FindManyP`
  *    indexes by the position of the key in the list specified as input (which
  *    is bound to match the pointer `key()` when a whole handle is specified as
@@ -230,6 +231,8 @@ namespace icarus::ns::util {
  * 
  * Examples
  * ---------
+ * 
+ * ### Setting up a association crosser object
  * 
  * Let's assume we have three data types, `DataTypeA` associated with
  * `DataTypeB` and the latter associated with `DataTypeC`.
@@ -307,6 +310,17 @@ namespace icarus::ns::util {
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Note that only a collection of type `std::vector<art::Ptr<DataTypeA>>` is
  * supported (for example, `art::PtrVector<DataTypeA>` would not be).
+ * 
+ * 
+ * ### Using a association crosser object
+ * 
+ * As mentioned in the introduction, `AssnsCrosser` objects differ from
+ * `art::FindManyP` in that they are queried via _art_ pointers rather than
+ * indices.
+ * 
+ * The interface for the query is `assPtr()` (see its documentation for
+ * examples).
+ * 
  */
 template <typename KeyType, typename... OtherTypes>
 class icarus::ns::util::AssnsCrosser
@@ -369,9 +383,31 @@ class icarus::ns::util::AssnsCrosser
    * @param keyPtr pointer to the key object to find the associated objects of
    * @return a list pointers to all target objects associated to `keyPtr`
    * 
+   * This query supports a one-to-many association.
    * If the `keyPtr` is unknown (either because it's not a valid object in this
    * context, or because the pointed object does not have any associated target
    * object) an empty collection is returned.
+   * 
+   * In this example, associating `DataTypeA` objects to `DataTypeC` ones,
+   * all objects of type `DataTypeA` are tried one after the other:
+   * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
+   * icarus::ns::util::AssnsCrosser<DataTypeA, DataTypeB, DataTypeC> const AtoC
+   *   { event, art::InputTag{ "B" }, art::InputTag{ "C" } };
+   * 
+   * auto const& Ahandle = event.getValidHandle<std::vector<DataTypeA>>("B");
+   * 
+   * for (std::size_t iA = 0; iA < Ahandle->size(); ++iA) {
+   *   
+   *   art::Ptr<DataTypeA> const Aptr{ Ahandle, iA };
+   *   
+   *   std::vector<art::Ptr<DataTypeC>> const& Cptrs = AtoC.assPtrs(Aptr);
+   *   
+   *   // ...
+   * } // for
+   * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   * In the loop, a _art_ pointer to each `DataTypeA` object is created in order
+   * to query the associated `DataTypeC`. See also `assPtr()` for further usage
+   * patterns common to the two methods.
    */
   TargetPtrs_t const& assPtrs(KeyPtr_t const& keyPtr) const
     { return fAssnsMap.assPtrs(keyPtr); }
@@ -383,11 +419,54 @@ class icarus::ns::util::AssnsCrosser
    * @throw art::Exception (code: `art::errors::LogicError`) if there are more
    *        than one target pointer associated to the specified key
    * 
+   * This query assumes a one-to-one association.
    * If the `keyPtr` is unknown (either because it's not a valid object in this
    * context, or because the pointed object does not have any associated target
    * object) the pointer is returned null.
    * If there are more than one elements associated with the key,
    * an exception is thrown.
+   * 
+   * In this example, associating `DataTypeA` objects to `DataTypeC` ones,
+   * all objects of type `DataTypeA` are tried one after the other:
+   * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
+   * icarus::ns::util::AssnsCrosser<DataTypeA, DataTypeB, DataTypeC> const AtoC
+   *   { event, art::InputTag{ "B" }, art::InputTag{ "C" } };
+   * 
+   * auto const& Ahandle = event.getValidHandle<std::vector<DataTypeA>>("B");
+   * 
+   * for (std::size_t iA = 0; iA < Ahandle->size(); ++iA) {
+   *   
+   *   art::Ptr<DataTypeA> const Aptr{ Ahandle, iA };
+   *   
+   *   art::Ptr<DataTypeC> const Cptr = AtoC.assPtr(Aptr);
+   *   
+   *   // ...
+   * } // for
+   * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   * In the loop, a _art_ pointer to each `DataTypeA` object is created in order
+   * to query the associated `DataTypeC`. While this may add complications in
+   * the simplest case (as in the example), it allows for mixing multiple input
+   * collections (e.g. trying to cross an associations of tracks stored with one
+   * data product per cryostat to CRT hits stored in a single data product), and
+   * to pass a selection of objects (via _art_ pointers):
+   * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.cpp}
+   * icarus::ns::util::AssnsCrosser<DataTypeA, DataTypeB, DataTypeC> const AtoC
+   *   { event, art::InputTag{ "B" }, art::InputTag{ "C" } };
+   * 
+   * auto const& Ahandle = event.getValidHandle<std::vector<DataTypeA>>("B");
+   * 
+   * for (art::Ptr<DataTypeA> const& Aptr: selectDataA(Ahandle)) {
+   *   
+   *   art::Ptr<DataTypeC> const Cptr = AtoC.assPtr(Aptr);
+   *   
+   *   // ...
+   * } // for
+   * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   * (with
+   * `template <typename Handle> std::vector<art::Ptr<DataTypeA>> selectDataA(Handle const& handle)`
+   * some selection function, templated to `Handle` to support both
+   * `art::Handle` and `art::ValidHandle`).
+   * 
    */
   TargetPtr_t const& assPtr(KeyPtr_t const& keyPtr) const;
   
