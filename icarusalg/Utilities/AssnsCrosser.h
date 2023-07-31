@@ -1226,7 +1226,7 @@ template <typename KeyType, typename FirstHopType, typename... OtherHopTypes>
 struct icarus::ns::util::details::MapJoiner {
   
   // the first and other hop types are kept separate because it's hard
-  // to plit the parameter pack of the others from the complete one otherwise
+  // to split the parameter pack of the others from the complete one otherwise
   
   using TargetType = typename last_type<FirstHopType, OtherHopTypes...>::type;
   
@@ -1683,7 +1683,7 @@ auto icarus::ns::util::AssnsCrosser<KeyType, OtherTypes...>
    * Otherwise, we go backward (faster) unless there is no specification for
    * the last hop (in which case we can't start from the back).
    * 
-   * When both algorithms are available, we prefer the backward one.
+   * When both algorithms are available, the backward one is chosen.
    */
   
   bool const hasStartInfo = startSpecs.hasSpecs();
@@ -1739,7 +1739,7 @@ auto icarus::ns::util::AssnsCrosser<KeyType, OtherTypes...>::keysFromSpecs
 {
   /*
    * An interface needs to be established.
-   * The specification may follow the pattern of the InputSpecs, but but can't
+   * The specification may follow the pattern of the InputSpecs, but can't
    * use InputSpecsBase as it is now, since the hosted data types may need a
    * templated type (see below).
    * A list of possible supported input:
