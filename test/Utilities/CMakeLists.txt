@@ -44,3 +44,13 @@ cet_test(TrackTimeInterval_test USE_BOOST_UNIT
   larcorealg::Geometry
   lardataobj::RecoBase
 )
+
+cet_test(AssnsCrosser_test
+  LIBRARIES
+    icarusalg::Utilities
+    icarusalg::Test
+    canvas::canvas
+    cetlib::cetlib
+  USE_BOOST_UNIT
+  )
+

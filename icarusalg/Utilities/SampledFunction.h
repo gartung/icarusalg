@@ -16,7 +16,7 @@
 
 // C++ core guideline library
 #include "gsl/span"
-#include "gsl/gsl_util" // gsl::index
+#include "gsl/util" // gsl::index
 
 // C++ standard library
 #include <vector>

@@ -17,7 +17,7 @@ cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
 # cmake_policy(VERSION 3.19)
 
 find_package(cetmodules 3.20.00 REQUIRED)
-project(icarusalg VERSION 09.75.01.01 LANGUAGES CXX)
+project(icarusalg VERSION 09.75.03.02 LANGUAGES CXX)
 
 message(STATUS
   "\n-- ============================================================================="
@@ -71,6 +71,18 @@ add_subdirectory(fcl)
 # ups - table and config files
 
 # packaging utility
+
+# detect canvas version and tell it to the software
+string(REGEX MATCHALL "[0-9][0-9]?[0-9]?" CANVAS_VERSION_LIST "${canvas_VERSION}")
+list(GET CANVAS_VERSION_LIST 0 CANVAS_MAJOR_VERSION)
+list(GET CANVAS_VERSION_LIST 1 CANVAS_MINOR_VERSION)
+list(GET CANVAS_VERSION_LIST 2 CANVAS_PATCH_VERSION)
+math(EXPR CANVAS_DEC_VERSION
+  "${CANVAS_MAJOR_VERSION} * 10000 + ${CANVAS_MINOR_VERSION} * 100 + ${CANVAS_PATCH_VERSION}"
+  OUTPUT_FORMAT DECIMAL
+  )
+add_definitions("-DCANVAS_DEC_VERSION=${CANVAS_DEC_VERSION}")
+message(STATUS "Detected canvas version ${CANVAS_MAJOR_VERSION}.${CANVAS_MINOR_VERSION}.${CANVAS_PATCH_VERSION}'.")
 
 message(STATUS
   "\n-- ==="
