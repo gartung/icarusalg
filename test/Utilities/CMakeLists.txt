@@ -32,3 +32,11 @@ cet_test(NonRandomCounter_test
     cetlib::cetlib
   USE_BOOST_UNIT
   )
+cet_test(AssnsCrosser_test
+  LIBRARIES
+    icarusalg::Utilities
+    icarusalg::Test
+    canvas::canvas
+    cetlib::cetlib
+  USE_BOOST_UNIT
+  )
