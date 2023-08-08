@@ -32,6 +32,19 @@ cet_test(NonRandomCounter_test
     cetlib::cetlib
   USE_BOOST_UNIT
   )
+
+cet_test(TrackTimeInterval_test USE_BOOST_UNIT
+  TEST_ARGS -- standard_g4_icarus.fcl
+  LIBRARIES PRIVATE
+  icarusalg::Utilities
+  icarusalg::Geometry
+  lardataalg::DetectorInfo_TestHelpers
+  lardataalg::DetectorInfo
+  larcorealg::geometry_unit_test_base
+  larcorealg::Geometry
+  lardataobj::RecoBase
+)
+
 cet_test(AssnsCrosser_test
   LIBRARIES
     icarusalg::Utilities
@@ -40,3 +53,4 @@ cet_test(AssnsCrosser_test
     cetlib::cetlib
   USE_BOOST_UNIT
   )
+
