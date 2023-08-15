@@ -494,7 +494,7 @@ def module(style="c", reg='tt', length=0):
     #place first layer of strips (only layer for m modules)
     #top layer for c or d modules
     for i, (es, ev) in enumerate(strips):
-        pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'])#, copynumber=i)
+        pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'], copynumber=str(i))
         ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
 
         if style=='m':
@@ -514,7 +514,7 @@ def module(style="c", reg='tt', length=0):
     #place bottom layers
     if style=='c':
         for i, (es, ev) in enumerate(strips2):
-            pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'])#, copynumber=i)
+            pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'], copynumber=str(i))
             ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
 
             dy= -0.5*(YCTOP+PADStrip)
@@ -529,7 +529,7 @@ def module(style="c", reg='tt', length=0):
 
     if style=='d':
         for i, (es, ev) in enumerate(strips2):
-            pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'])#, copynumber=i)
+            pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'], copynumber=str(i))
             ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
 
             dy= -0.5*(y+PADStrip)
