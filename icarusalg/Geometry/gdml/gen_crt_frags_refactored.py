@@ -140,6 +140,7 @@ SHELLY = 1.1*cModH+TOPCRTBEAMTOFLOOR-BOTTOMCRTROLLERHEIGHT*0.9
 #ORIGINAL definition
 #MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACKSOUTHY*mModW+(NMODSTACKSOUTHY-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION
 #MINOSLATFIXY = MINOSSOUTHY
+#MODIFIED
 MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+18
 MINOSLATFIXY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+5
 MINOSLATROLLY = MINOSLATFIXY-0.5*mModW+10
@@ -494,7 +495,7 @@ def module(style="c", reg='tt', length=0):
     #place first layer of strips (only layer for m modules)
     #top layer for c or d modules
     for i, (es, ev) in enumerate(strips):
-        pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'], copynumber=str(i))
+        pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(i))#='p'+
         ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
 
         if style=='m':
@@ -514,7 +515,7 @@ def module(style="c", reg='tt', length=0):
     #place bottom layers
     if style=='c':
         for i, (es, ev) in enumerate(strips2):
-            pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'], copynumber=str(i))
+            pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(i))#='p'+
             ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
 
             dy= -0.5*(YCTOP+PADStrip)
@@ -529,7 +530,7 @@ def module(style="c", reg='tt', length=0):
 
     if style=='d':
         for i, (es, ev) in enumerate(strips2):
-            pv = ET.SubElement(vin, 'physvol', name='p'+ev.attrib['name'], copynumber=str(i))
+            pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(i))#='p'+
             ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
 
             dy= -0.5*(y+PADStrip)
@@ -1172,6 +1173,7 @@ def detectorEnclosure():
     #shell outer and void dimensions
     #Original definition
     #WVPADY = 25 
+    #Modified
     WVPADY = 25 + 18
     xxint = str(WVWIDTH + 2*SIDECRTWVOFFSET)
     yyint = str(WVHEIGHT+1.0+WVPADY) 
