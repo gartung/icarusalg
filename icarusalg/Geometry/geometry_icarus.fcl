@@ -163,19 +163,6 @@ icarus_standard_geometry: {
 
 } # icarus_standard_geometry
 
-#icarus_auxdetgeo:
-#{
-#  Name: "icarus_v4"
-#  GDML: "icarus_complete_20220518_overburden.gdml"
-#  ROOT: "icarus_complete_20220518_overburden.gdml"
-#  SortingParameters: {}                   # empty parameter set for default
-#}
-
-#icarus_auxdetgeometry_helper:
-#{
-# service_provider: "icaruscode/CRT/CRTGeometryHelper"
-#}
-
 #
 # geometry configuration bundle
 #
@@ -184,8 +171,7 @@ icarus_standard_geometry_services: {
   Geometry:               @local::icarus_standard_geometry
   ExptGeoHelperInterface: @local::icarus_standard_geometry_helper
   GeometryConfigurationWriter: {}
-#  AuxDetExptGeoHelperInterface:   @local::icarus_auxdetgeometry_helper
-#  AuxDetGeometry:                 @local::icarus_auxdetgeo
+
 } # icarus_standard_geometry_services
 
 
