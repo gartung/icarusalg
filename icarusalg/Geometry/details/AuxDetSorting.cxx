@@ -49,8 +49,6 @@ namespace {
     int ad1Num = std::atoi( ad1name.substr( base1.size(), 3).c_str() );
     int ad2Num = std::atoi( ad2name.substr( base2.size(), 3).c_str() );
 
-    std::cout << "sort crt: " << ad1name << " " << ad1Num << " " << ad2name << " " << ad2Num << std::endl;
-
     return ad1Num < ad2Num;
 
   } // AuxDetStandardSortingRule()
@@ -83,7 +81,6 @@ namespace {
     int ad1Num = atoi( ad1name.substr( baseMod1.size(), 3).c_str() );
     int ad2Num = atoi( ad2name.substr( baseMod2.size(), 3).c_str() );
 
-    std::cout << "sort crt2: " << ad1name << " " << ad1Num << " " << ad2name << " " << ad2Num << std::endl;
     if(ad1Num!=ad2Num) return ad1Num < ad2Num;
 
     ad1Num = std::atoi( ad1name.substr( baseStr1.size(), 2).c_str() );
