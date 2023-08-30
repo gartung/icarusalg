@@ -137,6 +137,9 @@ CERNROOFL = NTOPZ*cModW+(NTOPZ-1)*CERNMODSPACE
 #CRT shell
 SHELLY = 1.1*cModH+TOPCRTBEAMTOFLOOR-BOTTOMCRTROLLERHEIGHT*0.9
 #MINOS sections positions
+#ORIGINAL definition
+#MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACKSOUTHY*mModW+(NMODSTACKSOUTHY-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION
+#MINOSLATFIXY = MINOSSOUTHY
 MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+18
 MINOSLATFIXY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+5
 MINOSLATROLLY = MINOSLATFIXY-0.5*mModW+10
@@ -358,12 +361,6 @@ def strip(style="m", modnum=0, stripnum=0, length=0):
 
     else:
         s = solids_store[sname]
-
-    #vname = 'volAuxDetSensitive_' + name
-    #v = ET.SubElement(structure, 'volume', name=vname) #Logical volume
-    #ET.SubElement(v, 'materialref', ref='Polystyrene')
-    #ET.SubElement(v, 'solidref', ref=sname)
-    #ET.SubElement(v, 'auxiliary' , auxtype='SensDet', auxvalue='AuxDet') #Add for new LArg4 requirements
 
     #print("strip produced!")
     class ObjAttr:
@@ -1173,6 +1170,8 @@ def cernLongRimTagger(side='U'):
 def detectorEnclosure():
 
     #shell outer and void dimensions
+    #Original definition
+    #WVPADY = 25 
     WVPADY = 25 + 18
     xxint = str(WVWIDTH + 2*SIDECRTWVOFFSET)
     yyint = str(WVHEIGHT+1.0+WVPADY) 
