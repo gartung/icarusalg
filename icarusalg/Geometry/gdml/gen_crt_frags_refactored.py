@@ -137,10 +137,6 @@ CERNROOFL = NTOPZ*cModW+(NTOPZ-1)*CERNMODSPACE
 #CRT shell
 SHELLY = 1.1*cModH+TOPCRTBEAMTOFLOOR-BOTTOMCRTROLLERHEIGHT*0.9
 #MINOS sections positions
-#ORIGINAL definition
-#MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACKSOUTHY*mModW+(NMODSTACKSOUTHY-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION
-#MINOSLATFIXY = MINOSSOUTHY
-#MODIFIED
 MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+18
 MINOSLATFIXY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+5
 MINOSLATROLLY = MINOSLATFIXY-0.5*mModW+10
@@ -193,6 +189,7 @@ beam_id = 0
 nModM = 0
 nModC = 0
 nModD = 0
+copynumbers = dict()
 
 def get_mod_id(style='m'):
     global mod_id
@@ -375,6 +372,8 @@ def strip(style="m", modnum=0, stripnum=0, length=0):
     v.attrib['name'] = vname
     v.attrib['lname'] = lname
 
+    copynumbers['lname'] = copynumbers.get('lname',0)
+
     return s, v #return solid, logical volumes
 
 def module(style="c", reg='tt', length=0):
@@ -495,8 +494,9 @@ def module(style="c", reg='tt', length=0):
     #place first layer of strips (only layer for m modules)
     #top layer for c or d modules
     for i, (es, ev) in enumerate(strips):
-        pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(i))#='p'+
+        pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(copynumbers['lname']))
         ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
+        copynumbers['lname'] = copynumbers['lname']+1
 
         if style=='m':
             dy = (2*i - ny + 1)* 0.5 * (y+PADStrip)
@@ -515,8 +515,9 @@ def module(style="c", reg='tt', length=0):
     #place bottom layers
     if style=='c':
         for i, (es, ev) in enumerate(strips2):
-            pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(i))#='p'+
+            pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(copynumbers['lname']))
             ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
+            copynumbers['lname'] = copynumbers['lname']+1
 
             dy= -0.5*(YCTOP+PADStrip)
             dz=(2*i - ny + 1)* 0.5 * (x+PADStrip)
@@ -530,8 +531,9 @@ def module(style="c", reg='tt', length=0):
 
     if style=='d':
         for i, (es, ev) in enumerate(strips2):
-            pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(i))#='p'+
+            pv = ET.SubElement(vin, 'physvol', name=ev.attrib['name'], copynumber=str(copynumbers['lname']))
             ET.SubElement(pv, 'volumeref', ref=ev.attrib['lname'])
+            copynumbers['lname'] = copynumbers['lname']+1
 
             dy= -0.5*(y+PADStrip)
             dx=(i - 0.5*ny + 0.75) * (x+PADStrip)
@@ -1171,9 +1173,6 @@ def cernLongRimTagger(side='U'):
 def detectorEnclosure():
 
     #shell outer and void dimensions
-    #Original definition
-    #WVPADY = 25 
-    #Modified
     WVPADY = 25 + 18
     xxint = str(WVWIDTH + 2*SIDECRTWVOFFSET)
     yyint = str(WVHEIGHT+1.0+WVPADY) 
@@ -1481,9 +1480,6 @@ print('DblCh modules generated: '+str(nModD))
 
 #write to file
 with open('icarus_crt.gdml', 'w') as f:
-    #s = ET.tostring(gdml)
-    #p = minidom.parseString(s)
-    #f.write(p.toprettyxml(indent='\t'))
     f.write(minidom.parseString(ET.tostring(gdml)).toprettyxml(indent='\t'))
 
 print('Writing dictionary to file...')
