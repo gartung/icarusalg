@@ -20,7 +20,7 @@ cet_test(IntegerRanges_test LIBRARIES cetlib::cetlib larcorealg::CoreUtils USE_B
 
 cet_test(BinningSpecs_test
   LIBRARIES
-    icarusalg_Utilities
+    icarusalg::Utilities
     cetlib::cetlib
   USE_BOOST_UNIT
   )
@@ -43,6 +43,13 @@ cet_test(TrackTimeInterval_test USE_BOOST_UNIT
   larcorealg::geometry_unit_test_base
   larcorealg::Geometry
   lardataobj::RecoBase
+)
+
+cet_test(TimeIntervalConfig_test USE_BOOST_UNIT
+  LIBRARIES PRIVATE
+    icarusalg::Utilities
+    lardataalg::DetectorInfo
+    fhiclcpp::fhiclcpp
 )
 
 cet_test(AssnsCrosser_test
