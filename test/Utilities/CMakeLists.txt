@@ -61,3 +61,8 @@ cet_test(AssnsCrosser_test
   USE_BOOST_UNIT
   )
 
+cet_test(sortLike_test
+  LIBRARIES
+    icarusalg::Utilities
+  USE_BOOST_UNIT
+  )
