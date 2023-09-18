@@ -106,27 +106,27 @@
    <fraction n="1.0" ref="videRef"/>
   </material>
 
-  <material name="ALUMINUMAl" formula="ALUMINUMAl">
+  <material name="ALUMINUM_Al" formula="ALUMINUM_Al">
    <D value="2.6990" unit="g/cm3"/>
    <fraction n="1.0000" ref="aluminum"/>
   </material>
 
-  <material name="ALUMINUMCRYO" formula="ALUMINUMCRYO">
+  <material name="ALUMINUM_CRYO" formula="ALUMINUM_CRYO">
    <D value="0.5991" unit="g/cm3"/>
    <fraction n="1.0000" ref="aluminum"/>
     </material>
     
-  <material name="ALUMINUMPMT" formula="ALUMINUMPMT">
+  <material name="ALUMINUM_PMT" formula="ALUMINUM_PMT">
    <D value="2.74351" unit="g/cm3"/>
    <fraction n="1.0000" ref="aluminum"/>
   </material>
     
-  <material name="SILICONSi" formula="SILICONSi">
+  <material name="SILICON_Si" formula="SILICON_Si">
    <D value="2.3300" unit="g/cm3"/>
    <fraction n="1.0000" ref="silicon"/>
   </material>
 
-  <material name="epoxyresin" formula="C38H40O6Br4">
+  <material name="epoxy_resin" formula="C38H40O6Br4">
    <D value="1.1250" unit="g/cm3"/>
    <composite n="38" ref="carbon"/>
    <composite n="40" ref="hydrogen"/>
@@ -218,7 +218,7 @@
    <composite n="5" ref="oxygen"/>
   </material> 
 
-  <material formula=" " name="DUSELRock">
+  <material formula=" " name="DUSEL_Rock">
     <D value="2.82" unit="g/cm3"/>
     <fraction n="0.5267" ref="SiO2"/>
     <fraction n="0.1174" ref="FeO"/>
@@ -233,7 +233,7 @@
     <fraction n="0.0771" ref="oxygen"/>
   </material> 
 
-  <material name="fibrousglass">
+  <material name="fibrous_glass">
    <D value="2.74351" unit="g/cm3"/>
    <fraction n="0.600" ref="SiO2"/>
    <fraction n="0.118" ref="Al2O3"/>
@@ -246,11 +246,11 @@
 
   <material name="FR4">
    <D value="1.98281" unit="g/cm3"/>
-   <fraction n="0.47" ref="epoxyresin"/>
-   <fraction n="0.53" ref="fibrousglass"/>
+   <fraction n="0.47" ref="epoxy_resin"/>
+   <fraction n="0.53" ref="fibrous_glass"/>
   </material>
 
-  <material name="STEELSTAINLESSFe7Cr2Ni" formula="STEELSTAINLESSFe7Cr2Ni">
+  <material name="STEEL_STAINLESS_Fe7Cr2Ni" formula="STEEL_STAINLESS_Fe7Cr2Ni">
    <D value="7.9300" unit="g/cm3"/>
    <fraction n="0.0010" ref="carbon"/>
    <fraction n="0.1792" ref="chromium"/>
@@ -258,7 +258,7 @@
    <fraction n="0.0900" ref="nickel"/>
   </material>
 
-  <material name="STEELSTAINLESSFe7Cr2NiWV" formula="STEELSTAINLESSFe7Cr2NiWV">
+  <material name="STEEL_STAINLESS_Fe7Cr2Ni_WV" formula="STEEL_STAINLESS_Fe7Cr2Ni_WV">
    <D value="0.38897" unit="g/cm3"/>
    <fraction n="0.0010" ref="carbon"/>
    <fraction n="0.1792" ref="chromium"/>
@@ -266,7 +266,7 @@
    <fraction n="0.0900" ref="nickel"/>
   </material>
     
-  <material name="STEELSTAINLESSFe7Cr2NiRack" formula="STEELSTAINLESSFe7Cr2NiRack">
+  <material name="STEEL_STAINLESS_Fe7Cr2Ni_Rack" formula="STEEL_STAINLESS_Fe7Cr2Ni_Rack">
    <D value="0.3811" unit="g/cm3"/>
    <fraction n="0.0010" ref="carbon"/>
    <fraction n="0.1792" ref="chromium"/>
@@ -395,7 +395,7 @@
     <fraction n="0.442" ref="oxygen"/>
   </material>
     
-  <material name="STEELA992">
+  <material name="STEEL_A992">
    <D unit="g/cm3" value="7.85"/>
    <fraction n="0.0022"  ref="carbon"/>
    <fraction n="0.005"   ref="copper"/>
@@ -440,7 +440,7 @@
 
  <material formula=" " name="WallPanel">
    <D value="0.22" unit="g/cm3"/>
-   <fraction n="0.811" ref="STEELSTAINLESSFe7Cr2Ni"/>
+   <fraction n="0.811" ref="STEEL_STAINLESS_Fe7Cr2Ni"/>
    <fraction n="0.189" ref="Polyurethane"/>
   </material>
 
@@ -449,10 +449,10 @@
     <fraction n="0.450" ref="asphalt"/>
     <fraction n="0.060" ref="Perlite"/>
     <fraction n="0.344" ref="Polyisocyanurate"/>
-    <fraction n="0.146" ref="STEELSTAINLESSFe7Cr2Ni"/>
+    <fraction n="0.146" ref="STEEL_STAINLESS_Fe7Cr2Ni"/>
   </material>  
   
-  <material formula=" " name="CA6Floor">
+  <material formula=" " name="CA6_Floor">
    <D value="1.698" unit="g/cm3"/>
    <fraction n="0.0030" ref="Na2O"/>
    <fraction n="0.1084" ref="MgO"/>   
@@ -469,7 +469,7 @@
    <fraction n="0.0102" ref="sulphur"/>     
   </material> 
   
-  <material formula=" " name="CA7underground">
+  <material formula=" " name="CA7_underground">
    <D value="1.362" unit="g/cm3"/>
    <fraction n="0.0030" ref="Na2O"/>
    <fraction n="0.1084" ref="MgO"/>   
@@ -906,25 +906,25 @@
      <position name="posFloorContainerAir" unit="cm" x="0" y="0" z="-229.03"/>
      </subtraction> 
                         
-    <subtraction name="BuildingFloor1final">
+    <subtraction name="BuildingFloor_1final">
      <first ref="FloorBox1"/>
      <second ref="FloorBox1air"/>
      <position name="posFloorBox1Air" unit="cm" x="0" y="0" z="-229.03"/>
      </subtraction>   
                 
-    <subtraction name="BuildingFloor2final">
+    <subtraction name="BuildingFloor_2final">
      <first ref="FloorBox2"/>
      <second ref="FloorBox2air"/>
      <position name="posFloorBox2Air" unit="cm" x="0" y="0" z="-229.03"/>
      </subtraction>  
       
-   <subtraction name="BuildingFloor3final">
+   <subtraction name="BuildingFloor_3final">
      <first ref="FloorBox3"/>
      <second ref="FloorBox3air"/>
      <position name="posFloorBox3Air" unit="cm" x="0" y="0" z="0"/>
      </subtraction> 
      
-   <subtraction name="BuildingFloor4final">
+   <subtraction name="BuildingFloor_4final">
      <first ref="FloorBox4"/>
      <second ref="FloorBox4air"/>
      <position name="posFloorBox4Air" unit="cm" x="0" y="0" z="-229.03"/>
@@ -941,51 +941,51 @@
       y="284.5"   
       z="2758.5"/>
 
-    <box name="Buildingext" lunit="cm" 
+    <box name="Building_ext" lunit="cm" 
       x="1890" 
       y="1040" 
       z="3870"/>
       
-    <box name="AirBuildingext" lunit="cm" 
+    <box name="AirBuilding_ext" lunit="cm" 
       x="1889.8254" 
       y="1040  "
       z="3869.8254"/>
 
-    <subtraction name="WallBuildingAlExt">
-     <first ref="Buildingext"/>
-     <second ref="AirBuildingext"/>
+    <subtraction name="WallBuildingAl_Ext">
+     <first ref="Building_ext"/>
+     <second ref="AirBuilding_ext"/>
     <position name="posAirBuildingExt" unit="cm" x="0" y="0" z="0"/> 
      </subtraction>
 
-    <box name="Buildingmiddle" lunit="cm" 
+    <box name="Building_middle" lunit="cm" 
       x="1889.8254" 
       y="1040" 
       z="3869.8254"/>
       
-    <box name="AirBuildingmiddle" lunit="cm" 
+    <box name="AirBuilding_middle" lunit="cm" 
       x="1874.9346" 
       y="1040  "
       z="3855.2838"/>
 
     <subtraction name="WallBuildingInsulation">
-     <first ref="Buildingmiddle"/>
-     <second ref="AirBuildingmiddle"/>
+     <first ref="Building_middle"/>
+     <second ref="AirBuilding_middle"/>
     <position name="posAirBuildingMiddle" unit="cm" x="0" y="0" z="0"/> 
      </subtraction>
      
-    <box name="Buildingint" lunit="cm" 
+    <box name="Building_int" lunit="cm" 
       x="1874.9346" 
       y="1040" 
       z="3854.9346"/>
      
-    <box name="AirBuildingint" lunit="cm" 
+    <box name="AirBuilding_int" lunit="cm" 
       x="1874.76" 
       y="1040  "
       z="3854.76"/>
 
-    <subtraction name="WallBuildingAlInt">
-     <first ref="Buildingint"/>
-     <second ref="AirBuildingint"/>
+    <subtraction name="WallBuildingAl_Int">
+     <first ref="Building_int"/>
+     <second ref="AirBuilding_int"/>
     <position name="posAirBuildingInt" unit="cm" x="0" y="0" z="0"/> 
      </subtraction>
      
@@ -1019,21 +1019,21 @@
       y="1117.28" 
       z="3750"/>
 
-    <subtraction name="WallExpHall1">
+    <subtraction name="WallExpHall_1">
      <first ref="ExpHall"/>
      <second ref="AirExpHall"/>
      <position name="posAirExpHall1" unit="cm" x="0" y="37.06" z="0"/>
      </subtraction>
      
-   <box name="Reinforcedpitfloor" lunit="cm" 
+   <box name="Reinforced_pitfloor" lunit="cm" 
       x="1890" 
       y="27.44" 
       z="3870"/> 
       
  <union name="WallExpHall">
-  <first ref="WallExpHall1"/>
-  <second ref="Reinforcedpitfloor"/>
-   <position name="posReinforcedFloorExpHall" unit="cm" x="0" y="-609.42" z="0"/>
+  <first ref="WallExpHall_1"/>
+  <second ref="Reinforced_pitfloor"/>
+   <position name="posReinforcedFloor_ExpHall" unit="cm" x="0" y="-609.42" z="0"/>
  </union>    
                                            
     <box name="BoxDirt" lunit="cm" 
@@ -1049,7 +1049,7 @@
      
      <subtraction name="DirtUnderground">
      <first  ref="DirtUnderground1"/>
-     <second ref="Reinforcedpitfloor"/>
+     <second ref="Reinforced_pitfloor"/>
      <position name="posReinforcedFloorUnderground" unit="cm" x="0" y="1675.88" z="428.099347729162"/> 
      </subtraction>     
      
@@ -1059,15 +1059,15 @@
 <!--+++++++++++++++++ RACETRACK Logical Volumes ++++++++++++++++++++-->
 
     <volume name="volRaceTrackTTubeVolume"> 
-      <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>  
+      <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>  
       <solidref ref="RaceTrackTTubeVolume"/>
     </volume>
     <volume name="volRaceTrackBTubeVolume"> 
-      <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>  
+      <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>  
       <solidref ref="RaceTrackBTubeVolume"/>
     </volume>
     <volume name="volRaceTrackUTubeVolume"> 
-      <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>  
+      <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>  
       <solidref ref="RaceTrackUTubeVolume"/>
     </volume>
 
@@ -1638,7 +1638,7 @@
       <auxiliary auxtype="SensDet" auxvalue="PhotonDetector"/>
     </volume>
     <volume name="volNotOpDetSensitive"> 
-      <materialref ref="ALUMINUMPMT"/>  
+      <materialref ref="ALUMINUM_PMT"/>  
       <solidref ref="PMTPassVolume"/>
     </volume>
     <volume name="volActiveInnerPMT"> 
@@ -1654,13 +1654,13 @@
 <!--+++++++++++++++++ Structure Logical Volumes ++++++++++++++++++++-->
 
 <volume name="volLatMech"> 
-  <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>  
+  <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>  
   <solidref ref="LatMechShell"/>
 </volume>
 
 
     <volume name="volAlumShell">
-      <materialref ref="ALUMINUMCRYO" />
+      <materialref ref="ALUMINUM_CRYO" />
       <solidref ref="AlumShell" />
     </volume>
     <volume name="volGaseousArgon">
@@ -1668,7 +1668,7 @@
       <solidref ref="GaseousArgon"/>
     </volume>
     <volume name="volCathodeStrip"> 
-      <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>  
+      <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>  
       <solidref ref="CathodeStrip"/>
     </volume>
     <volume name="volCathode">
@@ -1941,7 +1941,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive00" unit="cm"  x=" -4.37" y="-105.6" z="-823.02"/>
+   <position name="posPMT_Active00" unit="cm"  x=" -4.37" y="-105.6" z="-823.02"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -1951,7 +1951,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive01" unit="cm"  x=" -4.37" y="-105.6" z="-773.14"/>
+   <position name="posPMT_Active01" unit="cm"  x=" -4.37" y="-105.6" z="-773.14"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -1961,7 +1961,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive02" unit="cm"  x=" -4.37" y="-105.6" z="-623.5"/>
+   <position name="posPMT_Active02" unit="cm"  x=" -4.37" y="-105.6" z="-623.5"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -1971,7 +1971,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive03" unit="cm"  x=" -4.37" y="-105.6" z="-573.62"/>
+   <position name="posPMT_Active03" unit="cm"  x=" -4.37" y="-105.6" z="-573.62"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -1981,7 +1981,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive04" unit="cm"  x=" -4.37" y="-105.6" z="-423.98"/>
+   <position name="posPMT_Active04" unit="cm"  x=" -4.37" y="-105.6" z="-423.98"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -1991,7 +1991,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive05" unit="cm"  x=" -4.37" y="-105.6" z="-374.1"/>
+   <position name="posPMT_Active05" unit="cm"  x=" -4.37" y="-105.6" z="-374.1"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2001,7 +2001,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive06" unit="cm"  x=" -4.37" y="-105.6" z="-224.46"/>
+   <position name="posPMT_Active06" unit="cm"  x=" -4.37" y="-105.6" z="-224.46"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2011,7 +2011,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive07" unit="cm"  x=" -4.37" y="-105.6" z="-174.58"/>
+   <position name="posPMT_Active07" unit="cm"  x=" -4.37" y="-105.6" z="-174.58"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2021,7 +2021,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive08" unit="cm"  x=" -4.37" y="-105.6" z="-24.94"/>
+   <position name="posPMT_Active08" unit="cm"  x=" -4.37" y="-105.6" z="-24.94"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2031,7 +2031,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive09" unit="cm"  x=" -4.37" y="-105.6" z="24.94"/>
+   <position name="posPMT_Active09" unit="cm"  x=" -4.37" y="-105.6" z="24.94"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2041,7 +2041,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive010" unit="cm"  x=" -4.37" y="-105.6" z="174.58"/>
+   <position name="posPMT_Active010" unit="cm"  x=" -4.37" y="-105.6" z="174.58"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2051,7 +2051,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive011" unit="cm"  x=" -4.37" y="-105.6" z="224.46"/>
+   <position name="posPMT_Active011" unit="cm"  x=" -4.37" y="-105.6" z="224.46"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2061,7 +2061,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive012" unit="cm"  x=" -4.37" y="-105.6" z="374.1"/>
+   <position name="posPMT_Active012" unit="cm"  x=" -4.37" y="-105.6" z="374.1"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2071,7 +2071,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive013" unit="cm"  x=" -4.37" y="-105.6" z="423.98"/>
+   <position name="posPMT_Active013" unit="cm"  x=" -4.37" y="-105.6" z="423.98"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2081,7 +2081,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive014" unit="cm"  x=" -4.37" y="-105.6" z="573.62"/>
+   <position name="posPMT_Active014" unit="cm"  x=" -4.37" y="-105.6" z="573.62"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2091,7 +2091,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive015" unit="cm"  x=" -4.37" y="-105.6" z="623.5"/>
+   <position name="posPMT_Active015" unit="cm"  x=" -4.37" y="-105.6" z="623.5"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2101,7 +2101,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive016" unit="cm"  x=" -4.37" y="-105.6" z="773.14"/>
+   <position name="posPMT_Active016" unit="cm"  x=" -4.37" y="-105.6" z="773.14"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2111,7 +2111,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive017" unit="cm"  x=" -4.37" y="-105.6" z="823.02"/>
+   <position name="posPMT_Active017" unit="cm"  x=" -4.37" y="-105.6" z="823.02"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2121,7 +2121,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive018" unit="cm"  x=" -4.37" y="-52.8" z="-872.9"/>
+   <position name="posPMT_Active018" unit="cm"  x=" -4.37" y="-52.8" z="-872.9"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2131,7 +2131,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive019" unit="cm"  x=" -4.37" y="-52.8" z="-723.26"/>
+   <position name="posPMT_Active019" unit="cm"  x=" -4.37" y="-52.8" z="-723.26"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2141,7 +2141,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive020" unit="cm"  x=" -4.37" y="-52.8" z="-673.38"/>
+   <position name="posPMT_Active020" unit="cm"  x=" -4.37" y="-52.8" z="-673.38"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2151,7 +2151,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive021" unit="cm"  x=" -4.37" y="-52.8" z="-523.74"/>
+   <position name="posPMT_Active021" unit="cm"  x=" -4.37" y="-52.8" z="-523.74"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2161,7 +2161,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive022" unit="cm"  x=" -4.37" y="-52.8" z="-473.86"/>
+   <position name="posPMT_Active022" unit="cm"  x=" -4.37" y="-52.8" z="-473.86"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2171,7 +2171,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive023" unit="cm"  x=" -4.37" y="-52.8" z="-324.22"/>
+   <position name="posPMT_Active023" unit="cm"  x=" -4.37" y="-52.8" z="-324.22"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2181,7 +2181,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive024" unit="cm"  x=" -4.37" y="-52.8" z="-274.34"/>
+   <position name="posPMT_Active024" unit="cm"  x=" -4.37" y="-52.8" z="-274.34"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2191,7 +2191,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive025" unit="cm"  x=" -4.37" y="-52.8" z="-124.7"/>
+   <position name="posPMT_Active025" unit="cm"  x=" -4.37" y="-52.8" z="-124.7"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2201,7 +2201,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive026" unit="cm"  x=" -4.37" y="-52.8" z="-74.82"/>
+   <position name="posPMT_Active026" unit="cm"  x=" -4.37" y="-52.8" z="-74.82"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2211,7 +2211,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive027" unit="cm"  x=" -4.37" y="-52.8" z="74.82"/>
+   <position name="posPMT_Active027" unit="cm"  x=" -4.37" y="-52.8" z="74.82"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2221,7 +2221,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive028" unit="cm"  x=" -4.37" y="-52.8" z="124.7"/>
+   <position name="posPMT_Active028" unit="cm"  x=" -4.37" y="-52.8" z="124.7"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2231,7 +2231,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive029" unit="cm"  x=" -4.37" y="-52.8" z="274.34"/>
+   <position name="posPMT_Active029" unit="cm"  x=" -4.37" y="-52.8" z="274.34"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2241,7 +2241,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive030" unit="cm"  x=" -4.37" y="-52.8" z="324.22"/>
+   <position name="posPMT_Active030" unit="cm"  x=" -4.37" y="-52.8" z="324.22"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2251,7 +2251,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive031" unit="cm"  x=" -4.37" y="-52.8" z="473.86"/>
+   <position name="posPMT_Active031" unit="cm"  x=" -4.37" y="-52.8" z="473.86"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2261,7 +2261,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive032" unit="cm"  x=" -4.37" y="-52.8" z="523.74"/>
+   <position name="posPMT_Active032" unit="cm"  x=" -4.37" y="-52.8" z="523.74"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2271,7 +2271,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive033" unit="cm"  x=" -4.37" y="-52.8" z="673.38"/>
+   <position name="posPMT_Active033" unit="cm"  x=" -4.37" y="-52.8" z="673.38"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2281,7 +2281,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive034" unit="cm"  x=" -4.37" y="-52.8" z="723.26"/>
+   <position name="posPMT_Active034" unit="cm"  x=" -4.37" y="-52.8" z="723.26"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2291,7 +2291,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive035" unit="cm"  x=" -4.37" y="-52.8" z="872.9"/>
+   <position name="posPMT_Active035" unit="cm"  x=" -4.37" y="-52.8" z="872.9"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2301,7 +2301,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive036" unit="cm"  x=" -4.37" y="0" z="-823.02"/>
+   <position name="posPMT_Active036" unit="cm"  x=" -4.37" y="0" z="-823.02"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2311,7 +2311,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive037" unit="cm"  x=" -4.37" y="0" z="-773.14"/>
+   <position name="posPMT_Active037" unit="cm"  x=" -4.37" y="0" z="-773.14"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2321,7 +2321,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive038" unit="cm"  x=" -4.37" y="0" z="-623.5"/>
+   <position name="posPMT_Active038" unit="cm"  x=" -4.37" y="0" z="-623.5"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2331,7 +2331,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive039" unit="cm"  x=" -4.37" y="0" z="-573.62"/>
+   <position name="posPMT_Active039" unit="cm"  x=" -4.37" y="0" z="-573.62"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2341,7 +2341,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive040" unit="cm"  x=" -4.37" y="0" z="-423.98"/>
+   <position name="posPMT_Active040" unit="cm"  x=" -4.37" y="0" z="-423.98"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2351,7 +2351,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive041" unit="cm"  x=" -4.37" y="0" z="-374.1"/>
+   <position name="posPMT_Active041" unit="cm"  x=" -4.37" y="0" z="-374.1"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2361,7 +2361,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive042" unit="cm"  x=" -4.37" y="0" z="-224.46"/>
+   <position name="posPMT_Active042" unit="cm"  x=" -4.37" y="0" z="-224.46"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2371,7 +2371,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive043" unit="cm"  x=" -4.37" y="0" z="-174.58"/>
+   <position name="posPMT_Active043" unit="cm"  x=" -4.37" y="0" z="-174.58"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2381,7 +2381,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive044" unit="cm"  x=" -4.37" y="0" z="-24.94"/>
+   <position name="posPMT_Active044" unit="cm"  x=" -4.37" y="0" z="-24.94"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2391,7 +2391,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive045" unit="cm"  x=" -4.37" y="0" z="24.94"/>
+   <position name="posPMT_Active045" unit="cm"  x=" -4.37" y="0" z="24.94"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2401,7 +2401,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive046" unit="cm"  x=" -4.37" y="0" z="174.58"/>
+   <position name="posPMT_Active046" unit="cm"  x=" -4.37" y="0" z="174.58"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2411,7 +2411,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive047" unit="cm"  x=" -4.37" y="0" z="224.46"/>
+   <position name="posPMT_Active047" unit="cm"  x=" -4.37" y="0" z="224.46"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2421,7 +2421,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive048" unit="cm"  x=" -4.37" y="0" z="374.1"/>
+   <position name="posPMT_Active048" unit="cm"  x=" -4.37" y="0" z="374.1"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2431,7 +2431,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive049" unit="cm"  x=" -4.37" y="0" z="423.98"/>
+   <position name="posPMT_Active049" unit="cm"  x=" -4.37" y="0" z="423.98"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2441,7 +2441,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive050" unit="cm"  x=" -4.37" y="0" z="573.62"/>
+   <position name="posPMT_Active050" unit="cm"  x=" -4.37" y="0" z="573.62"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2451,7 +2451,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive051" unit="cm"  x=" -4.37" y="0" z="623.5"/>
+   <position name="posPMT_Active051" unit="cm"  x=" -4.37" y="0" z="623.5"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2461,7 +2461,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive052" unit="cm"  x=" -4.37" y="0" z="773.14"/>
+   <position name="posPMT_Active052" unit="cm"  x=" -4.37" y="0" z="773.14"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2471,7 +2471,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive053" unit="cm"  x=" -4.37" y="0" z="823.02"/>
+   <position name="posPMT_Active053" unit="cm"  x=" -4.37" y="0" z="823.02"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2481,7 +2481,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive054" unit="cm"  x=" -4.37" y="52.8" z="-872.9"/>
+   <position name="posPMT_Active054" unit="cm"  x=" -4.37" y="52.8" z="-872.9"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2491,7 +2491,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive055" unit="cm"  x=" -4.37" y="52.8" z="-723.26"/>
+   <position name="posPMT_Active055" unit="cm"  x=" -4.37" y="52.8" z="-723.26"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2501,7 +2501,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive056" unit="cm"  x=" -4.37" y="52.8" z="-673.38"/>
+   <position name="posPMT_Active056" unit="cm"  x=" -4.37" y="52.8" z="-673.38"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2511,7 +2511,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive057" unit="cm"  x=" -4.37" y="52.8" z="-523.74"/>
+   <position name="posPMT_Active057" unit="cm"  x=" -4.37" y="52.8" z="-523.74"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2521,7 +2521,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive058" unit="cm"  x=" -4.37" y="52.8" z="-473.86"/>
+   <position name="posPMT_Active058" unit="cm"  x=" -4.37" y="52.8" z="-473.86"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2531,7 +2531,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive059" unit="cm"  x=" -4.37" y="52.8" z="-324.22"/>
+   <position name="posPMT_Active059" unit="cm"  x=" -4.37" y="52.8" z="-324.22"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2541,7 +2541,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive060" unit="cm"  x=" -4.37" y="52.8" z="-274.34"/>
+   <position name="posPMT_Active060" unit="cm"  x=" -4.37" y="52.8" z="-274.34"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2551,7 +2551,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive061" unit="cm"  x=" -4.37" y="52.8" z="-124.7"/>
+   <position name="posPMT_Active061" unit="cm"  x=" -4.37" y="52.8" z="-124.7"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2561,7 +2561,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive062" unit="cm"  x=" -4.37" y="52.8" z="-74.82"/>
+   <position name="posPMT_Active062" unit="cm"  x=" -4.37" y="52.8" z="-74.82"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2571,7 +2571,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive063" unit="cm"  x=" -4.37" y="52.8" z="74.82"/>
+   <position name="posPMT_Active063" unit="cm"  x=" -4.37" y="52.8" z="74.82"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2581,7 +2581,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive064" unit="cm"  x=" -4.37" y="52.8" z="124.7"/>
+   <position name="posPMT_Active064" unit="cm"  x=" -4.37" y="52.8" z="124.7"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2591,7 +2591,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive065" unit="cm"  x=" -4.37" y="52.8" z="274.34"/>
+   <position name="posPMT_Active065" unit="cm"  x=" -4.37" y="52.8" z="274.34"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2601,7 +2601,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive066" unit="cm"  x=" -4.37" y="52.8" z="324.22"/>
+   <position name="posPMT_Active066" unit="cm"  x=" -4.37" y="52.8" z="324.22"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2611,7 +2611,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive067" unit="cm"  x=" -4.37" y="52.8" z="473.86"/>
+   <position name="posPMT_Active067" unit="cm"  x=" -4.37" y="52.8" z="473.86"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2621,7 +2621,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive068" unit="cm"  x=" -4.37" y="52.8" z="523.74"/>
+   <position name="posPMT_Active068" unit="cm"  x=" -4.37" y="52.8" z="523.74"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2631,7 +2631,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive069" unit="cm"  x=" -4.37" y="52.8" z="673.38"/>
+   <position name="posPMT_Active069" unit="cm"  x=" -4.37" y="52.8" z="673.38"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2641,7 +2641,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive070" unit="cm"  x=" -4.37" y="52.8" z="723.26"/>
+   <position name="posPMT_Active070" unit="cm"  x=" -4.37" y="52.8" z="723.26"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2651,7 +2651,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive071" unit="cm"  x=" -4.37" y="52.8" z="872.9"/>
+   <position name="posPMT_Active071" unit="cm"  x=" -4.37" y="52.8" z="872.9"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2661,7 +2661,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive072" unit="cm"  x=" -4.37" y="105.6" z="-823.02"/>
+   <position name="posPMT_Active072" unit="cm"  x=" -4.37" y="105.6" z="-823.02"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2671,7 +2671,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive073" unit="cm"  x=" -4.37" y="105.6" z="-773.14"/>
+   <position name="posPMT_Active073" unit="cm"  x=" -4.37" y="105.6" z="-773.14"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2681,7 +2681,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive074" unit="cm"  x=" -4.37" y="105.6" z="-623.5"/>
+   <position name="posPMT_Active074" unit="cm"  x=" -4.37" y="105.6" z="-623.5"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2691,7 +2691,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive075" unit="cm"  x=" -4.37" y="105.6" z="-573.62"/>
+   <position name="posPMT_Active075" unit="cm"  x=" -4.37" y="105.6" z="-573.62"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2701,7 +2701,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive076" unit="cm"  x=" -4.37" y="105.6" z="-423.98"/>
+   <position name="posPMT_Active076" unit="cm"  x=" -4.37" y="105.6" z="-423.98"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2711,7 +2711,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive077" unit="cm"  x=" -4.37" y="105.6" z="-374.1"/>
+   <position name="posPMT_Active077" unit="cm"  x=" -4.37" y="105.6" z="-374.1"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2721,7 +2721,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive078" unit="cm"  x=" -4.37" y="105.6" z="-224.46"/>
+   <position name="posPMT_Active078" unit="cm"  x=" -4.37" y="105.6" z="-224.46"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2731,7 +2731,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive079" unit="cm"  x=" -4.37" y="105.6" z="-174.58"/>
+   <position name="posPMT_Active079" unit="cm"  x=" -4.37" y="105.6" z="-174.58"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2741,7 +2741,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive080" unit="cm"  x=" -4.37" y="105.6" z="-24.94"/>
+   <position name="posPMT_Active080" unit="cm"  x=" -4.37" y="105.6" z="-24.94"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2751,7 +2751,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive081" unit="cm"  x=" -4.37" y="105.6" z="24.94"/>
+   <position name="posPMT_Active081" unit="cm"  x=" -4.37" y="105.6" z="24.94"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2761,7 +2761,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive082" unit="cm"  x=" -4.37" y="105.6" z="174.58"/>
+   <position name="posPMT_Active082" unit="cm"  x=" -4.37" y="105.6" z="174.58"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2771,7 +2771,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive083" unit="cm"  x=" -4.37" y="105.6" z="224.46"/>
+   <position name="posPMT_Active083" unit="cm"  x=" -4.37" y="105.6" z="224.46"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2781,7 +2781,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive084" unit="cm"  x=" -4.37" y="105.6" z="374.1"/>
+   <position name="posPMT_Active084" unit="cm"  x=" -4.37" y="105.6" z="374.1"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2791,7 +2791,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive085" unit="cm"  x=" -4.37" y="105.6" z="423.98"/>
+   <position name="posPMT_Active085" unit="cm"  x=" -4.37" y="105.6" z="423.98"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2801,7 +2801,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive086" unit="cm"  x=" -4.37" y="105.6" z="573.62"/>
+   <position name="posPMT_Active086" unit="cm"  x=" -4.37" y="105.6" z="573.62"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2811,7 +2811,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive087" unit="cm"  x=" -4.37" y="105.6" z="623.5"/>
+   <position name="posPMT_Active087" unit="cm"  x=" -4.37" y="105.6" z="623.5"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2821,7 +2821,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive088" unit="cm"  x=" -4.37" y="105.6" z="773.14"/>
+   <position name="posPMT_Active088" unit="cm"  x=" -4.37" y="105.6" z="773.14"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
   <physvol>
@@ -2831,7 +2831,7 @@
   </physvol>
   <physvol>
    <volumeref ref="volActiveInnerPMT"/>
-   <position name="posPMTActive089" unit="cm"  x=" -4.37" y="105.6" z="823.02"/>
+   <position name="posPMT_Active089" unit="cm"  x=" -4.37" y="105.6" z="823.02"/>
    <rotationref ref="rPlus90AboutY"/>
   </physvol>    
     <physvol>
@@ -2841,7 +2841,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive10" unit="cm"  x=" -4.37" y="-105.6" z="-823.02"/>
+     <position name="posPMT_Passive10" unit="cm"  x=" -4.37" y="-105.6" z="-823.02"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2851,7 +2851,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive11" unit="cm"  x=" -4.37" y="-105.6" z="-773.14"/>
+     <position name="posPMT_Passive11" unit="cm"  x=" -4.37" y="-105.6" z="-773.14"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2861,7 +2861,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive12" unit="cm"  x=" -4.37" y="-105.6" z="-623.5"/>
+     <position name="posPMT_Passive12" unit="cm"  x=" -4.37" y="-105.6" z="-623.5"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2871,7 +2871,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive13" unit="cm"  x=" -4.37" y="-105.6" z="-573.62"/>
+     <position name="posPMT_Passive13" unit="cm"  x=" -4.37" y="-105.6" z="-573.62"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2881,7 +2881,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive14" unit="cm"  x=" -4.37" y="-105.6" z="-423.98"/>
+     <position name="posPMT_Passive14" unit="cm"  x=" -4.37" y="-105.6" z="-423.98"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2891,7 +2891,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive15" unit="cm"  x=" -4.37" y="-105.6" z="-374.1"/>
+     <position name="posPMT_Passive15" unit="cm"  x=" -4.37" y="-105.6" z="-374.1"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2901,7 +2901,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive16" unit="cm"  x=" -4.37" y="-105.6" z="-224.46"/>
+     <position name="posPMT_Passive16" unit="cm"  x=" -4.37" y="-105.6" z="-224.46"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2911,7 +2911,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive17" unit="cm"  x=" -4.37" y="-105.6" z="-174.58"/>
+     <position name="posPMT_Passive17" unit="cm"  x=" -4.37" y="-105.6" z="-174.58"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2921,7 +2921,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive18" unit="cm"  x=" -4.37" y="-105.6" z="-24.94"/>
+     <position name="posPMT_Passive18" unit="cm"  x=" -4.37" y="-105.6" z="-24.94"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2931,7 +2931,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive19" unit="cm"  x=" -4.37" y="-105.6" z="24.94"/>
+     <position name="posPMT_Passive19" unit="cm"  x=" -4.37" y="-105.6" z="24.94"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2941,7 +2941,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive110" unit="cm"  x=" -4.37" y="-105.6" z="174.58"/>
+     <position name="posPMT_Passive110" unit="cm"  x=" -4.37" y="-105.6" z="174.58"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2951,7 +2951,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive111" unit="cm"  x=" -4.37" y="-105.6" z="224.46"/>
+     <position name="posPMT_Passive111" unit="cm"  x=" -4.37" y="-105.6" z="224.46"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2961,7 +2961,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive112" unit="cm"  x=" -4.37" y="-105.6" z="374.1"/>
+     <position name="posPMT_Passive112" unit="cm"  x=" -4.37" y="-105.6" z="374.1"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2971,7 +2971,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive113" unit="cm"  x=" -4.37" y="-105.6" z="423.98"/>
+     <position name="posPMT_Passive113" unit="cm"  x=" -4.37" y="-105.6" z="423.98"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2981,7 +2981,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive114" unit="cm"  x=" -4.37" y="-105.6" z="573.62"/>
+     <position name="posPMT_Passive114" unit="cm"  x=" -4.37" y="-105.6" z="573.62"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -2991,7 +2991,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive115" unit="cm"  x=" -4.37" y="-105.6" z="623.5"/>
+     <position name="posPMT_Passive115" unit="cm"  x=" -4.37" y="-105.6" z="623.5"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3001,7 +3001,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive116" unit="cm"  x=" -4.37" y="-105.6" z="773.14"/>
+     <position name="posPMT_Passive116" unit="cm"  x=" -4.37" y="-105.6" z="773.14"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3011,7 +3011,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive117" unit="cm"  x=" -4.37" y="-105.6" z="823.02"/>
+     <position name="posPMT_Passive117" unit="cm"  x=" -4.37" y="-105.6" z="823.02"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3021,7 +3021,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive118" unit="cm"  x=" -4.37" y="-52.8" z="-872.9"/>
+     <position name="posPMT_Passive118" unit="cm"  x=" -4.37" y="-52.8" z="-872.9"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3031,7 +3031,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive119" unit="cm"  x=" -4.37" y="-52.8" z="-723.26"/>
+     <position name="posPMT_Passive119" unit="cm"  x=" -4.37" y="-52.8" z="-723.26"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3041,7 +3041,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive120" unit="cm"  x=" -4.37" y="-52.8" z="-673.38"/>
+     <position name="posPMT_Passive120" unit="cm"  x=" -4.37" y="-52.8" z="-673.38"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3051,7 +3051,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive121" unit="cm"  x=" -4.37" y="-52.8" z="-523.74"/>
+     <position name="posPMT_Passive121" unit="cm"  x=" -4.37" y="-52.8" z="-523.74"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3061,7 +3061,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive122" unit="cm"  x=" -4.37" y="-52.8" z="-473.86"/>
+     <position name="posPMT_Passive122" unit="cm"  x=" -4.37" y="-52.8" z="-473.86"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3071,7 +3071,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive123" unit="cm"  x=" -4.37" y="-52.8" z="-324.22"/>
+     <position name="posPMT_Passive123" unit="cm"  x=" -4.37" y="-52.8" z="-324.22"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3081,7 +3081,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive124" unit="cm"  x=" -4.37" y="-52.8" z="-274.34"/>
+     <position name="posPMT_Passive124" unit="cm"  x=" -4.37" y="-52.8" z="-274.34"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3091,7 +3091,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive125" unit="cm"  x=" -4.37" y="-52.8" z="-124.7"/>
+     <position name="posPMT_Passive125" unit="cm"  x=" -4.37" y="-52.8" z="-124.7"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3101,7 +3101,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive126" unit="cm"  x=" -4.37" y="-52.8" z="-74.82"/>
+     <position name="posPMT_Passive126" unit="cm"  x=" -4.37" y="-52.8" z="-74.82"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3111,7 +3111,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive127" unit="cm"  x=" -4.37" y="-52.8" z="74.82"/>
+     <position name="posPMT_Passive127" unit="cm"  x=" -4.37" y="-52.8" z="74.82"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3121,7 +3121,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive128" unit="cm"  x=" -4.37" y="-52.8" z="124.7"/>
+     <position name="posPMT_Passive128" unit="cm"  x=" -4.37" y="-52.8" z="124.7"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3131,7 +3131,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive129" unit="cm"  x=" -4.37" y="-52.8" z="274.34"/>
+     <position name="posPMT_Passive129" unit="cm"  x=" -4.37" y="-52.8" z="274.34"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3141,7 +3141,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive130" unit="cm"  x=" -4.37" y="-52.8" z="324.22"/>
+     <position name="posPMT_Passive130" unit="cm"  x=" -4.37" y="-52.8" z="324.22"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3151,7 +3151,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive131" unit="cm"  x=" -4.37" y="-52.8" z="473.86"/>
+     <position name="posPMT_Passive131" unit="cm"  x=" -4.37" y="-52.8" z="473.86"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3161,7 +3161,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive132" unit="cm"  x=" -4.37" y="-52.8" z="523.74"/>
+     <position name="posPMT_Passive132" unit="cm"  x=" -4.37" y="-52.8" z="523.74"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3171,7 +3171,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive133" unit="cm"  x=" -4.37" y="-52.8" z="673.38"/>
+     <position name="posPMT_Passive133" unit="cm"  x=" -4.37" y="-52.8" z="673.38"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3181,7 +3181,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive134" unit="cm"  x=" -4.37" y="-52.8" z="723.26"/>
+     <position name="posPMT_Passive134" unit="cm"  x=" -4.37" y="-52.8" z="723.26"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3191,7 +3191,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive135" unit="cm"  x=" -4.37" y="-52.8" z="872.9"/>
+     <position name="posPMT_Passive135" unit="cm"  x=" -4.37" y="-52.8" z="872.9"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3201,7 +3201,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive136" unit="cm"  x=" -4.37" y="0" z="-823.02"/>
+     <position name="posPMT_Passive136" unit="cm"  x=" -4.37" y="0" z="-823.02"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3211,7 +3211,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive137" unit="cm"  x=" -4.37" y="0" z="-773.14"/>
+     <position name="posPMT_Passive137" unit="cm"  x=" -4.37" y="0" z="-773.14"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3221,7 +3221,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive138" unit="cm"  x=" -4.37" y="0" z="-623.5"/>
+     <position name="posPMT_Passive138" unit="cm"  x=" -4.37" y="0" z="-623.5"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3231,7 +3231,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive139" unit="cm"  x=" -4.37" y="0" z="-573.62"/>
+     <position name="posPMT_Passive139" unit="cm"  x=" -4.37" y="0" z="-573.62"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3241,7 +3241,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive140" unit="cm"  x=" -4.37" y="0" z="-423.98"/>
+     <position name="posPMT_Passive140" unit="cm"  x=" -4.37" y="0" z="-423.98"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3251,7 +3251,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive141" unit="cm"  x=" -4.37" y="0" z="-374.1"/>
+     <position name="posPMT_Passive141" unit="cm"  x=" -4.37" y="0" z="-374.1"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3261,7 +3261,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive142" unit="cm"  x=" -4.37" y="0" z="-224.46"/>
+     <position name="posPMT_Passive142" unit="cm"  x=" -4.37" y="0" z="-224.46"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3271,7 +3271,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive143" unit="cm"  x=" -4.37" y="0" z="-174.58"/>
+     <position name="posPMT_Passive143" unit="cm"  x=" -4.37" y="0" z="-174.58"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3281,7 +3281,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive144" unit="cm"  x=" -4.37" y="0" z="-24.94"/>
+     <position name="posPMT_Passive144" unit="cm"  x=" -4.37" y="0" z="-24.94"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3291,7 +3291,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive145" unit="cm"  x=" -4.37" y="0" z="24.94"/>
+     <position name="posPMT_Passive145" unit="cm"  x=" -4.37" y="0" z="24.94"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3301,7 +3301,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive146" unit="cm"  x=" -4.37" y="0" z="174.58"/>
+     <position name="posPMT_Passive146" unit="cm"  x=" -4.37" y="0" z="174.58"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3311,7 +3311,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive147" unit="cm"  x=" -4.37" y="0" z="224.46"/>
+     <position name="posPMT_Passive147" unit="cm"  x=" -4.37" y="0" z="224.46"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3321,7 +3321,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive148" unit="cm"  x=" -4.37" y="0" z="374.1"/>
+     <position name="posPMT_Passive148" unit="cm"  x=" -4.37" y="0" z="374.1"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3331,7 +3331,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive149" unit="cm"  x=" -4.37" y="0" z="423.98"/>
+     <position name="posPMT_Passive149" unit="cm"  x=" -4.37" y="0" z="423.98"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3341,7 +3341,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive150" unit="cm"  x=" -4.37" y="0" z="573.62"/>
+     <position name="posPMT_Passive150" unit="cm"  x=" -4.37" y="0" z="573.62"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3351,7 +3351,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive151" unit="cm"  x=" -4.37" y="0" z="623.5"/>
+     <position name="posPMT_Passive151" unit="cm"  x=" -4.37" y="0" z="623.5"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3361,7 +3361,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive152" unit="cm"  x=" -4.37" y="0" z="773.14"/>
+     <position name="posPMT_Passive152" unit="cm"  x=" -4.37" y="0" z="773.14"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3371,7 +3371,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive153" unit="cm"  x=" -4.37" y="0" z="823.02"/>
+     <position name="posPMT_Passive153" unit="cm"  x=" -4.37" y="0" z="823.02"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3381,7 +3381,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive154" unit="cm"  x=" -4.37" y="52.8" z="-872.9"/>
+     <position name="posPMT_Passive154" unit="cm"  x=" -4.37" y="52.8" z="-872.9"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3391,7 +3391,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive155" unit="cm"  x=" -4.37" y="52.8" z="-723.26"/>
+     <position name="posPMT_Passive155" unit="cm"  x=" -4.37" y="52.8" z="-723.26"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3401,7 +3401,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive156" unit="cm"  x=" -4.37" y="52.8" z="-673.38"/>
+     <position name="posPMT_Passive156" unit="cm"  x=" -4.37" y="52.8" z="-673.38"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3411,7 +3411,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive157" unit="cm"  x=" -4.37" y="52.8" z="-523.74"/>
+     <position name="posPMT_Passive157" unit="cm"  x=" -4.37" y="52.8" z="-523.74"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3421,7 +3421,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive158" unit="cm"  x=" -4.37" y="52.8" z="-473.86"/>
+     <position name="posPMT_Passive158" unit="cm"  x=" -4.37" y="52.8" z="-473.86"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3431,7 +3431,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive159" unit="cm"  x=" -4.37" y="52.8" z="-324.22"/>
+     <position name="posPMT_Passive159" unit="cm"  x=" -4.37" y="52.8" z="-324.22"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3441,7 +3441,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive160" unit="cm"  x=" -4.37" y="52.8" z="-274.34"/>
+     <position name="posPMT_Passive160" unit="cm"  x=" -4.37" y="52.8" z="-274.34"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3451,7 +3451,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive161" unit="cm"  x=" -4.37" y="52.8" z="-124.7"/>
+     <position name="posPMT_Passive161" unit="cm"  x=" -4.37" y="52.8" z="-124.7"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3461,7 +3461,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive162" unit="cm"  x=" -4.37" y="52.8" z="-74.82"/>
+     <position name="posPMT_Passive162" unit="cm"  x=" -4.37" y="52.8" z="-74.82"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3471,7 +3471,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive163" unit="cm"  x=" -4.37" y="52.8" z="74.82"/>
+     <position name="posPMT_Passive163" unit="cm"  x=" -4.37" y="52.8" z="74.82"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3481,7 +3481,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive164" unit="cm"  x=" -4.37" y="52.8" z="124.7"/>
+     <position name="posPMT_Passive164" unit="cm"  x=" -4.37" y="52.8" z="124.7"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3491,7 +3491,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive165" unit="cm"  x=" -4.37" y="52.8" z="274.34"/>
+     <position name="posPMT_Passive165" unit="cm"  x=" -4.37" y="52.8" z="274.34"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3501,7 +3501,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive166" unit="cm"  x=" -4.37" y="52.8" z="324.22"/>
+     <position name="posPMT_Passive166" unit="cm"  x=" -4.37" y="52.8" z="324.22"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3511,7 +3511,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive167" unit="cm"  x=" -4.37" y="52.8" z="473.86"/>
+     <position name="posPMT_Passive167" unit="cm"  x=" -4.37" y="52.8" z="473.86"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3521,7 +3521,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive168" unit="cm"  x=" -4.37" y="52.8" z="523.74"/>
+     <position name="posPMT_Passive168" unit="cm"  x=" -4.37" y="52.8" z="523.74"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3531,7 +3531,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive169" unit="cm"  x=" -4.37" y="52.8" z="673.38"/>
+     <position name="posPMT_Passive169" unit="cm"  x=" -4.37" y="52.8" z="673.38"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3541,7 +3541,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive170" unit="cm"  x=" -4.37" y="52.8" z="723.26"/>
+     <position name="posPMT_Passive170" unit="cm"  x=" -4.37" y="52.8" z="723.26"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3551,7 +3551,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive171" unit="cm"  x=" -4.37" y="52.8" z="872.9"/>
+     <position name="posPMT_Passive171" unit="cm"  x=" -4.37" y="52.8" z="872.9"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3561,7 +3561,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive172" unit="cm"  x=" -4.37" y="105.6" z="-823.02"/>
+     <position name="posPMT_Passive172" unit="cm"  x=" -4.37" y="105.6" z="-823.02"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3571,7 +3571,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive173" unit="cm"  x=" -4.37" y="105.6" z="-773.14"/>
+     <position name="posPMT_Passive173" unit="cm"  x=" -4.37" y="105.6" z="-773.14"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3581,7 +3581,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive174" unit="cm"  x=" -4.37" y="105.6" z="-623.5"/>
+     <position name="posPMT_Passive174" unit="cm"  x=" -4.37" y="105.6" z="-623.5"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3591,7 +3591,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive175" unit="cm"  x=" -4.37" y="105.6" z="-573.62"/>
+     <position name="posPMT_Passive175" unit="cm"  x=" -4.37" y="105.6" z="-573.62"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3601,7 +3601,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive176" unit="cm"  x=" -4.37" y="105.6" z="-423.98"/>
+     <position name="posPMT_Passive176" unit="cm"  x=" -4.37" y="105.6" z="-423.98"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3611,7 +3611,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive177" unit="cm"  x=" -4.37" y="105.6" z="-374.1"/>
+     <position name="posPMT_Passive177" unit="cm"  x=" -4.37" y="105.6" z="-374.1"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3621,7 +3621,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive178" unit="cm"  x=" -4.37" y="105.6" z="-224.46"/>
+     <position name="posPMT_Passive178" unit="cm"  x=" -4.37" y="105.6" z="-224.46"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3631,7 +3631,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive179" unit="cm"  x=" -4.37" y="105.6" z="-174.58"/>
+     <position name="posPMT_Passive179" unit="cm"  x=" -4.37" y="105.6" z="-174.58"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3641,7 +3641,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive180" unit="cm"  x=" -4.37" y="105.6" z="-24.94"/>
+     <position name="posPMT_Passive180" unit="cm"  x=" -4.37" y="105.6" z="-24.94"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3651,7 +3651,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive181" unit="cm"  x=" -4.37" y="105.6" z="24.94"/>
+     <position name="posPMT_Passive181" unit="cm"  x=" -4.37" y="105.6" z="24.94"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3661,7 +3661,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive182" unit="cm"  x=" -4.37" y="105.6" z="174.58"/>
+     <position name="posPMT_Passive182" unit="cm"  x=" -4.37" y="105.6" z="174.58"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3671,7 +3671,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive183" unit="cm"  x=" -4.37" y="105.6" z="224.46"/>
+     <position name="posPMT_Passive183" unit="cm"  x=" -4.37" y="105.6" z="224.46"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3681,7 +3681,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive184" unit="cm"  x=" -4.37" y="105.6" z="374.1"/>
+     <position name="posPMT_Passive184" unit="cm"  x=" -4.37" y="105.6" z="374.1"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3691,7 +3691,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive185" unit="cm"  x=" -4.37" y="105.6" z="423.98"/>
+     <position name="posPMT_Passive185" unit="cm"  x=" -4.37" y="105.6" z="423.98"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3701,7 +3701,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive186" unit="cm"  x=" -4.37" y="105.6" z="573.62"/>
+     <position name="posPMT_Passive186" unit="cm"  x=" -4.37" y="105.6" z="573.62"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3711,7 +3711,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive187" unit="cm"  x=" -4.37" y="105.6" z="623.5"/>
+     <position name="posPMT_Passive187" unit="cm"  x=" -4.37" y="105.6" z="623.5"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3721,7 +3721,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive188" unit="cm"  x=" -4.37" y="105.6" z="773.14"/>
+     <position name="posPMT_Passive188" unit="cm"  x=" -4.37" y="105.6" z="773.14"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
     <physvol>
@@ -3731,7 +3731,7 @@
     </physvol>
     <physvol>
      <volumeref ref="volPassiveInnerPMT"/>
-     <position name="posPMTPassive189" unit="cm"  x=" -4.37" y="105.6" z="823.02"/>
+     <position name="posPMT_Passive189" unit="cm"  x=" -4.37" y="105.6" z="823.02"/>
      <rotationref ref="rMinus90AboutY"/>
     </physvol> 
       <physvol>
@@ -3925,7 +3925,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule000WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule000WestSouthinner"/>
@@ -4016,7 +4016,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule001WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule001WestSouthinner"/>
@@ -4107,7 +4107,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule002WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule002WestSouthinner"/>
@@ -4198,7 +4198,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule003WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule003WestSouthinner"/>
@@ -4289,7 +4289,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule004WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule004WestSouthinner"/>
@@ -4380,7 +4380,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule005WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule005WestSouthinner"/>
@@ -4471,7 +4471,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule006WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule006WestSouthinner"/>
@@ -4562,7 +4562,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule007WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule007WestSouthinner"/>
@@ -4653,7 +4653,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule008WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule008WestSouthinner"/>
@@ -4744,7 +4744,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule009WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule009WestSouthinner"/>
@@ -4835,7 +4835,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule010WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule010WestSouthinner"/>
@@ -4926,7 +4926,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule011WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule011WestSouthinner"/>
@@ -5017,7 +5017,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule012WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule012WestSouthinner"/>
@@ -5108,7 +5108,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule013WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule013WestSouthinner"/>
@@ -5199,7 +5199,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule014WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule014WestSouthinner"/>
@@ -5290,7 +5290,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule015WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule015WestSouthinner"/>
@@ -5381,7 +5381,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule016WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule016WestSouthinner"/>
@@ -5472,7 +5472,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule017WestSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule017WestSouthinner"/>
@@ -5639,7 +5639,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule018WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule018WestCenterinner"/>
@@ -5730,7 +5730,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule019WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule019WestCenterinner"/>
@@ -5821,7 +5821,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule020WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule020WestCenterinner"/>
@@ -5912,7 +5912,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule021WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule021WestCenterinner"/>
@@ -6003,7 +6003,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule022WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule022WestCenterinner"/>
@@ -6094,7 +6094,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule023WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule023WestCenterinner"/>
@@ -6185,7 +6185,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule024WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule024WestCenterinner"/>
@@ -6276,7 +6276,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule025WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule025WestCenterinner"/>
@@ -6367,7 +6367,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule026WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule026WestCenterinner"/>
@@ -6458,7 +6458,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule027WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule027WestCenterinner"/>
@@ -6549,7 +6549,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule028WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule028WestCenterinner"/>
@@ -6640,7 +6640,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule029WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule029WestCenterinner"/>
@@ -6731,7 +6731,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule030WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule030WestCenterinner"/>
@@ -6822,7 +6822,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule031WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule031WestCenterinner"/>
@@ -6913,7 +6913,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule032WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule032WestCenterinner"/>
@@ -7004,7 +7004,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule033WestCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule033WestCenterinner"/>
@@ -7163,7 +7163,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule034WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule034WestNorthinner"/>
@@ -7254,7 +7254,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule035WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule035WestNorthinner"/>
@@ -7345,7 +7345,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule036WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule036WestNorthinner"/>
@@ -7436,7 +7436,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule037WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule037WestNorthinner"/>
@@ -7527,7 +7527,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule038WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule038WestNorthinner"/>
@@ -7618,7 +7618,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule039WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule039WestNorthinner"/>
@@ -7709,7 +7709,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule040WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule040WestNorthinner"/>
@@ -7800,7 +7800,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule041WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule041WestNorthinner"/>
@@ -7891,7 +7891,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule042WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule042WestNorthinner"/>
@@ -7982,7 +7982,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule043WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule043WestNorthinner"/>
@@ -8073,7 +8073,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule044WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule044WestNorthinner"/>
@@ -8164,7 +8164,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule045WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule045WestNorthinner"/>
@@ -8255,7 +8255,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule046WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule046WestNorthinner"/>
@@ -8346,7 +8346,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule047WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule047WestNorthinner"/>
@@ -8437,7 +8437,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule048WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule048WestNorthinner"/>
@@ -8528,7 +8528,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule049WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule049WestNorthinner"/>
@@ -8619,7 +8619,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule050WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule050WestNorthinner"/>
@@ -8710,7 +8710,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule051WestNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule051WestNorthinner"/>
@@ -8877,7 +8877,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule052EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule052EastSouthinner"/>
@@ -8968,7 +8968,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule053EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule053EastSouthinner"/>
@@ -9059,7 +9059,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule054EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule054EastSouthinner"/>
@@ -9150,7 +9150,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule055EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule055EastSouthinner"/>
@@ -9241,7 +9241,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule056EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule056EastSouthinner"/>
@@ -9332,7 +9332,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule057EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule057EastSouthinner"/>
@@ -9423,7 +9423,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule058EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule058EastSouthinner"/>
@@ -9514,7 +9514,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule059EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule059EastSouthinner"/>
@@ -9605,7 +9605,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule060EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule060EastSouthinner"/>
@@ -9696,7 +9696,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule061EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule061EastSouthinner"/>
@@ -9787,7 +9787,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule062EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule062EastSouthinner"/>
@@ -9878,7 +9878,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule063EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule063EastSouthinner"/>
@@ -9969,7 +9969,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule064EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule064EastSouthinner"/>
@@ -10060,7 +10060,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule065EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule065EastSouthinner"/>
@@ -10151,7 +10151,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule066EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule066EastSouthinner"/>
@@ -10242,7 +10242,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule067EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule067EastSouthinner"/>
@@ -10333,7 +10333,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule068EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule068EastSouthinner"/>
@@ -10424,7 +10424,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule069EastSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule069EastSouthinner"/>
@@ -10591,7 +10591,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule070EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule070EastCenterinner"/>
@@ -10682,7 +10682,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule071EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule071EastCenterinner"/>
@@ -10773,7 +10773,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule072EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule072EastCenterinner"/>
@@ -10864,7 +10864,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule073EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule073EastCenterinner"/>
@@ -10955,7 +10955,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule074EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule074EastCenterinner"/>
@@ -11046,7 +11046,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule075EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule075EastCenterinner"/>
@@ -11137,7 +11137,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule076EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule076EastCenterinner"/>
@@ -11228,7 +11228,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule077EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule077EastCenterinner"/>
@@ -11319,7 +11319,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule078EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule078EastCenterinner"/>
@@ -11410,7 +11410,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule079EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule079EastCenterinner"/>
@@ -11501,7 +11501,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule080EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule080EastCenterinner"/>
@@ -11592,7 +11592,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule081EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule081EastCenterinner"/>
@@ -11683,7 +11683,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule082EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule082EastCenterinner"/>
@@ -11774,7 +11774,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule083EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule083EastCenterinner"/>
@@ -11865,7 +11865,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule084EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule084EastCenterinner"/>
@@ -11956,7 +11956,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule085EastCenter">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule085EastCenterinner"/>
@@ -12115,7 +12115,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule086EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule086EastNorthinner"/>
@@ -12206,7 +12206,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule087EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule087EastNorthinner"/>
@@ -12297,7 +12297,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule088EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule088EastNorthinner"/>
@@ -12388,7 +12388,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule089EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule089EastNorthinner"/>
@@ -12479,7 +12479,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule090EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule090EastNorthinner"/>
@@ -12570,7 +12570,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule091EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule091EastNorthinner"/>
@@ -12661,7 +12661,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule092EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule092EastNorthinner"/>
@@ -12752,7 +12752,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule093EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule093EastNorthinner"/>
@@ -12843,7 +12843,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule094EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule094EastNorthinner"/>
@@ -12934,7 +12934,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule095EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule095EastNorthinner"/>
@@ -13025,7 +13025,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule096EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule096EastNorthinner"/>
@@ -13116,7 +13116,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule097EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule097EastNorthinner"/>
@@ -13207,7 +13207,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule098EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule098EastNorthinner"/>
@@ -13298,7 +13298,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule099EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule099EastNorthinner"/>
@@ -13389,7 +13389,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule100EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule100EastNorthinner"/>
@@ -13480,7 +13480,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule101EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule101EastNorthinner"/>
@@ -13571,7 +13571,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule102EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule102EastNorthinner"/>
@@ -13662,7 +13662,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule103EastNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule103EastNorthinner"/>
@@ -13834,7 +13834,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule104cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule104cut400Southinner"/>
@@ -13925,7 +13925,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule105cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule105cut400Southinner"/>
@@ -14016,7 +14016,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule106cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule106cut400Southinner"/>
@@ -14107,7 +14107,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule107cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule107cut400Southinner"/>
@@ -14198,7 +14198,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule108cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule108cut400Southinner"/>
@@ -14289,7 +14289,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule109cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule109cut400Southinner"/>
@@ -14380,7 +14380,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule110cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule110cut400Southinner"/>
@@ -14471,7 +14471,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule111cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule111cut400Southinner"/>
@@ -14562,7 +14562,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule112cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule112cut400Southinner"/>
@@ -14653,7 +14653,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule113cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule113cut400Southinner"/>
@@ -14749,7 +14749,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule114cut485South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut485"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule114cut485Southinner"/>
@@ -14840,7 +14840,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule115cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule115cut400Southinner"/>
@@ -14931,7 +14931,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule116cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule116cut400Southinner"/>
@@ -15022,7 +15022,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule117cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule117cut400Southinner"/>
@@ -15113,7 +15113,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule118cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule118cut400Southinner"/>
@@ -15204,7 +15204,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule119cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule119cut400Southinner"/>
@@ -15295,7 +15295,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule120cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule120cut400Southinner"/>
@@ -15386,7 +15386,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule121cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule121cut400Southinner"/>
@@ -15477,7 +15477,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule122cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule122cut400Southinner"/>
@@ -15568,7 +15568,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule123cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule123cut400Southinner"/>
@@ -15659,7 +15659,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule124cut400South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut400"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule124cut400Southinner"/>
@@ -15755,7 +15755,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule125cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule125cut497Southinner"/>
@@ -15846,7 +15846,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule126cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule126cut497Southinner"/>
@@ -15937,7 +15937,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule127cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule127cut497Southinner"/>
@@ -16028,7 +16028,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule128cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule128cut497Southinner"/>
@@ -16119,7 +16119,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule129cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule129cut497Southinner"/>
@@ -16210,7 +16210,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule130cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule130cut497Southinner"/>
@@ -16301,7 +16301,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule131cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule131cut497Southinner"/>
@@ -16392,7 +16392,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule132cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule132cut497Southinner"/>
@@ -16483,7 +16483,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule133cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule133cut497Southinner"/>
@@ -16574,7 +16574,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule134cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule134cut497Southinner"/>
@@ -16665,7 +16665,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule135cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule135cut497Southinner"/>
@@ -16756,7 +16756,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule136cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule136cut497Southinner"/>
@@ -16847,7 +16847,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule137cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule137cut497Southinner"/>
@@ -16938,7 +16938,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule138cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule138cut497Southinner"/>
@@ -17029,7 +17029,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule139cut497South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut497"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule139cut497Southinner"/>
@@ -17125,7 +17125,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule140cut325South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut325"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule140cut325Southinner"/>
@@ -17216,7 +17216,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule141cut325South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut325"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule141cut325Southinner"/>
@@ -17307,7 +17307,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule142cut325South">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut325"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule142cut325Southinner"/>
@@ -17602,7 +17602,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule143cut256North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut256"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule143cut256Northinner"/>
@@ -17693,7 +17693,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule144cut256North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut256"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule144cut256Northinner"/>
@@ -17784,7 +17784,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule145cut256North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut256"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule145cut256Northinner"/>
@@ -17875,7 +17875,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule146cut256North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut256"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule146cut256Northinner"/>
@@ -17971,7 +17971,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule147cut309North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut309"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule147cut309Northinner"/>
@@ -18062,7 +18062,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule148cut309North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut309"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule148cut309Northinner"/>
@@ -18153,7 +18153,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule149cut309North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut309"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule149cut309Northinner"/>
@@ -18244,7 +18244,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule150cut309North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut309"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule150cut309Northinner"/>
@@ -18335,7 +18335,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule151cut309North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut309"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule151cut309Northinner"/>
@@ -18426,7 +18426,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule152cut309North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut309"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule152cut309Northinner"/>
@@ -18517,7 +18517,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule153cut309North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut309"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule153cut309Northinner"/>
@@ -18608,7 +18608,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule154cut309North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut309"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule154cut309Northinner"/>
@@ -18704,7 +18704,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule155cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule155cut508Northinner"/>
@@ -18795,7 +18795,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule156cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule156cut508Northinner"/>
@@ -18886,7 +18886,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule157cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule157cut508Northinner"/>
@@ -18977,7 +18977,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule158cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule158cut508Northinner"/>
@@ -19068,7 +19068,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule159cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule159cut508Northinner"/>
@@ -19159,7 +19159,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule160cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule160cut508Northinner"/>
@@ -19250,7 +19250,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule161cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule161cut508Northinner"/>
@@ -19341,7 +19341,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule162cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule162cut508Northinner"/>
@@ -19432,7 +19432,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule163cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule163cut508Northinner"/>
@@ -19523,7 +19523,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule164cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule164cut508Northinner"/>
@@ -19614,7 +19614,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule165cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule165cut508Northinner"/>
@@ -19705,7 +19705,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetMINOSmodule166cut508North">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetMINOSmodulecut508"/>
 			<physvol>
 				<volumeref ref="volAuxDetMINOSmodule166cut508Northinner"/>
@@ -20101,7 +20101,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule167Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule167Bottominner"/>
@@ -20368,7 +20368,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule168Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule168Bottominner"/>
@@ -20635,7 +20635,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule169Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule169Bottominner"/>
@@ -20902,7 +20902,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule170Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule170Bottominner"/>
@@ -21169,7 +21169,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule171Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule171Bottominner"/>
@@ -21436,7 +21436,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule172Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule172Bottominner"/>
@@ -21703,7 +21703,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule173Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule173Bottominner"/>
@@ -21970,7 +21970,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule174Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule174Bottominner"/>
@@ -22237,7 +22237,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule175Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule175Bottominner"/>
@@ -22504,7 +22504,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule176Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule176Bottominner"/>
@@ -22771,7 +22771,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule177Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule177Bottominner"/>
@@ -23038,7 +23038,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule178Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule178Bottominner"/>
@@ -23305,7 +23305,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule179Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule179Bottominner"/>
@@ -23572,7 +23572,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetDCmodule180Bottom">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetDCmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetDCmodule180Bottominner"/>
@@ -23729,7 +23729,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule181Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule181Topinner"/>
@@ -23812,7 +23812,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule182Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule182Topinner"/>
@@ -23895,7 +23895,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule183Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule183Topinner"/>
@@ -23978,7 +23978,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule184Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule184Topinner"/>
@@ -24061,7 +24061,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule185Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule185Topinner"/>
@@ -24144,7 +24144,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule186Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule186Topinner"/>
@@ -24227,7 +24227,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule187Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule187Topinner"/>
@@ -24310,7 +24310,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule188Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule188Topinner"/>
@@ -24393,7 +24393,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule189Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule189Topinner"/>
@@ -24476,7 +24476,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule190Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule190Topinner"/>
@@ -24559,7 +24559,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule191Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule191Topinner"/>
@@ -24642,7 +24642,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule192Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule192Topinner"/>
@@ -24725,7 +24725,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule193Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule193Topinner"/>
@@ -24808,7 +24808,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule194Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule194Topinner"/>
@@ -24891,7 +24891,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule195Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule195Topinner"/>
@@ -24974,7 +24974,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule196Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule196Topinner"/>
@@ -25057,7 +25057,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule197Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule197Topinner"/>
@@ -25140,7 +25140,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule198Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule198Topinner"/>
@@ -25223,7 +25223,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule199Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule199Topinner"/>
@@ -25306,7 +25306,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule200Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule200Topinner"/>
@@ -25389,7 +25389,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule201Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule201Topinner"/>
@@ -25472,7 +25472,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule202Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule202Topinner"/>
@@ -25555,7 +25555,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule203Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule203Topinner"/>
@@ -25638,7 +25638,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule204Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule204Topinner"/>
@@ -25721,7 +25721,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule205Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule205Topinner"/>
@@ -25804,7 +25804,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule206Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule206Topinner"/>
@@ -25887,7 +25887,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule207Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule207Topinner"/>
@@ -25970,7 +25970,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule208Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule208Topinner"/>
@@ -26053,7 +26053,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule209Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule209Topinner"/>
@@ -26136,7 +26136,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule210Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule210Topinner"/>
@@ -26219,7 +26219,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule211Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule211Topinner"/>
@@ -26302,7 +26302,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule212Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule212Topinner"/>
@@ -26385,7 +26385,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule213Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule213Topinner"/>
@@ -26468,7 +26468,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule214Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule214Topinner"/>
@@ -26551,7 +26551,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule215Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule215Topinner"/>
@@ -26634,7 +26634,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule216Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule216Topinner"/>
@@ -26717,7 +26717,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule217Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule217Topinner"/>
@@ -26800,7 +26800,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule218Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule218Topinner"/>
@@ -26883,7 +26883,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule219Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule219Topinner"/>
@@ -26966,7 +26966,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule220Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule220Topinner"/>
@@ -27049,7 +27049,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule221Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule221Topinner"/>
@@ -27132,7 +27132,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule222Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule222Topinner"/>
@@ -27215,7 +27215,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule223Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule223Topinner"/>
@@ -27298,7 +27298,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule224Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule224Topinner"/>
@@ -27381,7 +27381,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule225Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule225Topinner"/>
@@ -27464,7 +27464,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule226Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule226Topinner"/>
@@ -27547,7 +27547,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule227Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule227Topinner"/>
@@ -27630,7 +27630,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule228Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule228Topinner"/>
@@ -27713,7 +27713,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule229Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule229Topinner"/>
@@ -27796,7 +27796,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule230Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule230Topinner"/>
@@ -27879,7 +27879,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule231Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule231Topinner"/>
@@ -27962,7 +27962,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule232Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule232Topinner"/>
@@ -28045,7 +28045,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule233Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule233Topinner"/>
@@ -28128,7 +28128,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule234Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule234Topinner"/>
@@ -28211,7 +28211,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule235Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule235Topinner"/>
@@ -28294,7 +28294,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule236Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule236Topinner"/>
@@ -28377,7 +28377,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule237Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule237Topinner"/>
@@ -28460,7 +28460,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule238Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule238Topinner"/>
@@ -28543,7 +28543,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule239Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule239Topinner"/>
@@ -28626,7 +28626,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule240Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule240Topinner"/>
@@ -28709,7 +28709,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule241Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule241Topinner"/>
@@ -28792,7 +28792,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule242Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule242Topinner"/>
@@ -28875,7 +28875,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule243Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule243Topinner"/>
@@ -28958,7 +28958,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule244Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule244Topinner"/>
@@ -29041,7 +29041,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule245Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule245Topinner"/>
@@ -29124,7 +29124,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule246Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule246Topinner"/>
@@ -29207,7 +29207,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule247Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule247Topinner"/>
@@ -29290,7 +29290,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule248Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule248Topinner"/>
@@ -29373,7 +29373,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule249Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule249Topinner"/>
@@ -29456,7 +29456,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule250Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule250Topinner"/>
@@ -29539,7 +29539,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule251Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule251Topinner"/>
@@ -29622,7 +29622,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule252Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule252Topinner"/>
@@ -29705,7 +29705,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule253Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule253Topinner"/>
@@ -29788,7 +29788,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule254Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule254Topinner"/>
@@ -29871,7 +29871,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule255Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule255Topinner"/>
@@ -29954,7 +29954,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule256Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule256Topinner"/>
@@ -30037,7 +30037,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule257Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule257Topinner"/>
@@ -30120,7 +30120,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule258Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule258Topinner"/>
@@ -30203,7 +30203,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule259Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule259Topinner"/>
@@ -30286,7 +30286,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule260Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule260Topinner"/>
@@ -30369,7 +30369,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule261Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule261Topinner"/>
@@ -30452,7 +30452,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule262Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule262Topinner"/>
@@ -30535,7 +30535,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule263Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule263Topinner"/>
@@ -30618,7 +30618,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule264Top">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule264Topinner"/>
@@ -31125,7 +31125,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule265RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule265RimWestinner"/>
@@ -31208,7 +31208,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule266RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule266RimWestinner"/>
@@ -31291,7 +31291,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule267RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule267RimWestinner"/>
@@ -31374,7 +31374,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule268RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule268RimWestinner"/>
@@ -31457,7 +31457,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule269RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule269RimWestinner"/>
@@ -31540,7 +31540,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule270RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule270RimWestinner"/>
@@ -31623,7 +31623,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule271RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule271RimWestinner"/>
@@ -31706,7 +31706,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule272RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule272RimWestinner"/>
@@ -31789,7 +31789,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule273RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule273RimWestinner"/>
@@ -31872,7 +31872,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule274RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule274RimWestinner"/>
@@ -31955,7 +31955,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule275RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule275RimWestinner"/>
@@ -32038,7 +32038,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule276RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule276RimWestinner"/>
@@ -32121,7 +32121,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule277RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule277RimWestinner"/>
@@ -32204,7 +32204,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule278RimWest">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule278RimWestinner"/>
@@ -32361,7 +32361,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule279RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule279RimEastinner"/>
@@ -32444,7 +32444,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule280RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule280RimEastinner"/>
@@ -32527,7 +32527,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule281RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule281RimEastinner"/>
@@ -32610,7 +32610,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule282RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule282RimEastinner"/>
@@ -32693,7 +32693,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule283RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule283RimEastinner"/>
@@ -32776,7 +32776,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule284RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule284RimEastinner"/>
@@ -32859,7 +32859,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule285RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule285RimEastinner"/>
@@ -32942,7 +32942,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule286RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule286RimEastinner"/>
@@ -33025,7 +33025,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule287RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule287RimEastinner"/>
@@ -33108,7 +33108,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule288RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule288RimEastinner"/>
@@ -33191,7 +33191,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule289RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule289RimEastinner"/>
@@ -33274,7 +33274,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule290RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule290RimEastinner"/>
@@ -33357,7 +33357,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule291RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule291RimEastinner"/>
@@ -33440,7 +33440,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule292RimEast">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule292RimEastinner"/>
@@ -33583,7 +33583,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule293RimSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule293RimSouthinner"/>
@@ -33666,7 +33666,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule294RimSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule294RimSouthinner"/>
@@ -33749,7 +33749,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule295RimSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule295RimSouthinner"/>
@@ -33832,7 +33832,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule296RimSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule296RimSouthinner"/>
@@ -33915,7 +33915,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule297RimSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule297RimSouthinner"/>
@@ -33998,7 +33998,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule298RimSouth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule298RimSouthinner"/>
@@ -34115,7 +34115,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule299RimNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule299RimNorthinner"/>
@@ -34198,7 +34198,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule300RimNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule300RimNorthinner"/>
@@ -34281,7 +34281,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule301RimNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule301RimNorthinner"/>
@@ -34364,7 +34364,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule302RimNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule302RimNorthinner"/>
@@ -34447,7 +34447,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule303RimNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule303RimNorthinner"/>
@@ -34530,7 +34530,7 @@
 			</physvol>
 		</volume>
 		<volume name="volAuxDetCERNmodule304RimNorth">
-			<materialref ref="ALUMINUMAl"/>
+			<materialref ref="ALUMINUM_Al"/>
 			<solidref ref="AuxDetCERNmodule"/>
 			<physvol>
 				<volumeref ref="volAuxDetCERNmodule304RimNorthinner"/>
@@ -34571,119 +34571,119 @@
 			</physvol>
 		</volume>
 		<volume name="volTopCRTSupportBeam1">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam2">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam3">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam4">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam5">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam6">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam7">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam8">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam9">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam10">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam11">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam12">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam13">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam14">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam15">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam16">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam17">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam18">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam19">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam20">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam21">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam22">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam23">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam24">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam25">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam26">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam27">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam28">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeam29">
-			<materialref ref="STEELA992"/>
+			<materialref ref="STEEL_A992"/>
 			<solidref ref="TopCRTSupportBeam"/>
 		</volume>
 		<volume name="volTopCRTSupportBeamEnclosure">
@@ -34908,11 +34908,11 @@
 <!--+++++++++++++++++ Structure Logical Volumes ++++++++++++++++++++-->
 
 <volume name="volCrossCF200"> 
-  <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>  
+  <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>  
   <solidref ref="CrossCF200"/>
 </volume>
 <volume name="volRack"> 
-  <materialref ref="STEELSTAINLESSFe7Cr2NiRack"/>  
+  <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni_Rack"/>  
   <solidref ref="Rack"/>
 </volume>    
     <volume name="volCrossPlane">
@@ -34920,569 +34920,569 @@
       <solidref ref="CrossPlane"/>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2000" unit="cm" x="-348.215" y="0" z="-940" />
+   <position name="posCrossCF200_0" unit="cm" x="-348.215" y="0" z="-940" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2001" unit="cm" x="-348.215" y="0" z="-840" />
+   <position name="posCrossCF200_1" unit="cm" x="-348.215" y="0" z="-840" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2002" unit="cm" x="-348.215" y="0" z="-740" />
+   <position name="posCrossCF200_2" unit="cm" x="-348.215" y="0" z="-740" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2003" unit="cm" x="-348.215" y="0" z="-640" />
+   <position name="posCrossCF200_3" unit="cm" x="-348.215" y="0" z="-640" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2004" unit="cm" x="-348.215" y="0" z="-540" />
+   <position name="posCrossCF200_4" unit="cm" x="-348.215" y="0" z="-540" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2005" unit="cm" x="-348.215" y="0" z="-440" />
+   <position name="posCrossCF200_5" unit="cm" x="-348.215" y="0" z="-440" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2006" unit="cm" x="-348.215" y="0" z="-340" />
+   <position name="posCrossCF200_6" unit="cm" x="-348.215" y="0" z="-340" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2007" unit="cm" x="-348.215" y="0" z="-240" />
+   <position name="posCrossCF200_7" unit="cm" x="-348.215" y="0" z="-240" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2008" unit="cm" x="-348.215" y="0" z="-140" />
+   <position name="posCrossCF200_8" unit="cm" x="-348.215" y="0" z="-140" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2009" unit="cm" x="-348.215" y="0" z="-40" />
+   <position name="posCrossCF200_9" unit="cm" x="-348.215" y="0" z="-40" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20010" unit="cm" x="-348.215" y="0" z="60" />
+   <position name="posCrossCF200_10" unit="cm" x="-348.215" y="0" z="60" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20011" unit="cm" x="-348.215" y="0" z="160" />
+   <position name="posCrossCF200_11" unit="cm" x="-348.215" y="0" z="160" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20012" unit="cm" x="-348.215" y="0" z="260" />
+   <position name="posCrossCF200_12" unit="cm" x="-348.215" y="0" z="260" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20013" unit="cm" x="-348.215" y="0" z="360" />
+   <position name="posCrossCF200_13" unit="cm" x="-348.215" y="0" z="360" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20014" unit="cm" x="-348.215" y="0" z="460" />
+   <position name="posCrossCF200_14" unit="cm" x="-348.215" y="0" z="460" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20015" unit="cm" x="-348.215" y="0" z="560" />
+   <position name="posCrossCF200_15" unit="cm" x="-348.215" y="0" z="560" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20016" unit="cm" x="-348.215" y="0" z="660" />
+   <position name="posCrossCF200_16" unit="cm" x="-348.215" y="0" z="660" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20017" unit="cm" x="-348.215" y="0" z="760" />
+   <position name="posCrossCF200_17" unit="cm" x="-348.215" y="0" z="760" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20018" unit="cm" x="-348.215" y="0" z="860" />
+   <position name="posCrossCF200_18" unit="cm" x="-348.215" y="0" z="860" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20019" unit="cm" x="-348.215" y="0" z="960" />
+   <position name="posCrossCF200_19" unit="cm" x="-348.215" y="0" z="960" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2000" unit="cm" x="-72.215" y="0" z="-940" />
+   <position name="posCrossCF200_0" unit="cm" x="-72.215" y="0" z="-940" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2001" unit="cm" x="-72.215" y="0" z="-840" />
+   <position name="posCrossCF200_1" unit="cm" x="-72.215" y="0" z="-840" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2002" unit="cm" x="-72.215" y="0" z="-740" />
+   <position name="posCrossCF200_2" unit="cm" x="-72.215" y="0" z="-740" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2003" unit="cm" x="-72.215" y="0" z="-640" />
+   <position name="posCrossCF200_3" unit="cm" x="-72.215" y="0" z="-640" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2004" unit="cm" x="-72.215" y="0" z="-540" />
+   <position name="posCrossCF200_4" unit="cm" x="-72.215" y="0" z="-540" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2005" unit="cm" x="-72.215" y="0" z="-440" />
+   <position name="posCrossCF200_5" unit="cm" x="-72.215" y="0" z="-440" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2006" unit="cm" x="-72.215" y="0" z="-340" />
+   <position name="posCrossCF200_6" unit="cm" x="-72.215" y="0" z="-340" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2007" unit="cm" x="-72.215" y="0" z="-240" />
+   <position name="posCrossCF200_7" unit="cm" x="-72.215" y="0" z="-240" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2008" unit="cm" x="-72.215" y="0" z="-140" />
+   <position name="posCrossCF200_8" unit="cm" x="-72.215" y="0" z="-140" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2009" unit="cm" x="-72.215" y="0" z="-40" />
+   <position name="posCrossCF200_9" unit="cm" x="-72.215" y="0" z="-40" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20010" unit="cm" x="-72.215" y="0" z="60" />
+   <position name="posCrossCF200_10" unit="cm" x="-72.215" y="0" z="60" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20011" unit="cm" x="-72.215" y="0" z="160" />
+   <position name="posCrossCF200_11" unit="cm" x="-72.215" y="0" z="160" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20012" unit="cm" x="-72.215" y="0" z="260" />
+   <position name="posCrossCF200_12" unit="cm" x="-72.215" y="0" z="260" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20013" unit="cm" x="-72.215" y="0" z="360" />
+   <position name="posCrossCF200_13" unit="cm" x="-72.215" y="0" z="360" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20014" unit="cm" x="-72.215" y="0" z="460" />
+   <position name="posCrossCF200_14" unit="cm" x="-72.215" y="0" z="460" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20015" unit="cm" x="-72.215" y="0" z="560" />
+   <position name="posCrossCF200_15" unit="cm" x="-72.215" y="0" z="560" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20016" unit="cm" x="-72.215" y="0" z="660" />
+   <position name="posCrossCF200_16" unit="cm" x="-72.215" y="0" z="660" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20017" unit="cm" x="-72.215" y="0" z="760" />
+   <position name="posCrossCF200_17" unit="cm" x="-72.215" y="0" z="760" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20018" unit="cm" x="-72.215" y="0" z="860" />
+   <position name="posCrossCF200_18" unit="cm" x="-72.215" y="0" z="860" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20019" unit="cm" x="-72.215" y="0" z="960" />
+   <position name="posCrossCF200_19" unit="cm" x="-72.215" y="0" z="960" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2000" unit="cm" x="72.215" y="0" z="-940" />
+   <position name="posCrossCF200_0" unit="cm" x="72.215" y="0" z="-940" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2001" unit="cm" x="72.215" y="0" z="-840" />
+   <position name="posCrossCF200_1" unit="cm" x="72.215" y="0" z="-840" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2002" unit="cm" x="72.215" y="0" z="-740" />
+   <position name="posCrossCF200_2" unit="cm" x="72.215" y="0" z="-740" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2003" unit="cm" x="72.215" y="0" z="-640" />
+   <position name="posCrossCF200_3" unit="cm" x="72.215" y="0" z="-640" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2004" unit="cm" x="72.215" y="0" z="-540" />
+   <position name="posCrossCF200_4" unit="cm" x="72.215" y="0" z="-540" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2005" unit="cm" x="72.215" y="0" z="-440" />
+   <position name="posCrossCF200_5" unit="cm" x="72.215" y="0" z="-440" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2006" unit="cm" x="72.215" y="0" z="-340" />
+   <position name="posCrossCF200_6" unit="cm" x="72.215" y="0" z="-340" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2007" unit="cm" x="72.215" y="0" z="-240" />
+   <position name="posCrossCF200_7" unit="cm" x="72.215" y="0" z="-240" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2008" unit="cm" x="72.215" y="0" z="-140" />
+   <position name="posCrossCF200_8" unit="cm" x="72.215" y="0" z="-140" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2009" unit="cm" x="72.215" y="0" z="-40" />
+   <position name="posCrossCF200_9" unit="cm" x="72.215" y="0" z="-40" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20010" unit="cm" x="72.215" y="0" z="60" />
+   <position name="posCrossCF200_10" unit="cm" x="72.215" y="0" z="60" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20011" unit="cm" x="72.215" y="0" z="160" />
+   <position name="posCrossCF200_11" unit="cm" x="72.215" y="0" z="160" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20012" unit="cm" x="72.215" y="0" z="260" />
+   <position name="posCrossCF200_12" unit="cm" x="72.215" y="0" z="260" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20013" unit="cm" x="72.215" y="0" z="360" />
+   <position name="posCrossCF200_13" unit="cm" x="72.215" y="0" z="360" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20014" unit="cm" x="72.215" y="0" z="460" />
+   <position name="posCrossCF200_14" unit="cm" x="72.215" y="0" z="460" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20015" unit="cm" x="72.215" y="0" z="560" />
+   <position name="posCrossCF200_15" unit="cm" x="72.215" y="0" z="560" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20016" unit="cm" x="72.215" y="0" z="660" />
+   <position name="posCrossCF200_16" unit="cm" x="72.215" y="0" z="660" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20017" unit="cm" x="72.215" y="0" z="760" />
+   <position name="posCrossCF200_17" unit="cm" x="72.215" y="0" z="760" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20018" unit="cm" x="72.215" y="0" z="860" />
+   <position name="posCrossCF200_18" unit="cm" x="72.215" y="0" z="860" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20019" unit="cm" x="72.215" y="0" z="960" />
+   <position name="posCrossCF200_19" unit="cm" x="72.215" y="0" z="960" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2000" unit="cm" x="348.215" y="0" z="-940" />
+   <position name="posCrossCF200_0" unit="cm" x="348.215" y="0" z="-940" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2001" unit="cm" x="348.215" y="0" z="-840" />
+   <position name="posCrossCF200_1" unit="cm" x="348.215" y="0" z="-840" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2002" unit="cm" x="348.215" y="0" z="-740" />
+   <position name="posCrossCF200_2" unit="cm" x="348.215" y="0" z="-740" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2003" unit="cm" x="348.215" y="0" z="-640" />
+   <position name="posCrossCF200_3" unit="cm" x="348.215" y="0" z="-640" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2004" unit="cm" x="348.215" y="0" z="-540" />
+   <position name="posCrossCF200_4" unit="cm" x="348.215" y="0" z="-540" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2005" unit="cm" x="348.215" y="0" z="-440" />
+   <position name="posCrossCF200_5" unit="cm" x="348.215" y="0" z="-440" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2006" unit="cm" x="348.215" y="0" z="-340" />
+   <position name="posCrossCF200_6" unit="cm" x="348.215" y="0" z="-340" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2007" unit="cm" x="348.215" y="0" z="-240" />
+   <position name="posCrossCF200_7" unit="cm" x="348.215" y="0" z="-240" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2008" unit="cm" x="348.215" y="0" z="-140" />
+   <position name="posCrossCF200_8" unit="cm" x="348.215" y="0" z="-140" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF2009" unit="cm" x="348.215" y="0" z="-40" />
+   <position name="posCrossCF200_9" unit="cm" x="348.215" y="0" z="-40" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20010" unit="cm" x="348.215" y="0" z="60" />
+   <position name="posCrossCF200_10" unit="cm" x="348.215" y="0" z="60" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20011" unit="cm" x="348.215" y="0" z="160" />
+   <position name="posCrossCF200_11" unit="cm" x="348.215" y="0" z="160" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20012" unit="cm" x="348.215" y="0" z="260" />
+   <position name="posCrossCF200_12" unit="cm" x="348.215" y="0" z="260" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20013" unit="cm" x="348.215" y="0" z="360" />
+   <position name="posCrossCF200_13" unit="cm" x="348.215" y="0" z="360" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20014" unit="cm" x="348.215" y="0" z="460" />
+   <position name="posCrossCF200_14" unit="cm" x="348.215" y="0" z="460" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20015" unit="cm" x="348.215" y="0" z="560" />
+   <position name="posCrossCF200_15" unit="cm" x="348.215" y="0" z="560" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20016" unit="cm" x="348.215" y="0" z="660" />
+   <position name="posCrossCF200_16" unit="cm" x="348.215" y="0" z="660" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20017" unit="cm" x="348.215" y="0" z="760" />
+   <position name="posCrossCF200_17" unit="cm" x="348.215" y="0" z="760" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20018" unit="cm" x="348.215" y="0" z="860" />
+   <position name="posCrossCF200_18" unit="cm" x="348.215" y="0" z="860" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volCrossCF200"/>
-   <position name="posCrossCF20019" unit="cm" x="348.215" y="0" z="960" />
+   <position name="posCrossCF200_19" unit="cm" x="348.215" y="0" z="960" />
    <rotationref ref="rPlus90AboutX" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack0" unit="cm" x="-348.215" y="0" z="-890" />
+   <position name="posRack_0" unit="cm" x="-348.215" y="0" z="-890" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack1" unit="cm" x="-348.215" y="0" z="-690" />
+   <position name="posRack_1" unit="cm" x="-348.215" y="0" z="-690" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack2" unit="cm" x="-348.215" y="0" z="-490" />
+   <position name="posRack_2" unit="cm" x="-348.215" y="0" z="-490" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack3" unit="cm" x="-348.215" y="0" z="-290" />
+   <position name="posRack_3" unit="cm" x="-348.215" y="0" z="-290" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack4" unit="cm" x="-348.215" y="0" z="-90" />
+   <position name="posRack_4" unit="cm" x="-348.215" y="0" z="-90" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack5" unit="cm" x="-348.215" y="0" z="110" />
+   <position name="posRack_5" unit="cm" x="-348.215" y="0" z="110" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack6" unit="cm" x="-348.215" y="0" z="310" />
+   <position name="posRack_6" unit="cm" x="-348.215" y="0" z="310" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack7" unit="cm" x="-348.215" y="0" z="510" />
+   <position name="posRack_7" unit="cm" x="-348.215" y="0" z="510" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack8" unit="cm" x="-348.215" y="0" z="710" />
+   <position name="posRack_8" unit="cm" x="-348.215" y="0" z="710" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack9" unit="cm" x="-348.215" y="0" z="910" />
+   <position name="posRack_9" unit="cm" x="-348.215" y="0" z="910" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack0" unit="cm" x="-72.215" y="0" z="-890" />
+   <position name="posRack_0" unit="cm" x="-72.215" y="0" z="-890" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack1" unit="cm" x="-72.215" y="0" z="-690" />
+   <position name="posRack_1" unit="cm" x="-72.215" y="0" z="-690" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack2" unit="cm" x="-72.215" y="0" z="-490" />
+   <position name="posRack_2" unit="cm" x="-72.215" y="0" z="-490" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack3" unit="cm" x="-72.215" y="0" z="-290" />
+   <position name="posRack_3" unit="cm" x="-72.215" y="0" z="-290" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack4" unit="cm" x="-72.215" y="0" z="-90" />
+   <position name="posRack_4" unit="cm" x="-72.215" y="0" z="-90" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack5" unit="cm" x="-72.215" y="0" z="110" />
+   <position name="posRack_5" unit="cm" x="-72.215" y="0" z="110" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack6" unit="cm" x="-72.215" y="0" z="310" />
+   <position name="posRack_6" unit="cm" x="-72.215" y="0" z="310" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack7" unit="cm" x="-72.215" y="0" z="510" />
+   <position name="posRack_7" unit="cm" x="-72.215" y="0" z="510" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack8" unit="cm" x="-72.215" y="0" z="710" />
+   <position name="posRack_8" unit="cm" x="-72.215" y="0" z="710" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack9" unit="cm" x="-72.215" y="0" z="910" />
+   <position name="posRack_9" unit="cm" x="-72.215" y="0" z="910" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack0" unit="cm" x="72.215" y="0" z="-890" />
+   <position name="posRack_0" unit="cm" x="72.215" y="0" z="-890" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack1" unit="cm" x="72.215" y="0" z="-690" />
+   <position name="posRack_1" unit="cm" x="72.215" y="0" z="-690" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack2" unit="cm" x="72.215" y="0" z="-490" />
+   <position name="posRack_2" unit="cm" x="72.215" y="0" z="-490" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack3" unit="cm" x="72.215" y="0" z="-290" />
+   <position name="posRack_3" unit="cm" x="72.215" y="0" z="-290" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack4" unit="cm" x="72.215" y="0" z="-90" />
+   <position name="posRack_4" unit="cm" x="72.215" y="0" z="-90" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack5" unit="cm" x="72.215" y="0" z="110" />
+   <position name="posRack_5" unit="cm" x="72.215" y="0" z="110" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack6" unit="cm" x="72.215" y="0" z="310" />
+   <position name="posRack_6" unit="cm" x="72.215" y="0" z="310" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack7" unit="cm" x="72.215" y="0" z="510" />
+   <position name="posRack_7" unit="cm" x="72.215" y="0" z="510" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack8" unit="cm" x="72.215" y="0" z="710" />
+   <position name="posRack_8" unit="cm" x="72.215" y="0" z="710" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack9" unit="cm" x="72.215" y="0" z="910" />
+   <position name="posRack_9" unit="cm" x="72.215" y="0" z="910" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack0" unit="cm" x="348.215" y="0" z="-890" />
+   <position name="posRack_0" unit="cm" x="348.215" y="0" z="-890" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack1" unit="cm" x="348.215" y="0" z="-690" />
+   <position name="posRack_1" unit="cm" x="348.215" y="0" z="-690" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack2" unit="cm" x="348.215" y="0" z="-490" />
+   <position name="posRack_2" unit="cm" x="348.215" y="0" z="-490" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack3" unit="cm" x="348.215" y="0" z="-290" />
+   <position name="posRack_3" unit="cm" x="348.215" y="0" z="-290" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack4" unit="cm" x="348.215" y="0" z="-90" />
+   <position name="posRack_4" unit="cm" x="348.215" y="0" z="-90" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack5" unit="cm" x="348.215" y="0" z="110" />
+   <position name="posRack_5" unit="cm" x="348.215" y="0" z="110" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack6" unit="cm" x="348.215" y="0" z="310" />
+   <position name="posRack_6" unit="cm" x="348.215" y="0" z="310" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack7" unit="cm" x="348.215" y="0" z="510" />
+   <position name="posRack_7" unit="cm" x="348.215" y="0" z="510" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack8" unit="cm" x="348.215" y="0" z="710" />
+   <position name="posRack_8" unit="cm" x="348.215" y="0" z="710" />
   </physvol>
   <physvol>
    <volumeref ref="volRack"/>
-   <position name="posRack9" unit="cm" x="348.215" y="0" z="910" />
+   <position name="posRack_9" unit="cm" x="348.215" y="0" z="910" />
   </physvol>
 </volume>
 
 
     <volume name="volShield">
-      <materialref ref="ALUMINUMAl"/> 
+      <materialref ref="ALUMINUM_Al"/> 
       <solidref ref="ShieldShell"/>
     </volume>
     
@@ -35497,7 +35497,7 @@
     </volume>
     
     <volume name="volWarmVessel">
-      <materialref ref="STEELSTAINLESSFe7Cr2NiWV"/>
+      <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni_WV"/>
       <solidref ref="WarmVesselShell"/>
     </volume>
 
@@ -35551,22 +35551,22 @@
      
    <volume name="volBuildingFloor1final" >
       <materialref ref="Concrete"/>
-      <solidref ref="BuildingFloor1final"/>     
+      <solidref ref="BuildingFloor_1final"/>     
     </volume>  
     
    <volume name="volBuildingFloor2final" >
-      <materialref ref="CA6Floor"/>
-      <solidref ref="BuildingFloor2final"/>     
+      <materialref ref="CA6_Floor"/>
+      <solidref ref="BuildingFloor_2final"/>     
     </volume>
     
     <volume name="volBuildingFloor3final" >
       <materialref ref="Concrete"/>
-      <solidref ref="BuildingFloor3final"/>     
+      <solidref ref="BuildingFloor_3final"/>     
     </volume>       
      
     <volume name="volBuildingFloor4final" >
       <materialref ref="Concrete"/>
-      <solidref ref="BuildingFloor4final"/>            
+      <solidref ref="BuildingFloor_4final"/>            
 </volume>
 
  <volume name="volFloorComplete" >
@@ -35602,8 +35602,8 @@
 
 
     <volume name="volWallBuildingAlExt" >
-      <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>
-      <solidref ref="WallBuildingAlExt"/>
+      <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>
+      <solidref ref="WallBuildingAl_Ext"/>
      </volume>
      
     <volume name="volWallBuildingInsulation" >
@@ -35612,8 +35612,8 @@
      </volume>
 
     <volume name="volWallBuildingAlInt" >
-      <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>
-      <solidref ref="WallBuildingAlInt"/>
+      <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>
+      <solidref ref="WallBuildingAl_Int"/>
      </volume>     
      
     <volume name="volRoofMembrane" >
@@ -35632,7 +35632,7 @@
      </volume>
 
     <volume name="volRoofMetalDeck" >
-      <materialref ref="STEELSTAINLESSFe7Cr2Ni"/>
+      <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>
       <solidref ref="RoofMetalDeck"/>
       
 </volume>
@@ -35643,7 +35643,7 @@
    </volume>
 
     <volume name="volDirtUnderground" >
-      <materialref ref="CA7underground"/>
+      <materialref ref="CA7_underground"/>
       <solidref ref="DirtUnderground"/>
     </volume>
         

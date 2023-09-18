@@ -137,9 +137,6 @@ CERNROOFL = NTOPZ*cModW+(NTOPZ-1)*CERNMODSPACE
 #CRT shell
 SHELLY = 1.1*cModH+TOPCRTBEAMTOFLOOR-BOTTOMCRTROLLERHEIGHT*0.9
 #MINOS sections positions
-#ORIGINAL definition
-#MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACKSOUTHY*mModW+(NMODSTACKSOUTHY-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION
-#MINOSLATFIXY = MINOSSOUTHY
 MINOSSOUTHY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+18
 MINOSLATFIXY = -0.5*SHELLY+0.5*(NMODSTACK*mModW+(NMODSTACK-1)*SIDECRTSHELFTHICK+2*PADTagger)+WVFOOTELEVATION+5
 MINOSLATROLLY = MINOSLATFIXY-0.5*mModW+10
@@ -230,12 +227,12 @@ def beam():
     if beam_id==1: print('modeled - true beam areas (cm^2): '+str(area-92.90304))
 
     sname = 'TopCRTSupportBeam'
-    vname = 'vol'+sname+'_'+str(beam_id)
+    vname = 'vol'+sname+str(beam_id)
 
     if not sname in solids_store:
-        snameext = sname+'_external'
-        snameint = sname+'_internal'
-        snamesub = sname+'_firstsubtraction'
+        snameext = sname+'external'
+        snameint = sname+'internal'
+        snamesub = sname+'firstsubtraction'
         sexternal= ET.SubElement(solids, 'box', name=snameext, lunit="cm", x=xx, y=yy, z=zz)
         sinternal = ET.SubElement(solids, 'box', name=snameint, lunit="cm", x=xxsub, y=yysub, z=zzsub)
         ssub = ET.SubElement(solids, 'subtraction', name=snamesub)
@@ -322,28 +319,28 @@ def strip(style="m", modnum=0, stripnum=0, length=0):
     yy = str(y)
     zz = str(z) 
 
-    sname = 'AuxDetSensitive_' + name
-    vname = 'volAuxDetSensitive_' + name + '_module_'
+    sname = 'AuxDetSensitive' + name
+    vname = 'volAuxDetSensitive' + name + 'module'
 
     if modnum < 10:
         vname += '00'
     elif modnum < 100: 
         vname += '0'
 
-    vname += str(modnum)+'_'
+    vname += str(modnum)
     if style=='m' and length!=0:
-        sname+='_cut'+str(int(length))+'_'
-        vname+='cut'+str(int(length))+'_'
+        sname+='cut'+str(int(length))
+        vname+='cut'+str(int(length))
 
     if style=='c':
         if stripnum < NXC:
-            sname += '_top_'
-            vname += 'top_'
+            sname += 'top'
+            vname += 'top'
         else:
-            sname += '_bot_'
-            vname += 'bot_'
+            sname += 'bot'
+            vname += 'bot'
 
-    vname+='strip_'
+    vname+='strip'
     if stripnum < 10: 
         vname += '0'
     vname += str(stripnum)
@@ -361,6 +358,12 @@ def strip(style="m", modnum=0, stripnum=0, length=0):
 
     else:
         s = solids_store[sname]
+
+    #vname = 'volAuxDetSensitive_' + name
+    #v = ET.SubElement(structure, 'volume', name=vname) #Logical volume
+    #ET.SubElement(v, 'materialref', ref='Polystyrene')
+    #ET.SubElement(v, 'solidref', ref=sname)
+    #ET.SubElement(v, 'auxiliary' , auxtype='SensDet', auxvalue='AuxDet') #Add for new LArg4 requirements
 
     #print("strip produced!")
     class ObjAttr:
@@ -424,18 +427,18 @@ def module(style="c", reg='tt', length=0):
     modnum = get_mod_id(style)
     stripnum = 0
 
-    sname = 'AuxDet_' + name + '_module_'
+    sname = 'AuxDet' + name + 'module'
     vname = 'vol' + sname
 
     if modnum < 10:
         vname += '00'
     elif modnum < 100:
         vname += '0'
-    vname += str(modnum)+'_'
+    vname += str(modnum)
 
     if style=='m' and length!=0:
         sname += 'cut'+str(int(length))
-        vname += 'cut'+str(int(length))+'_'
+        vname += 'cut'+str(int(length))
 
     if reg=='tt': vname += 'Top'
     if reg=='rn': vname += 'RimNorth' 
@@ -452,7 +455,7 @@ def module(style="c", reg='tt', length=0):
     if reg=='en': vname += 'EastNorth'
     if reg=='bt': vname += 'Bottom'
 
-    snamein  = sname+'_inner'
+    snamein  = sname+'inner'
 
     if not sname in solids_store: 
 
@@ -483,7 +486,7 @@ def module(style="c", reg='tt', length=0):
             strips2.append(strip(style, modnum, stripnum))
             stripnum += 1
 
-    vnamein = vname + '_inner'
+    vnamein = vname + 'inner'
     vin = ET.SubElement(structure, 'volume', name=vnamein)
     ET.SubElement(vin, 'materialref', ref='Air')
     ET.SubElement(vin, 'solidref', ref=snamein)
@@ -598,12 +601,12 @@ def minosSideTagger(side='e', pos='n'):
             elif pos=='s': dz = -0.5*MINOSLATSOUTHACTIVEOVERHANG
             coords.append((dx,dy,dz))
 
-    sname = 'tagger_SideLat_'
+    sname = 'taggerSideLat'
     if pos=='c': sname+='Center'
     if pos=='s': 
         sname+='South'
-        snameint = sname + '_internal'
-        snameext = sname + '_external'
+        snameint = sname + 'internal'
+        snameext = sname + 'external'
     if pos=='n': sname+='North'
 
     if not sname in solids_store:
@@ -624,7 +627,7 @@ def minosSideTagger(side='e', pos='n'):
             sint = solids_store[snameint]
         stagger = solids_store[sname]
 
-    vname = 'vol_'+ sname+'_'
+    vname = 'vol'+ sname
 
     global feb_id
     global printModIds
@@ -745,8 +748,8 @@ def minosNorthTagger():
 
     if printModIds: print('   last module: '+str(mod_id)+', FEB: '+str(feb_id))
 
-    sname = 'tagger_SideNorth'
-    vname = 'vol_'+ sname
+    sname = 'taggerSideNorth'
+    vname = 'vol'+ sname
 
     stagger = ET.SubElement(solids, 'box', name=sname, lunit="cm", x=xx, y=yy, z=zz)
     vtagger = ET.SubElement(structure, 'volume', name=vname)
@@ -883,8 +886,8 @@ def minosSouthTagger():
             #print('   horizontal module: '+str(mod_id)+', FEB: '+str(feb_id))
     if printModIds: print('   last module: '+str(mod_id)+', FEB: '+str(feb_id))
 
-    sname = 'tagger_SideSouth'
-    vname = 'vol_'+ sname
+    sname = 'taggerSideSouth'
+    vname = 'vol'+ sname
 
     stagger = ET.SubElement(solids, 'box', name=sname, lunit="cm", x=xx, y=yy, z=zz)
     vtagger = ET.SubElement(structure, 'volume', name=vname)
@@ -959,8 +962,8 @@ def DCTagger():
 
     if printModIds: print('   last module: '+str(mod_id)+', FEB: '+str(feb_id))
 
-    sname = 'tagger_Bottom'
-    vname = 'vol_'+ sname
+    sname = 'taggerBottom'
+    vname = 'vol'+ sname
 
     stagger = ET.SubElement(solids, 'box', name=sname, lunit="cm", x=xx, y=yy, z=zz)
     vtagger = ET.SubElement(structure, 'volume', name=vname)
@@ -1018,8 +1021,8 @@ def cernTopTagger():
 
     if printModIds: print('   last module: '+str(mod_id)+', FEB: '+str(feb_id))
 
-    sname = 'tagger_Top'
-    vname = 'vol_'+ sname
+    sname = 'taggerTop'
+    vname = 'vol'+ sname
 
     stagger = ET.SubElement(solids, 'box', name=sname, lunit="cm", x=xx, y=yy, z=zz)
     vtagger = ET.SubElement(structure, 'volume', name=vname)
@@ -1074,12 +1077,12 @@ def cernLatRimTagger(side='L'):
 
     if printModIds: print('   last module: '+str(mod_id)+', FEB: '+str(feb_id))
 
-    sname = 'tagger_'
+    sname = 'tagger'
     if side == 'L':
         sname += 'RimWest'
     if side == 'R':
         sname += 'RimEast'
-    vname = 'vol_'+ sname
+    vname = 'vol'+ sname
 
     stagger = ET.SubElement(solids, 'box', name=sname, lunit="cm", x=xx, y=yy, z=zz)
     vtagger = ET.SubElement(structure, 'volume', name=vname)
@@ -1135,12 +1138,12 @@ def cernLongRimTagger(side='U'):
 
     if printModIds: print('   last module: '+str(mod_id)+', FEB: '+str(feb_id))
 
-    sname = 'tagger_'
+    sname = 'tagger'
     if side == 'U':
         sname += 'RimSouth'
     if side == 'D':
         sname += 'RimNorth'
-    vname = 'vol_'+ sname
+    vname = 'vol'+ sname
 
     stagger = ET.SubElement(solids, 'box', name=sname, lunit="cm", x=xx, y=yy, z=zz)
     vtagger = ET.SubElement(structure, 'volume', name=vname)
@@ -1170,8 +1173,6 @@ def cernLongRimTagger(side='U'):
 def detectorEnclosure():
 
     #shell outer and void dimensions
-    #Original definition
-    #WVPADY = 25 
     WVPADY = 25 + 18
     xxint = str(WVWIDTH + 2*SIDECRTWVOFFSET)
     yyint = str(WVHEIGHT+1.0+WVPADY) 
@@ -1199,9 +1200,9 @@ def detectorEnclosure():
     (s,vbeam) = beamVol()
 
     #CRT Shell containing all of the tagger volumes and a void to cointain the warm vessel
-    sname = 'CRT_Shell'
-    snameext = sname+'_external'
-    snameint = sname+'_internal'
+    sname = 'CRTShell'
+    snameext = sname+'external'
+    snameint = sname+'internal'
     sexternal = ET.SubElement(solids, 'box', name=snameext, lunit="cm", x=xxext, y=yyext, z=zzext)
     sinternal = ET.SubElement(solids, 'box', name=snameint, lunit="cm", x=xxint, y=yyint, z=zzint)
     sshell = ET.SubElement(solids, 'subtraction', name=sname)

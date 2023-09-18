@@ -2786,7 +2786,7 @@ EOF
     </physvol>
     
    <physvol>
-      <volumeref ref="volCRT_Shell"/>
+      <volumeref ref="volCRTShell"/>
       <positionref ref="posCRTShellInDetEncl"/>
     </physvol>
 
@@ -2934,22 +2934,22 @@ EOF
 print FLOOR <<EOF;
 <structure>
      
-   <volume name="volBuildingFloor_1final" >
+   <volume name="volBuildingFloor1final" >
       <materialref ref="Concrete"/>
       <solidref ref="BuildingFloor_1final"/>     
     </volume>  
     
-   <volume name="volBuildingFloor_2final" >
+   <volume name="volBuildingFloor2final" >
       <materialref ref="CA6_Floor"/>
       <solidref ref="BuildingFloor_2final"/>     
     </volume>
     
-    <volume name="volBuildingFloor_3final" >
+    <volume name="volBuildingFloor3final" >
       <materialref ref="Concrete"/>
       <solidref ref="BuildingFloor_3final"/>     
     </volume>       
      
-    <volume name="volBuildingFloor_4final" >
+    <volume name="volBuildingFloor4final" >
       <materialref ref="Concrete"/>
       <solidref ref="BuildingFloor_4final"/>            
 EOF
@@ -2963,22 +2963,22 @@ print FLOOR <<EOF;
       <solidref ref="FloorComplete"/>
                               
    <physvol>
-    <volumeref ref="volBuildingFloor_4final"/>
+    <volumeref ref="volBuildingFloor4final"/>
     <position name="posBuildingFloor4InBuilding" unit="cm" x="0" y="@{[0.5 * ($FloorBox1_y + $FloorBox2_y + $FloorBox4_y) - 0.5*$FloorBox4_y]}" z="0" />
    </physvol>           
   
    <physvol>
-    <volumeref ref="volBuildingFloor_2final"/>
+    <volumeref ref="volBuildingFloor2final"/>
     <position name="posBuildingFloor2InBuilding" unit="cm" x="0" y="@{[0.5 * ($FloorBox1_y + $FloorBox2_y + $FloorBox4_y) - $FloorBox4_y - 0.5*$FloorBox2_y]} " z="0" />
    </physvol>     
     
    <physvol>
-    <volumeref ref="volBuildingFloor_3final"/>
+    <volumeref ref="volBuildingFloor3final"/>
     <position name="posBuildingFloor3InBuilding" unit="cm" x="0" y="@{[0.5 * ($FloorBox1_y + $FloorBox2_y + $FloorBox4_y) - $FloorBox4_y - 0.5*$FloorBox3_y]}" z="$posOpenBuildingFloor" />
    </physvol>        
                                    
    <physvol>
-    <volumeref ref="volBuildingFloor_1final"/>
+    <volumeref ref="volBuildingFloor1final"/>
     <position name="posBuildingFloor1InBuilding" unit="cm" x="0" y="@{[0.5 * ($FloorBox1_y + $FloorBox2_y + $FloorBox4_y) - $FloorBox4_y - $FloorBox2_y - 0.5*$FloorBox1_y]}" z="0" />
    </physvol>            
                      
@@ -3159,7 +3159,7 @@ print WORLD <<EOF;
     </volume>
 
 
-    <volume name="volWallBuildingAl_Ext" >
+    <volume name="volWallBuildingAlExt" >
       <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>
       <solidref ref="WallBuildingAl_Ext"/>
      </volume>
@@ -3169,7 +3169,7 @@ print WORLD <<EOF;
       <solidref ref="WallBuildingInsulation"/>
      </volume>
 
-    <volume name="volWallBuildingAl_Int" >
+    <volume name="volWallBuildingAlInt" >
       <materialref ref="STEEL_STAINLESS_Fe7Cr2Ni"/>
       <solidref ref="WallBuildingAl_Int"/>
      </volume>     
@@ -3242,7 +3242,7 @@ print WORLD <<EOF;
     </physvol>
     
     <physvol>
-    <volumeref ref="volWallBuildingAl_Ext"/> 
+    <volumeref ref="volWallBuildingAlExt"/> 
     <positionref ref="posBuildingAlExtInWorld"/>
     </physvol>
     
@@ -3252,7 +3252,7 @@ print WORLD <<EOF;
     </physvol>
     
    <physvol>
-    <volumeref ref="volWallBuildingAl_Int"/> 
+    <volumeref ref="volWallBuildingAlInt"/> 
     <positionref ref="posBuildingAlIntInWorld"/>
     </physvol>    
             
