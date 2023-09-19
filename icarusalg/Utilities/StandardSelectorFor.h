@@ -170,7 +170,7 @@ namespace util {
      */
     template <std::size_t Tag = 0, typename EnumClass>
     std::enable_if_t
-      <hasStandardSelector_v<EnumClass, Tag>, ::fhicl::detail::ps_atom_t>
+      <util::hasStandardSelector_v<EnumClass, Tag>, ::fhicl::detail::ps_atom_t>
     encodeEnumClassToFHiCL(EnumClass const& value);
     
     template <std::size_t Tag = 0, typename EnumClass>
