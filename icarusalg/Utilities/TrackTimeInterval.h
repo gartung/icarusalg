@@ -55,7 +55,7 @@ namespace lar::util {
  * result, `TimeRange`, pointedly and deliberately includes arguments for
  * margins).
  * 
- * Despite the "track` in the name, the interface allows to specify a collection
+ * Despite the "track" in the name, the interface allows to specify a collection
  * of hits, or hit times, but not a `recob::Track` (associated hits needs to be
  * discovered before the call).
  * 
