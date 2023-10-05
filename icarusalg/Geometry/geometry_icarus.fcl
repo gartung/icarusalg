@@ -156,8 +156,8 @@ icarus_standard_geometry: {
   @table::icarus_geometry_template
 
   Name: "icarus_v4"
-  GDML: "icarus_complete_20220518_overburden.gdml"
-  ROOT: "icarus_complete_20220518_overburden.gdml"
+  GDML: "icarus_refactored_nounderscore_20230918.gdml"
+  ROOT: "icarus_refactored_nounderscore_20230918.gdml"
 
   ChannelMapping: @local::icarus_standard_geometry_helper.Mapper
 
