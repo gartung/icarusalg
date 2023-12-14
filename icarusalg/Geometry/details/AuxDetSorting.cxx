@@ -42,9 +42,9 @@ namespace {
     // sort based off of GDML name, module number
     std::string ad1name = (ad1.TotalVolume())->GetName();
     std::string ad2name = (ad2.TotalVolume())->GetName();
-    // assume volume name is "volAuxDet_<type>_module_###_<region>"
-    std::string base1 = "volAuxDet_"+type1+"_module_";
-    std::string base2 = "volAuxDet_"+type2+"_module_";
+    // assume volume name is "volAuxDet<type>module###<region>"
+    std::string base1 = "volAuxDet"+type1+"module";
+    std::string base2 = "volAuxDet"+type2+"module";
 
     int ad1Num = std::atoi( ad1name.substr( base1.size(), 3).c_str() );
     int ad2Num = std::atoi( ad2name.substr( base2.size(), 3).c_str() );
@@ -72,11 +72,11 @@ namespace {
     if ( ad2name.find("CERN") != std::string::npos ) type2 = "CERN";
     if ( ad2name.find("DC") != std::string::npos ) type2 = "DC";
 
-    // assume volume name is "volAuxDetSensitive_<type>_module_###_strip_##"
-    std::string baseMod1 = "volAuxDetSensitive_"+type1+"module_";
-    std::string baseStr1 = "volAuxDetSensitive_"+type1+"module_###_strip_";
-    std::string baseMod2 = "volAuxDetSensitive_"+type2+"module_";
-    std::string baseStr2 = "volAuxDetSensitive_"+type2+"module_###_strip_";
+    // assume volume name is "volAuxDetSensitive<type>module###strip##"
+    std::string baseMod1 = "volAuxDetSensitive"+type1+"module";
+    std::string baseStr1 = "volAuxDetSensitive"+type1+"module###strip";
+    std::string baseMod2 = "volAuxDetSensitive"+type2+"module";
+    std::string baseStr2 = "volAuxDetSensitive"+type2+"module###strip";
 
     int ad1Num = atoi( ad1name.substr( baseMod1.size(), 3).c_str() );
     int ad2Num = atoi( ad2name.substr( baseMod2.size(), 3).c_str() );
