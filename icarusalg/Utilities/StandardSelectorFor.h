@@ -12,6 +12,7 @@
 
 
 /// LArSoft libraries
+#include <limits> // FIXME workaround until lardataalg PR #48 (https://github.com/LArSoft/lardataalg/pull/48) is adopted
 #include "lardataalg/Utilities/MultipleChoiceSelection.h"
 
 /// framework libraries
@@ -20,7 +21,6 @@
 // C/C++ standard library
 #include <any>
 #include <string>
-#include <limits> // FIXME workaround until lardataalg PR #48 (https://github.com/LArSoft/lardataalg/pull/48) is adopted
 #include <type_traits> // std::enable_if_t
 #include <cstddef> // std::size_t
 
