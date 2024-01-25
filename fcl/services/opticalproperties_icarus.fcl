@@ -10,19 +10,10 @@
 
 BEGIN_PROLOG
 
+# ------------------------------------------------------------------------------
+# Configuration used until January 2024 for standard processing
 #
-# Optical properties for LArProperties
-#
-# Use as:
-#    
-#     service.LArPropertiesService: {
-#         ...
-#         @table::icarus_opticalproperties
-#         ...
-#     }
-#
-#
-icarus_opticalproperties: {
+icarus_opticalproperties_2022: {
     
     ScintYield:     24000  # 24000 ph/MeV assume 500 mV/cm
     ScintPreScale:  0.121  # see JINST 13 (2018) 12, P12020
@@ -72,7 +63,35 @@ icarus_opticalproperties: {
     ]
 
 
-} # icarus_opticalproperties
+} # icarus_opticalproperties_2022
+
+
+# ------------------------------------------------------------------------------
+# The following is based on SBN DocDB 34640, showing an empirical choice
+# to reconciliate the mean value of MC hit amplitude with data
+#
+icarus_opticalproperties_202401patch: {
+    @table::icarus_opticalproperties_2022
+    
+    ScintPreScale:  0.073  # test value, empiric; see SBN DocDB 34640
+                           # MUST match between g4 and detsim
+    
+} # icarus_opticalproperties_202401patch
+
+
+# ##############################################################################
+# Standard optical properties for LArProperties
+#
+# Use as:
+#    
+#     service.LArPropertiesService: {
+#         ...
+#         @table::icarus_opticalproperties
+#         ...
+#     }
+#
+#
+icarus_opticalproperties: @local::icarus_opticalproperties_202401patch
 
 END_PROLOG
- 
+
