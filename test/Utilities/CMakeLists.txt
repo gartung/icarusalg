@@ -33,6 +33,7 @@ cet_test(NonRandomCounter_test
   USE_BOOST_UNIT
   )
 
+macro(TrackTimeInterval_test_deactivated) # see SBNSoftware/icaruscode#666
 cet_test(TrackTimeInterval_test USE_BOOST_UNIT
   TEST_ARGS -- standard_g4_icarus.fcl
   LIBRARIES PRIVATE
@@ -44,6 +45,7 @@ cet_test(TrackTimeInterval_test USE_BOOST_UNIT
   larcorealg::Geometry
   lardataobj::RecoBase
 )
+endmacro(TrackTimeInterval_test_deactivated)
 
 cet_test(TimeIntervalConfig_test USE_BOOST_UNIT
   LIBRARIES PRIVATE
