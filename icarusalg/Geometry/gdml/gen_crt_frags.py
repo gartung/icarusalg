@@ -802,7 +802,7 @@ def minosSouthTagger():
 
         dxwest =  0.5*(mModL-ZM+minosCutModLengthSouthwest[i]) + gap - crosstwomodule
         dy = -0.5*y+PADTagger+(i+0.5)*mModW + i*SIDECRTSHELFTHICK
-        dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH - separatetwomodule
+        dz = 0.5*z - 1.5*SIDECRTPOSTWIDTH + separatetwomodule
         coords.append((dxwest,dy,dz,0)) #x,y,z,vert=false, west side
 
     global feb_id
