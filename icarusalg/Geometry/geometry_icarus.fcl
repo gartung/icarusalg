@@ -38,6 +38,15 @@
 # to see which are the current defaults.
 #
 #
+# Configuration for unit tests
+# -----------------------------
+#
+# The "service" configuration `icarus_unit_test_geometry` includes a
+# configuration of ICARUS geometry suitable for tests that use the LArSoft unit
+# test service helpers. It should be loaded in place of `icarus_geometry` in the
+# `services.Geometry` configuration table.
+#
+#
 # Legacy options
 # ---------------
 # 
@@ -212,6 +221,23 @@ icarus_geometry: @local::icarus_geometry_services.Geometry
 icarus_geo:      @local::icarus_geometry # backward compatibility
 
 icarus_geometry_helper:  @local::icarus_geometry_services.ExptGeoHelperInterface
+
+#
+# Unit test configuration
+#
+# ICARUS has moved the configuration of the channel mapping out of
+# "SortingParameters", for obvious reasons; but the test framework that
+# this test uses assumes it will find it there.
+# Also, our channel mapper does not appreciate finding a tool type parameter
+# in its configuration.
+#
+# This configuration was written for unit test service utilities as found in
+# LArSoft v09_82_01.
+#
+
+icarus_unit_test_geometry: @local::icarus_geometry
+icarus_unit_test_geometry.SortingParameters: @local::icarus_unit_test_geometry.ChannelMapping
+icarus_unit_test_geometry.SortingParameters.tool_type: @erase
 
 
 ################################################################################

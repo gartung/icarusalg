@@ -14,7 +14,7 @@ process_name: testGeo
 
 services: {
   
-  @table::icarus_geometry_services 
+  Geometry: @local::icarus_unit_test_geometry
   
   message: {
     destinations: {
