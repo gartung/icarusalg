@@ -20,7 +20,7 @@ icarus_detproperties: {
   SternheimerX1:             3.0000           # Ar Sternheimer parameter x0.
   SternheimerCbar:           5.2146           # Ar Sternheimer parameter Cbar.
 
-  DriftVelFudgeFactor: 0.99768
+  DriftVelFudgeFactor: 0.99733
 
   NumberTimeSamples:         4096
   TimeOffsetU:               0.
