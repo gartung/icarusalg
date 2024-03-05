@@ -14,7 +14,8 @@ process_name: testGeo
 
 services: {
   
-  @table::icarus_geometry_services 
+  @table::icarus_geometry_services
+  Geometry: @local::icarus_unit_test_geometry # special configuration also suitable for unit tests
   
   message: {
     destinations: {
