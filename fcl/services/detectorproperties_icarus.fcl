@@ -4,7 +4,7 @@ BEGIN_PROLOG
 
 icarus_detproperties: {
   @table::standard_detproperties
-  
+
   ElectronsToADC:            1.208041e-3     # in ADC/e; 6241.5 electrons = 1fC
   Temperature:               87.5
   Electronlifetime:          3000            # As agreed 3/17/22 to match measured value in East croystat
@@ -13,13 +13,15 @@ icarus_detproperties: {
 
   # Set this true to use the non-default "ICARUS+MicroBooNE" calcultaion for drift velocity
   UseIcarusMicrobooneDriftModel: true
-  
+
   SternheimerA:              0.1956           # Ar Sternheimer parameter a.
   SternheimerK:              3.0000           # Ar Sternheimer parameter k.
   SternheimerX0:             0.2000           # Ar Sternheimer parameter x0.
   SternheimerX1:             3.0000           # Ar Sternheimer parameter x0.
   SternheimerCbar:           5.2146           # Ar Sternheimer parameter Cbar.
-  
+
+  DriftVelFudgeFactor: 0.99733
+
   NumberTimeSamples:         4096
   TimeOffsetU:               0.
   TimeOffsetV:               0.
@@ -31,7 +33,7 @@ icarus_detproperties: {
   SimpleBoundaryProcess:     false # relevant only when using full Optical simulation
 
   IncludeInterPlanePitchInXTickOffsets: false # removed by deconvolution
-  
+
 } // icarus_detproperties
 
 END_PROLOG
