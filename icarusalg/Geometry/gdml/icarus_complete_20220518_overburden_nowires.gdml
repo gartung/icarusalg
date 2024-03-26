@@ -28871,47 +28871,47 @@
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_134_cut497_South"/>
-				<position name="posvolAuxDet_MINOS_module_134_cut497_South" unit="cm" x="238.285" y="-358.905" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_134_cut497_South" unit="cm" x="238.285" y="-358.905" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_134_cut497_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_135_cut497_South"/>
-				<position name="posvolAuxDet_MINOS_module_135_cut497_South" unit="cm" x="238.285" y="-276.035" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_135_cut497_South" unit="cm" x="238.285" y="-276.035" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_135_cut497_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_136_cut497_South"/>
-				<position name="posvolAuxDet_MINOS_module_136_cut497_South" unit="cm" x="238.285" y="-193.165" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_136_cut497_South" unit="cm" x="238.285" y="-193.165" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_136_cut497_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_137_cut497_South"/>
-				<position name="posvolAuxDet_MINOS_module_137_cut497_South" unit="cm" x="238.285" y="-110.295" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_137_cut497_South" unit="cm" x="238.285" y="-110.295" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_137_cut497_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_138_cut497_South"/>
-				<position name="posvolAuxDet_MINOS_module_138_cut497_South" unit="cm" x="238.285" y="-27.425" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_138_cut497_South" unit="cm" x="238.285" y="-27.425" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_138_cut497_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_139_cut497_South"/>
-				<position name="posvolAuxDet_MINOS_module_139_cut497_South" unit="cm" x="238.285" y="55.445" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_139_cut497_South" unit="cm" x="238.285" y="55.445" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_139_cut497_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_140_cut325_South"/>
-				<position name="posvolAuxDet_MINOS_module_140_cut325_South" unit="cm" x="151.925" y="138.315" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_140_cut325_South" unit="cm" x="151.925" y="138.315" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_140_cut325_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_141_cut325_South"/>
-				<position name="posvolAuxDet_MINOS_module_141_cut325_South" unit="cm" x="151.925" y="221.185" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_141_cut325_South" unit="cm" x="151.925" y="221.185" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_141_cut325_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 			<physvol>
 				<volumeref ref="volAuxDet_MINOS_module_142_cut325_South"/>
-				<position name="posvolAuxDet_MINOS_module_142_cut325_South" unit="cm" x="151.925" y="304.055" z="4.0905"/>
+				<position name="posvolAuxDet_MINOS_module_142_cut325_South" unit="cm" x="151.925" y="304.055" z="5.2905"/>
 				<rotation name="rotplusvolAuxDet_MINOS_module_142_cut325_South" unit="deg" x="0" y="90" z="0"/>
 			</physvol>
 		</volume>

@@ -46,6 +46,10 @@ namespace {
     std::string base1 = "volAuxDet"+type1+"module";
     std::string base2 = "volAuxDet"+type2+"module";
 
+    //keep compatibility with legacy g4
+    ad1name.erase(std::remove(ad1name.begin(), ad1name.end(), '_'), ad1name.end());
+    ad2name.erase(std::remove(ad2name.begin(), ad2name.end(), '_'), ad2name.end());
+
     int ad1Num = std::atoi( ad1name.substr( base1.size(), 3).c_str() );
     int ad2Num = std::atoi( ad2name.substr( base2.size(), 3).c_str() );
 
@@ -77,6 +81,10 @@ namespace {
     std::string baseStr1 = "volAuxDetSensitive"+type1+"module###strip";
     std::string baseMod2 = "volAuxDetSensitive"+type2+"module";
     std::string baseStr2 = "volAuxDetSensitive"+type2+"module###strip";
+
+    //keep compatibility with legacy g4
+    ad1name.erase(std::remove(ad1name.begin(), ad1name.end(), '_'), ad1name.end());
+    ad2name.erase(std::remove(ad2name.begin(), ad2name.end(), '_'), ad2name.end());
 
     int ad1Num = atoi( ad1name.substr( baseMod1.size(), 3).c_str() );
     int ad2Num = atoi( ad2name.substr( baseMod2.size(), 3).c_str() );
